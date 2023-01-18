@@ -10,11 +10,16 @@ import LocalGroceryStoreIcon from "@material-ui/icons/LocalGroceryStore";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import StorageIcon from "@material-ui/icons/Storage";
 import ImportExportIcon from "@material-ui/icons/ImportExport";
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import AddShoppingCart from "@material-ui/icons/AddShoppingCart";
-import TrackChangesIcon from '@material-ui/icons/TrackChanges';
+import TrackChangesIcon from "@material-ui/icons/TrackChanges";
 
 export const SidebarData = [
+  {
+    title: "Main",
+    icon: <DashboardIcon />,
+    link: "/main",
+  },
   {
     title: "Operator",
     icon: <FaceIcon />,
