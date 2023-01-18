@@ -28,9 +28,9 @@ function App() {
       </div>
       <div id="content">
         <Routes>
-          <Route path="/master/:tipe" element={<Master />} />
-          <Route path="/main" element={<Main />} />
-          <Route path="/input" element={<Input />} />
+          <Route path="wms_client/master/:tipe" element={<Master />} />
+          <Route path="wms_client/main" element={<Main />} />
+          <Route path="wms_client/input" element={<Input />} />
         </Routes>
       </div>
     </div>
