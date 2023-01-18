@@ -10,6 +10,9 @@ import LocalGroceryStoreIcon from "@material-ui/icons/LocalGroceryStore";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import StorageIcon from "@material-ui/icons/Storage";
 import ImportExportIcon from "@material-ui/icons/ImportExport";
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import AddShoppingCart from "@material-ui/icons/AddShoppingCart";
+import TrackChangesIcon from '@material-ui/icons/TrackChanges';
 
 export const SidebarData = [
   {
@@ -39,12 +42,12 @@ export const SidebarData = [
   },
   {
     title: "Planning",
-    icon: <EqualizerIcon />,
+    icon: <TrackChangesIcon />,
     link: "/master/planning",
   },
   {
     title: "Regist Material",
-    icon: <EqualizerIcon />,
+    icon: <AddShoppingCart />,
     link: "/master/material_masuk",
   },
   {
