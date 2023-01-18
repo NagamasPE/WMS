@@ -18,46 +18,46 @@ export const SidebarData = [
   {
     title: "Main",
     icon: <DashboardIcon />,
-    link: "/main",
+    link: "wms_client/#/main",
   },
   {
     title: "Operator",
     icon: <FaceIcon />,
-    link: "/master/operator",
+    link: "wms_client/#/master/operator",
   },
   {
     title: "Product",
     icon: <GolfCourseIcon />,
-    link: "/master/produk",
+    link: "wms_client/#/master/produk",
   },
   {
     title: "Material",
     icon: <LocalGroceryStoreIcon />,
-    link: "/master/material",
+    link: "#/master/material",
   },
   {
     title: "Recipe",
     icon: <DonutSmallIcon />,
-    link: "/master/recipe",
+    link: "#/master/recipe",
   },
   {
     title: "Group",
     icon: <CategoryIcon />,
-    link: "/master/grup",
+    link: "#/master/grup",
   },
   {
     title: "Planning",
     icon: <TrackChangesIcon />,
-    link: "/master/planning",
+    link: "#/master/planning",
   },
   {
     title: "Enter Material",
     icon: <AddShoppingCart />,
-    link: "/master/material_masuk",
+    link: "#/master/material_masuk",
   },
   {
     title: "Weighing",
     icon: <EqualizerIcon />,
-    link: "/master/penimbangan_to",
+    link: "#/master/penimbangan_to",
   },
 ];
