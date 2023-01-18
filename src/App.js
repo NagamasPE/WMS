@@ -5,8 +5,8 @@ import io from "socket.io-client";
 import Sidebar from "./components/layout/Sidebar";
 import Main from "./pages/Main";
 import config from "./config.json";
-const socket = io.connect("https://server-npe.herokuapp.com");
-/*const socket = io.connect("http://" + config.ip_address + ":3001");*/
+/*const socket = io.connect("https://server-npe.herokuapp.com");*/
+const socket = io.connect("http://" + config.ip_address + ":3001");
 
 function App() {
   return (
