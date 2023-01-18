@@ -89,7 +89,7 @@ const Master = (props) => {
     setNilai(cnt);
   }
   const generateData = () => {
-    fetch(ServerAddr + "/exec/" + selectquery)
+    fetch(ServerAddr + "exec/" + selectquery)
       .then((response) => response.json())
       .then((data) => {
         if (data) {
