@@ -81,7 +81,8 @@ h2 {
   border-collapse: collapse;
   border-radius: 10px;
   margin: 20px 0;
-  font-size: 0.9em;
+  font-size: 0.8em;
+  text-align: center;
   min-width: 400px;
   border-radius: 10px 10px 0 0;
   overflow: hidden;
@@ -89,16 +90,14 @@ h2 {
 }
 
 .table thead tr {
-  background-color: rgb(54, 47, 75);
+  background-color: rgb(27, 33, 51);
   color: white;
-  text-align: center;
   font-weight: bold;
 }
 
 .table th,
 .table td {
   padding: 12px 15px;
-  text-align: center;
 }
 
 .table tbody tr {
@@ -106,7 +105,7 @@ h2 {
 }
 
 .table tbody tr:nth-of-type(even) {
-  background-color: rgb(246, 246, 246);
+  background-color: rgb(209, 207, 207);
 }
 
 .table tbody tr:nth-of-type(odd) {
@@ -114,12 +113,12 @@ h2 {
 }
 
 .table tbody tr:last-of-type {
-  border-bottom: 2px solid rgb(54, 47, 75);
+  border-bottom: 2px solid rgb(27, 33, 51);
 }
 
 .table tbody tr.active-row {
   font-weight: bold;
-  color: rgb(54, 47, 75);
+  color: rgb(27, 33, 51);
 }
 
 @media (min-width: 700px) {
