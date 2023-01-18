@@ -18,7 +18,7 @@ body {
   flex-direction: row;
 }
 
-.App #content{
+.App #content {
   flex: 1;
   padding: 20px;
 }
@@ -78,30 +78,43 @@ h2 {
 }
 
 .table {
-  border: 1px solid #2ec4b6;
-  border-radius: 10px;
-  width: 100%;
-}
-
-tr:hover {
-  background-color: #d3d3d35d;
-  color: #2b2d42;
-}
-
-th,
-td {
   border-collapse: collapse;
-  text-align: center;
+  border-radius: 10px;
+  margin: 20px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-th {
-  background-color: transparent;
-  color: #ffffff;
+.table thead tr {
+  background-color: #041332;
+  color: white;
+  text-align: left;
+  font-weight: bold;
 }
 
-td {
-  padding: 1%;
-  color: #ffffff;
+.table th,
+.table td {
+  padding: 12px 15px;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid gray;
+}
+
+.table tbody tr:nth-of-type(even) {
+  background-color: #8d99ae;
+}
+
+.table tbody tr:last-of-type {
+  border-bottom: 2px solid #041332;
+}
+
+.table tbody tr.active-row {
+  font-weight: bold;
+  color: #041332;
 }
 
 @media (min-width: 700px) {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import "./css/Master.css";
+import classes from "./css/Master.module.css";
 
 import { InputForm, myFunction } from "./InputForm";
 
@@ -108,7 +108,7 @@ const Master = (props) => {
   }
 
   return (
-    <div className="container">
+    <div className={classes.container}>
       <InputForm
         ServerAddr={ServerAddr}
         Table_data={Table_data}
