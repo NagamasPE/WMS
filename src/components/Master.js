@@ -94,7 +94,7 @@ const Master = (props) => {
     }
     const generateData = () =>{
         
-         fetch('http://'+ServerAddr+':3001/exec/'+selectquery)
+         fetch('https://wms-server-nine.vercel.app/exec/'+selectquery)
         .then(response => response.json())
         .then(data => {if (data){if ("err" in data){alert(data.err)}else{setTable_Data(data)}}});
     }
