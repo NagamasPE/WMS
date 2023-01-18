@@ -94,6 +94,7 @@ h2 {
   background-color: rgb(27, 33, 51);
   color: white;
   font-weight: bold;
+  width: 100%;
 }
 
 .table th,
