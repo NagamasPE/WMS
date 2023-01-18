@@ -6,14 +6,21 @@ import {
   CategoryScale,
   LinearScale,
   PointElement,
-  ArcElement
+  ArcElement,
 } from "chart.js";
+import classes from "./css/Chart.module.css";
 
-ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, ArcElement);
+ChartJS.register(
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  ArcElement
+);
 
 function PieChart(props) {
   return (
-    <div className="chart">
+    <div className={classes.containerPie}>
       <h2>{props.title}</h2>
       <Doughnut data={props.chartData} options={props.options} />;
     </div>

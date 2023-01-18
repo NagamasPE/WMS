@@ -1,34 +1,29 @@
-
 .allarea {
   width: 100%;
   height: 100%;
-  color: white;
+  color: rgb(63, 72, 101);
   display: grid;
 
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 2fr 1fr;
 
-  grid-template-rows: 1fr 6fr;
+  grid-template-rows: 1fr 3fr;
   grid-template-areas:
-  "title kosong percent"
-  "gauge gauge gauge"
-} 
+    "title percent"
+    "gauge gauge";
+}
 .gauge {
-  text-align: center;
-  width: 100%;
-  height: 100%;
+  display: grid;
+  place-content: center;
   grid-area: gauge;
 }
 .title {
-  width: 100%;
-  margin: auto;
-  text-align: center;
-  font-size: 30px;
+  display: grid;
+  place-content: center;
   grid-area: title;
 }
 .percent {
-  text-align: center;
-  width: 100%;
-  font-size: 30px;
-  margin: auto;
+  display: grid;
+  place-content: center;
+  font-size: 1rem;
   grid-area: percent;
 }

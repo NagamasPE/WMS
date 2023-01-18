@@ -1,14 +1,11 @@
 import GaugeChart from "react-gauge-chart";
 import classes from "./css/MainGauge.module.css";
 function MainGauge(props) {
-  const chartStyle = {
-    width: "90%",
-  };
   const percent= props.currentVal/props.maxVal;
   const outpercent=Math.round(percent*100);
   return (
     <div className={classes.allarea}>
-      <div className={classes.title}>{props.title}</div>      
+      <h2 className={classes.title}>{props.title}</h2>      
     
       <GaugeChart
             className={classes.gauge}
@@ -18,13 +15,12 @@ function MainGauge(props) {
             percent={percent}
             colors={["#ff0000", "#ffdd00", "#008000"]}
             hideText={true}
-            arcWidth={0.3}
+            arcWidth={0.35}
             cornerRadius={4}
             arcsLength={[0.5, 0.3, 0.2]} /*custome asymetris area gauge*/
             arcPadding={0.02}
             needleBaseColor={"#2b2d42"}
-            needleColor={"#edf6f9"}
-            style={chartStyle} 
+            needleColor={"#2b2d42"}
           />
          
       

@@ -6,16 +6,23 @@ import {
   CategoryScale,
   LinearScale,
   PointElement,
-  ArcElement
+  ArcElement,
 } from "chart.js";
+import classes from "./css/Chart.module.css";
 
-ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, ArcElement);
+ChartJS.register(
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  ArcElement
+);
 
 function LineChart(props) {
   return (
-    <div className="chart">
+    <div className={classes.containerLine}>
       <h2>{props.title}</h2>
-      <Line data={props.chartData} options={props.options} height={props.height} />;
+      <Line data={props.chartData} options={props.options} />;
     </div>
   );
 }

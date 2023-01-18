@@ -1,0 +1,13 @@
+.containerLine {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 95%;
+}
+
+.containerPie {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 60%;
+}

@@ -3,7 +3,9 @@ import PieChart from "../components/PieChart";
 import Table from "../components/Table";
 import { useState } from "react";
 import { UserData } from "../Data";
+import MainGauge from "../components/MainGauge";
 import Gauge from "../components/Gauge";
+import classes from "./Main.module.css";
 
 function Main() {
   const [userData, setUserData] = useState({
@@ -26,25 +28,24 @@ function Main() {
   });
 
   return (
-    <div className="objs">
-      <div className="obj">
-        <Table title="Output Per Orang" />
+    <div className={classes.container}>
+      <div className={classes.obj}>
+        <LineChart title="Value" chartData={userData} />
       </div>
-      <div className="obj">
-        <LineChart title="Value" chartData={userData} height={90} />
+      <div className={classes.obj}>
+        <MainGauge title="Main Gauge" currentVal={124} maxVal={584} />
       </div>
-      <div className="obj">
-        <Table title="Output Per Group" />
+      <div className={classes.obj}>
+        <PieChart title="Group" chartData={userData} />
       </div>
-      <div className="obj">
-        <PieChart
-          title="Group"
-          chartData={userData}
-          options={{ radius: "50%", cutout: "40%" }}
-        />
+      <div className={classes.obj}>
+        <Gauge title="Gauge 1" currentVal={53} maxVal={584} />
       </div>
-      <div className="obj">
-        <Gauge title="Main Gauge 2" percent= {0.68}/>
+      <div className={classes.obj}>
+        <Gauge title="Gauge 2" currentVal={334} maxVal={584} />
+      </div>
+      <div className={classes.obj}>
+        <Gauge title="Gauge 2" currentVal={185} maxVal={584} />
       </div>
     </div>
   );
