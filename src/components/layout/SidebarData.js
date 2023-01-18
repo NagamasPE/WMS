@@ -18,7 +18,7 @@ export const SidebarData = [
   {
     title: "Main",
     icon: <DashboardIcon />,
-    link: "wms_client/main",
+    link: "/main",
   },
   {
     title: "Operator",
