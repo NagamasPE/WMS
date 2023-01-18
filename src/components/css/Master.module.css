@@ -1,7 +1,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  column-gap: 15px;
   background-color: transparent;
-  width: max-content;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
