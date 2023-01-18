@@ -4,7 +4,7 @@ import Master from "./components/Master";
 import io from "socket.io-client";
 import Sidebar from "./components/layout/Sidebar";
 import config from "./config.json";
-const socket = io.connect("https://wms-server-nine.vercel.app/");
+const socket = io.connect("https://server-npe.herokuapp.com");
 /*const socket = io.connect("http://" + config.ip_address + ":3001");*/
 
 function App() {
