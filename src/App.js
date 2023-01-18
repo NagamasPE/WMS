@@ -27,7 +27,7 @@ function App() {
         <Sidebar />
       </div>
       <div id="content">
-        <Routes>
+        <Routes basename="/wms_client">
           <Route path="/master/:tipe" element={<Master />} />
           <Route path="/main" element={<Main />} />
           <Route path="/input" element={<Input />} />
