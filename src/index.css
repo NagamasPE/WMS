@@ -17,7 +17,9 @@ body {
   display: flex;
   flex-direction: row;
 }
-
+.content {
+  display: grid;
+}
 .navbar {
   color: #ffffff;
   background-color: #041332;

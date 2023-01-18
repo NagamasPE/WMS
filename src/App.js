@@ -23,7 +23,7 @@ function App() {
         <a className="navbar" href="/master/material_masuk">Material Masuk</a>
         <a className="navbar" href="/master/penimbangan_to">Penimbangan TO</a>
       </nav> */}
-      <div id="nav">
+      <div>
         <Sidebar />
       </div>
       <div id="content">
