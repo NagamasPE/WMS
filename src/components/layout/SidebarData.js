@@ -37,7 +37,16 @@ export const SidebarData = [
     icon: <CategoryIcon />,
     link: "/master/grup",
   },
-
+  {
+    title: "Planning",
+    icon: <EqualizerIcon />,
+    link: "/master/planning",
+  },
+  {
+    title: "Regist Material",
+    icon: <EqualizerIcon />,
+    link: "/master/material_masuk",
+  },
   {
     title: "Weighing",
     icon: <EqualizerIcon />,
