@@ -18,17 +18,17 @@ export const SidebarData = [
   {
     title: "Main",
     icon: <DashboardIcon />,
-    link: "wms_client/#/main",
+    link: "#/main",
   },
   {
     title: "Operator",
     icon: <FaceIcon />,
-    link: "wms_client/#/master/operator",
+    link: "#/master/operator",
   },
   {
     title: "Product",
     icon: <GolfCourseIcon />,
-    link: "wms_client/#/master/produk",
+    link: "#/master/produk",
   },
   {
     title: "Material",
