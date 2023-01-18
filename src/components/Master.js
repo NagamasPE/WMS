@@ -46,7 +46,7 @@ const Master = (props) => {
     },
   };
 
-  const ServerAddr = window.location.hostname;
+  const ServerAddr = "https://npeserver.herokuapp.com/";
   const defTable = { col: [{ name: "empty" }], val: [{ empty: "" }] };
 
   const [inputOut, setInputOut] = useState({ empty: "" });
@@ -89,7 +89,7 @@ const Master = (props) => {
     setNilai(cnt);
   }
   const generateData = () => {
-    fetch("https://server-npe.herokuapp.com/exec/" + selectquery)
+    fetch(ServerAddr + selectquery)
       .then((response) => response.json())
       .then((data) => {
         if (data) {
