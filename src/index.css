@@ -118,7 +118,7 @@ h2 {
   border-bottom: 2px solid rgb(27, 33, 51);
 }
 
-.table tbody tr.active-row {
+.table tbody tr:hover {
   font-weight: bold;
   color: rgb(27, 33, 51);
 }
