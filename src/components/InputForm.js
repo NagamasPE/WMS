@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Pilih } from "./Pilih";
 import TableDetail from "./TableDetail";
 import Table from "./Table";
-
 const InputForm = (props) => {
   const defTable = { col: [{ name: "empty" }], val: [{ empty: "" }] };
   const [Table_Pilih, setTable_Pilih] = useState(defTable);
@@ -25,26 +24,28 @@ const InputForm = (props) => {
   var checkColumnHasID = props.checkColumnHasID;
 
   const generateDetail = (data, tablename) => {
-    if (tablename == detailQuery.fieldname || tablename == undefined) {
-      if (detailQuery.query) {
-        var id = 0;
-        if (data != undefined && data[detailQuery.fieldname + "_id"]) {
-          id = data[detailQuery.fieldname + "_id"];
-        }
-        console.log(
-          "Generate Detail:" + detailQuery.query.replaceAll("@ID", id)
-        );
-        fetch(ServerAddr + "exec/" + detailQuery.query.replaceAll("@ID", id))
-          .then((response) => response.json())
-          .then((data) => {
-            {
-              if ("err" in data) {
-                alert(data.err);
-              } else {
-                setTable_Detail(data);
+    if (detailQuery && detailQuery.fieldname) {
+      if (tablename == detailQuery.fieldname || tablename == undefined) {
+        if (detailQuery.query) {
+          var id = 0;
+          if (data != undefined && data[tipe + "_id"]) {
+            id = data[tipe + "_id"];
+          }
+          console.log(
+            "Generate Detail:" + detailQuery.query.replaceAll("@ID", id)
+          );
+          fetch(ServerAddr + "exec/" + detailQuery.query.replaceAll("@ID", id))
+            .then((response) => response.json())
+            .then((data) => {
+              {
+                if ("err" in data) {
+                  alert(data.err);
+                } else {
+                  setTable_Detail(data);
+                }
               }
-            }
-          });
+            });
+        }
       }
     }
   };
@@ -113,74 +114,40 @@ const InputForm = (props) => {
   }
 
   const deleteData = () => {
-    var updateVal = "";
-    var querycol = "";
-    Table_data.col.forEach((col) => {
-      if (col.name === tipe + "_id") {
-        if (inputOut[col.name] !== "" && inputOut[col.name] !== undefined) {
-          updateVal = " where " + col.name + "=" + inputOut[col.name];
-        }
-      }
-    });
-    if (updateVal !== "") {
-      querycol = "delete from " + tipe + " " + updateVal;
-      fetch(ServerAddr + "insert/" + querycol + "/" + selectquery)
-        .then((response) => response.json())
-        .then((data) => {
-          setTable_Data(data);
-          closeAddPopUp();
-        });
-      // props.socket.emit('insert',{insert:querycol,select:'select * from '+params.tipe})
-      // console.log(querycol)
-    }
-  };
-  const addData = () => {
-    // console.log(Table_data);
-    var querycol = "";
-    var queryval = "";
-    var updateVal = "";
-    Table_data.col.forEach((col) => {
-      var adaID = checkColumnHasID(col.name, Table_data);
-      if (col.name === tipe + "_id") {
-        if (inputOut[col.name] !== "" && inputOut[col.name] !== undefined) {
-          updateVal = " where " + col.name + "=" + inputOut[col.name];
-        }
-      }
-      if (updateVal !== "") {
-        if (col.name !== tipe + "_id" && adaID === false) {
-          if (querycol !== "") {
-            querycol += ",";
-          }
-
-          querycol += col.name + "='" + inputOut[col.name] + "'";
-        }
-      } else {
-        if (col.name !== tipe + "_id" && adaID === false) {
-          if (querycol !== "") {
-            querycol += ",";
-            queryval += ",";
-          }
-          querycol += col.name;
-          queryval += "'" + inputOut[col.name] + "'";
-        }
-      }
-    });
-    if (updateVal !== "") {
-      querycol = "update " + tipe + " set " + querycol + updateVal;
-    } else {
-      querycol =
-        "insert into " + tipe + " (" + querycol + ") values (" + queryval + ")";
-    }
-
-    // props.socket.emit('insert',{insert:querycol,select:'select * from '+params.tipe})
-    fetch(ServerAddr + "insert/" + querycol + "/" + selectquery)
+    let data = {
+      Table_detail: Table_detail,
+      table_col: Table_data.col,
+      inputOut: inputOut,
+      tipe: tipe,
+      selectquery: selectquery,
+    };
+    fetch(ServerAddr + "delete", { method: "POST", body: JSON.stringify(data) })
       .then((response) => response.json())
       .then((data) => {
-        setTable_Data(data);
-        console.log(data);
         if (data.error) {
           alert(data.error);
         } else {
+          setTable_Data(data);
+          closeAddPopUp();
+        }
+      });
+  };
+  const addData = () => {
+    let data = {
+      Table_detail: Table_detail,
+      table_col: Table_data.col,
+      inputOut: inputOut,
+      tipe: tipe,
+      selectquery: selectquery,
+    };
+    // console.log(inputOut);
+    fetch(ServerAddr + "update", { method: "POST", body: JSON.stringify(data) })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.error) {
+          alert(data.error);
+        } else {
+          setTable_Data(data);
           closeAddPopUp();
         }
       });
@@ -192,9 +159,26 @@ const InputForm = (props) => {
     input1[event.target.name] = event.target.value;
     setInputOut(input1);
   }
-
+  // console.log(Table_data.col)
   return (
     <>
+      <>
+        {Table_data && Table_data.col && (
+          <div className="tableform">
+            <div className="tablefilter">
+              FILTER :
+              <input name="tabledari" type="date" />
+              S/D
+              <input name="tablehingga" type="date" />
+            </div>
+            <Table Table_data={Table_data} HandleClick={HandleClick} />
+
+            <button className="button" onClick={HandleTambah}>
+              <span>ADD NEW</span>
+            </button>
+          </div>
+        )}
+      </>
       {ShowDetail === 1 && (
         <div className="inputform">
           <table>
@@ -213,11 +197,22 @@ const InputForm = (props) => {
                             readOnly
                           />
                         ) : (
-                          <input
-                            name={col.name}
-                            value={inputOut[col.name]}
-                            onChange={HandleChange}
-                          />
+                          <>
+                            {col.type === 12 ? (
+                              <input
+                                name={col.name}
+                                value={inputOut[col.name]}
+                                onChange={HandleChange}
+                                type="datetime-local"
+                              />
+                            ) : (
+                              <input
+                                name={col.name}
+                                value={inputOut[col.name]}
+                                onChange={HandleChange}
+                              />
+                            )}
+                          </>
                         )}
                       </td>
                     </>
@@ -226,14 +221,16 @@ const InputForm = (props) => {
               ))}
             </tbody>
           </table>
-          <TableDetail
-            detailQuery={detailQuery}
-            Table_detail={Table_detail}
-            setTable_Detail={setTable_Detail}
-            TriggerRender={TriggerRender}
-            generatePilih={generatePilih}
-            checkColumnHasID={checkColumnHasID}
-          />
+          {detailQuery && (
+            <TableDetail
+              detailQuery={detailQuery}
+              Table_detail={Table_detail}
+              setTable_Detail={setTable_Detail}
+              TriggerRender={TriggerRender}
+              generatePilih={generatePilih}
+              checkColumnHasID={checkColumnHasID}
+            />
+          )}
 
           <button className="button" onClick={addData}>
             <span>SAVE</span>
@@ -263,18 +260,6 @@ const InputForm = (props) => {
         generateDetail={generateDetail}
         TriggerRender={TriggerRender}
       />
-
-      <>
-        {Table_data && Table_data.col && (
-          <div className="tableform">
-            <Table Table_data={Table_data} HandleClick={HandleClick} />
-
-            <button className="button" onClick={HandleTambah}>
-              <span>ADD NEW</span>
-            </button>
-          </div>
-        )}
-      </>
     </>
   );
 };

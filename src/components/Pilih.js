@@ -1,5 +1,4 @@
 import Table from "./Table";
-
 const Pilih = (props) => {
   var Table_detail = props.Table_detail;
   var setTable_Detail = props.setTable_Detail;

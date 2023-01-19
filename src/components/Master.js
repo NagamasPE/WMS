@@ -13,27 +13,30 @@ const Master = (props) => {
     penimbangan_to: {
       query:
         "select p.*,pr.deskripsi produk,op.deskripsi operator,g.deskripsi grup from penimbangan_to p left join produk pr on p.produk_id=pr.produk_id left join grup g on p.grup_id=g.grup_id left join operator op on p.operator_id=op.operator_id",
+      config: ["filter_tanggal"],
       detailquery: {
         config: ["bisa_tambah"],
-        fieldname: "produk",
+        fieldname: "penimbangan_to_detail",
         query:
-          "select deskripsi material,spec,''actual,''lot_no from recipe p left join material m on p.material_id=m.material_id where p.produk_id=@ID order by no",
+          "select p.material_id,deskripsi material,spec,actual,lot_no from penimbangan_to_detail p left join material m on p.material_id=m.material_id where p.penimbangan_to_id=@ID order by penimbangan_to_detail_id",
         textbox: ["material", "spec", "actual", "lot_no"],
         pilih: {
-          spec: "select *,deskripsi lot_no from produk",
+          contoh: "select *,deskripsi lot_no from produk",
         },
       },
     },
     planning: {
       query:
         "select pr.deskripsi produk,p.* from planning p left join produk pr on p.produk_id=pr.produk_id",
+      config: ["filter_tanggal"],
     },
     material_masuk: {
       query: "select * from material_masuk ",
+      config: ["filter_tanggal"],
       detailquery: {
         fieldname: "material_masuk_detail",
         query:
-          "select p.material_id,m.deskripsi material,lot_no,value from material_masuk_detail p left join material m on p.material_id=m.material_id where material_masuk_detail_id=@ID",
+          "select p.material_id,m.deskripsi material,lot_no,value from material_masuk_detail p left join material m on p.material_id=m.material_id where material_masuk_id=@ID",
         config: ["bisa_tambah"],
         textbox: ["material", "lot_no", "value"],
         pilih: {
@@ -97,6 +100,7 @@ const Master = (props) => {
             alert(data.err);
           } else {
             setTable_Data(data);
+            console.log(data);
           }
         }
       });

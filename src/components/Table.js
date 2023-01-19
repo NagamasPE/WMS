@@ -30,7 +30,16 @@ const Table = (props) => {
                           key={col.name}
                           item={props.Table_data.val.indexOf(val)}
                         >
-                          {val[col.name]}
+                          {/* (col.type===12) */}
+                          {col.type === 12 ? (
+                            <>
+                              {val[col.name]
+                                .replaceAll("T", " ")
+                                .replaceAll("Z", "")}
+                            </>
+                          ) : (
+                            <>{val[col.name]}</>
+                          )}
                         </td>
                       )
                   )}
