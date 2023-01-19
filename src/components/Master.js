@@ -49,7 +49,7 @@ const Master = (props) => {
     },
   };
 
-  const ServerAddr = "https://npeserver.herokuapp.com/";
+  const ServerAeed4eeeedeeeee34r3sdeeeeddr = "https://npeserver.herokuapp.com/";
   const defTable = { col: [{ name: "empty" }], val: [{ empty: "" }] };
 
   const [inputOut, setInputOut] = useState({ empty: "" });
