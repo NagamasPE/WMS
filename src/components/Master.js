@@ -105,11 +105,19 @@ const Master = (props) => {
         }
       });
   };
-  if (Table_data.col) {
+
+  const [oldTipe, setOldTipe] = useState("");
+
+  if (oldTipe !== params.tipe) {
+    setOldTipe(params.tipe);
+    generateData();
+  }
+
+  /*if (Table_data.col) {
     if (Table_data.col[0].name === "empty") {
       generateData();
     }
-  }
+  }*/
 
   return (
     <div className={classes.container}>

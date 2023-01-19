@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import classes from "../css/Sidebar.module.css";
-import { SidebarData } from "./SidebarData";
+import { SidebarData2 } from "./SidebarData2";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import MenuIcon from "@material-ui/icons/Menu";
 
@@ -24,24 +24,31 @@ function Sidebar() {
         </div>
       </div>
 
-      {SidebarData.map((val) => {
+      {SidebarData2.map((val) => {
         return (
-          /*<a href={val.link}>
-            <div>{val.icon}</div>
-            <div>
-              {val.title}
-            </div>
-          </a>*/
-
-          <Link to={val.link} className={classes.row}>
-            <div id={classes.icon}>{val.icon}</div>
-            <div
-              style={{ display: open ? "block" : "none" }}
-              id={classes.title}
-            >
-              {val.title}
-            </div>
-          </Link>
+          <>
+            <Link to={val.link} className={classes.row}>
+              <div id={classes.icon}>{val.icon}</div>
+              <div
+                style={{ display: open ? "block" : "none" }}
+                id={classes.title}
+              >
+                {val.title}
+              </div>
+            </Link>
+            {val.childrens &&
+              val.childrens.map((child) => (
+                <Link to={child.link} className={classes.row}>
+                  <div id={classes.icon}>{child.icon}</div>
+                  <div
+                    style={{ display: open ? "block" : "none" }}
+                    id={classes.title}
+                  >
+                    {child.title}
+                  </div>
+                </Link>
+              ))}
+          </>
         );
       })}
     </div>
