@@ -1,43 +1,39 @@
-
 .allarea {
   height: 140px;
   color: rgb(63, 72, 101);
   display: grid;
 
   grid-template-columns: 1fr 1fr 3fr;
-  
+
   grid-template-rows: 12fr 2fr 6fr;
   grid-template-areas:
-  "title title gauge"
-  "titlac titltr gauge"
-  "actual target percent";
-} 
+    "title title gauge"
+    "titlac titltr gauge"
+    "actual target percent";
+}
 .dalam {
-  
-  margin:auto;
+  margin: auto;
   text-align: center;
   /* border-radius: 1em; */
 }
 .dalamtitle {
-  
-  margin-top:auto;
-  margin-bottom:auto;
+  margin-top: auto;
+  margin-bottom: auto;
   margin-left: 0.3em;
 
   /* border-radius: 1em; */
 }
 .gauge {
-  
-  border-top: solid;
-  border-width: 0.5px;
-  border-color: black;
-  height: fit-content;
-  grid-area: gauge;
   display: grid;
-  color: black;
-  background-color: white;
+  place-content: center;
+  border-top: solid;
+  border-width: 0.5px solid black;
+  height: 100%;
+  grid-area: gauge;
+  color: var(--dark-text);
+  background-color: transparent;
 }
-.title { 
+.title {
   border: solid;
   border-width: 0.5px;
   font-size: 20px;
@@ -45,22 +41,20 @@
   display: grid;
   color: black;
   background-color: white;
-  
 }
 .percent {
-  
   border-bottom: solid;
   border-width: 0.5px;
   font-size: 20px;
   display: grid;
   grid-area: percent;
   color: black;
-  background-color:white;
+  background-color: white;
 }
 .actual {
   border: solid;
   border-width: 0.5px;
-  
+
   font-size: 20px;
   display: grid;
   grid-area: actual;
@@ -91,5 +85,4 @@
   grid-area: titltr;
   color: black;
   background-color: rgb(218, 179, 145);
-
 }

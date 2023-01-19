@@ -97,7 +97,7 @@ h2 {
 }
 
 .table tbody tr:hover {
-  /* font-weight: bold; */
+  font-weight: bold;
   color: var(--hover-header);
 }
 
