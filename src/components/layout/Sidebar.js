@@ -33,7 +33,7 @@ function Sidebar() {
             </div>
           </a>*/
 
-          <Link to={val.link}>
+          <Link to={val.link} className={classes.row}>
             <div id={classes.icon}>{val.icon}</div>
             <div
               style={{ display: open ? "block" : "none" }}
