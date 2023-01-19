@@ -34,12 +34,7 @@ const InputForm = (props) => {
         console.log(
           "Generate Detail:" + detailQuery.query.replaceAll("@ID", id)
         );
-        fetch(
-          "http://" +
-            ServerAddr +
-            ":3001/exec/" +
-            detailQuery.query.replaceAll("@ID", id)
-        )
+        fetch(ServerAddr + "exec/" + detailQuery.query.replaceAll("@ID", id))
           .then((response) => response.json())
           .then((data) => {
             {
@@ -103,7 +98,7 @@ const InputForm = (props) => {
       }
     }
 
-    fetch("http://" + ServerAddr + ":3001/exec/" + query)
+    fetch(ServerAddr + "exec/" + query)
       .then((response) => response.json())
       .then((data) => {
         data.todetail = todetail;
@@ -129,9 +124,7 @@ const InputForm = (props) => {
     });
     if (updateVal !== "") {
       querycol = "delete from " + tipe + " " + updateVal;
-      fetch(
-        "http://" + ServerAddr + ":3001/insert/" + querycol + "/" + selectquery
-      )
+      fetch(ServerAddr + "insert/" + querycol + "/" + selectquery)
         .then((response) => response.json())
         .then((data) => {
           setTable_Data(data);
@@ -180,9 +173,7 @@ const InputForm = (props) => {
     }
 
     // props.socket.emit('insert',{insert:querycol,select:'select * from '+params.tipe})
-    fetch(
-      "http://" + ServerAddr + ":3001/insert/" + querycol + "/" + selectquery
-    )
+    fetch(ServerAddr + "insert/" + querycol + "/" + selectquery)
       .then((response) => response.json())
       .then((data) => {
         setTable_Data(data);
