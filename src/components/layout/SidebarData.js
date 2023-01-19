@@ -18,12 +18,12 @@ export const SidebarData = [
   {
     title: "Main",
     icon: <DashboardIcon />,
-    link: "#/main",
+    link: "/#/main",
   },
   {
     title: "Operator",
     icon: <FaceIcon />,
-    link: "#/master/operator",
+    link: "/#/master/operator",
   },
   {
     title: "Product",

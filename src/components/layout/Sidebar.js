@@ -26,7 +26,7 @@ function Sidebar() {
 
       {SidebarData.map((val) => {
         return (
-          /*<a href={val.link} className={classes.row}>
+          /*<a href={val.link}>
             <div>{val.icon}</div>
             <div>
               {val.title}
