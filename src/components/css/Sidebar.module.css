@@ -16,6 +16,19 @@
   height: 50px;
   list-style: none;
   margin: 0;
+  display: grid;
+  grid-template-columns: 31% 50% 19%;
+  grid-template-areas: "logo title arrow";
+  color: rgb(239, 35, 60);
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.subRow {
+  width: auto;
+  height: 30px;
+  list-style: none;
+  padding-left: 20px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -31,12 +44,36 @@
 }
 
 .row #icon {
+  grid-area: logo;
   flex: 31%;
   display: grid;
   place-items: center;
 }
 
 .row #title {
+  grid-area: title;
+  align-items: center;
+  justify-content: left;
+}
+
+.row #arrow {
+  grid-area: arrow;
+  display: grid;
+  place-items: center;
+}
+
+.subRow:hover {
+  cursor: pointer;
+  background-color: rgb(12, 18, 36);
+}
+
+.subRow #icon {
+  flex: 31%;
+  display: grid;
+  place-items: center;
+}
+
+.subRow #title {
   flex: 69%;
   display: grid;
   place-items: center;

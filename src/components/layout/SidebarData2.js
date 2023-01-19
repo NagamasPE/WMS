@@ -13,15 +13,18 @@ import ImportExportIcon from "@material-ui/icons/ImportExport";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import AddShoppingCart from "@material-ui/icons/AddShoppingCart";
 import TrackChangesIcon from "@material-ui/icons/TrackChanges";
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 
 export const SidebarData2 = [
   {
     title: "Dashboard",
     icon: <DashboardIcon />,
+    link: "/main",
   },
   {
     title: "Master",
     icon: <StorageIcon />,
+    arrow: <KeyboardArrowDownIcon />,
     childrens: [
       {
         title: "Operator",
@@ -53,6 +56,7 @@ export const SidebarData2 = [
   {
     title: "Transaction",
     icon: <ImportExportIcon />,
+    arrow: <KeyboardArrowDownIcon />,
     childrens: [
       {
         title: "Planning",

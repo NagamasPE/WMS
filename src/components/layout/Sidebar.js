@@ -24,30 +24,53 @@ function Sidebar() {
         </div>
       </div>
 
-      {SidebarData2.map((val) => {
+      {SidebarData2.map((val, index) => {
+        //console.log(`Key for ${val.title} is ${val.title}`);
         return (
           <>
-            <Link to={val.link} className={classes.row}>
+            <Link
+              key={val.title}
+              to={val.link}
+              className={classes.row}
+              style={{ display: open ? "grid" : "flex" }}
+            >
               <div id={classes.icon}>{val.icon}</div>
               <div
-                style={{ display: open ? "block" : "none" }}
+                style={{ display: open ? "flex" : "none" }}
                 id={classes.title}
               >
                 {val.title}
               </div>
+              <div
+                style={{ display: open ? "grid" : "none" }}
+                id={classes.arrow}
+              >
+                {val.arrow}
+              </div>
             </Link>
+
             {val.childrens &&
-              val.childrens.map((child) => (
-                <Link to={child.link} className={classes.row}>
-                  <div id={classes.icon}>{child.icon}</div>
-                  <div
-                    style={{ display: open ? "block" : "none" }}
-                    id={classes.title}
+              val.childrens.map((child, subIndex) => {
+                console.log(
+                  `Key for ${child.title} is ${val.title}-${subIndex}`
+                );
+                return (
+                  <Link
+                    key={`${child.title}-${subIndex}`}
+                    to={child.link}
+                    className={classes.subRow}
+                    style={{ paddingLeft: open ? "20px" : "0" }}
                   >
-                    {child.title}
-                  </div>
-                </Link>
-              ))}
+                    <div id={classes.icon}>{child.icon}</div>
+                    <div
+                      style={{ display: open ? "block" : "none" }}
+                      id={classes.title}
+                    >
+                      {child.title}
+                    </div>
+                  </Link>
+                );
+              })}
           </>
         );
       })}
