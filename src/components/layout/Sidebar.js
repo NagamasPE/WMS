@@ -26,7 +26,14 @@ function Sidebar() {
 
       {SidebarData.map((val) => {
         return (
-          <a href={val.link} className={classes.row}>
+          /*<a href={val.link} className={classes.row}>
+            <div>{val.icon}</div>
+            <div>
+              {val.title}
+            </div>
+          </a>*/
+
+          <Link to={val.link}>
             <div id={classes.icon}>{val.icon}</div>
             <div
               style={{ display: open ? "block" : "none" }}
@@ -34,11 +41,7 @@ function Sidebar() {
             >
               {val.title}
             </div>
-          </a>
-          /* <Link to={val.link}>
-                <div>{val.icon}</div>
-                <div>{val.title}</div>
-              </Link> */
+          </Link>
         );
       })}
     </div>
