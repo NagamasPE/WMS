@@ -11,7 +11,6 @@ function Gauge(props) {
       </div>
       <div className={classes.gauge}>
         <GaugeChart
-          className={classes.dalam}
           id={props.id}
           animate={false}
           /*nrOfLevels={10}*/ /*default area gauge sama rata*/
