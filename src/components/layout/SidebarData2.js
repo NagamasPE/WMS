@@ -25,6 +25,7 @@ export const SidebarData2 = [
     title: "Master",
     icon: <StorageIcon />,
     arrow: <KeyboardArrowDownIcon />,
+    link: "#",
     childrens: [
       {
         title: "Operator",
@@ -57,6 +58,7 @@ export const SidebarData2 = [
     title: "Transaction",
     icon: <ImportExportIcon />,
     arrow: <KeyboardArrowDownIcon />,
+    link: "#",
     childrens: [
       {
         title: "Planning",

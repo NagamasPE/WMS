@@ -1,6 +1,6 @@
 .sidebar {
   height: 100%;
-  width: 154px;
+  width: 200px;
   background-color: rgb(27, 33, 51);
   color: white;
   margin: 0;
@@ -8,10 +8,10 @@
   overflow: auto;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  transition: 0.5s;
+  transition: 1s;
 }
 
-.row {
+.row{
   width: 100%;
   height: 50px;
   list-style: none;
@@ -22,6 +22,7 @@
   color: rgb(239, 35, 60);
   text-decoration: none;
   font-size: 16px;
+  transition: 1s;
 }
 
 .subRow {
@@ -32,7 +33,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
   color: rgb(255, 255, 255);
   text-decoration: none;
   font-size: 12px;
@@ -41,6 +42,7 @@
 .row:hover {
   cursor: pointer;
   background-color: rgb(12, 18, 36);
+  transition: 0.5s;
 }
 
 .row #icon {
@@ -65,6 +67,7 @@
 .subRow:hover {
   cursor: pointer;
   background-color: rgb(12, 18, 36);
+  transition: 0.5s;
 }
 
 .subRow #icon {
@@ -109,4 +112,10 @@
   align-items: center;
   justify-content: center;
   color: white;
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
 }
