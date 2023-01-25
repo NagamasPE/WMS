@@ -50,7 +50,7 @@ function Sidebar() {
               <div
                 style={{
                   display: open ? "grid" : "none",
-                  transform: dropdowns[index].drop ? "rotate(-180deg)" : "rotate(0deg)",
+                  transform: dropdowns[index].drop ? "rotate(0deg)" : "rotate(-180deg)",
                 }}
                 id={classes.arrow}
                 onClick={() => toggleDrop(index)}
