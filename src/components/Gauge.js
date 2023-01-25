@@ -4,6 +4,10 @@ import classes from "./css/Gauge.module.css";
 function Gauge(props) {
   const percent = props.currentVal / props.maxVal;
   const outpercent = Math.round(percent * 100);
+
+  const chartStyle = {
+    width: '90%',
+  };
   return (
     <div className={classes.allarea}>
       <div className={classes.title}>
@@ -11,6 +15,7 @@ function Gauge(props) {
       </div>
       <div className={classes.gauge}>
         <GaugeChart
+          style={chartStyle}
           id={props.id}
           animate={false}
           /*nrOfLevels={10}*/ /*default area gauge sama rata*/
@@ -40,10 +45,10 @@ function Gauge(props) {
         <div className={classes.dalam}>{outpercent}%</div>
       </div>
       <div className={classes.titlac}>
-        <div className={classes.dalamtitle}>Actual:</div>
+        <div className={classes.dalamtitle}> Actual </div>
       </div>
       <div className={classes.titltr}>
-        <div className={classes.dalamtitle}>Total:</div>
+        <div className={classes.dalamtitle}> Total </div>
       </div>
       <div className={classes.actual}>
         <div className={classes.dalam}>{props.currentVal}</div>
