@@ -2,13 +2,80 @@
   height: auto;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1f;
+  grid-template-rows: 40vh 30vh 30vh;
   row-gap: 15px;
   column-gap: 15px;
+  grid-template-areas:
+    "main main main main"
+    "obj1 obj1 obj2 obj2"
+    "obj3 obj4 obj5 obj6";
 }
 
-.obj {
+.container #main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  padding: 5px;
+  background-color: rgb(242, 246, 253);
+  align-items: center;
+  justify-content: center;
+}
+
+.container #obj1 {
+  grid-area: obj1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  padding: 5px;
+  background-color: rgb(242, 246, 253);
+  align-items: center;
+  justify-content: center;
+}
+
+.container #obj2 {
+  grid-area: obj2;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  padding: 5px;
+  background-color: rgb(242, 246, 253);
+  align-items: center;
+  justify-content: center;
+}
+.container #obj3 {
+  grid-area: obj3;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  padding: 5px;
+  background-color: rgb(242, 246, 253);
+  align-items: center;
+  justify-content: center;
+}
+.container #obj4 {
+  grid-area: obj4;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  padding: 5px;
+  background-color: rgb(242, 246, 253);
+  align-items: center;
+  justify-content: center;
+}
+.container #obj5 {
+  grid-area: obj5;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  padding: 5px;
+  background-color: rgb(242, 246, 253);
+  align-items: center;
+  justify-content: center;
+}
+.container #obj6 {
+  grid-area: obj6;
   display: flex;
   flex-direction: column;
   border-radius: 15px;

@@ -2,6 +2,9 @@ import { useState } from "react";
 import { Pilih } from "./Pilih";
 import TableDetail from "./TableDetail";
 import Table from "./Table";
+import Backdrop from "./Backdrop";
+import classes from "./css/Popup.module.css";
+
 const InputForm = (props) => {
   const defTable = { col: [{ name: "empty" }], val: [{ empty: "" }] };
   const [Table_Pilih, setTable_Pilih] = useState(defTable);
@@ -179,8 +182,11 @@ const InputForm = (props) => {
           </div>
         )}
       </>
+
+      {ShowDetail === 1 && <Backdrop cancel={closeAddPopUp} />}
+
       {ShowDetail === 1 && (
-        <div className="inputform">
+        <div className={classes.inputform}>
           <table>
             <tbody>
               {Table_data.col.map((col) => (
@@ -245,9 +251,7 @@ const InputForm = (props) => {
           </button>
         </div>
       )}
-      {ShowDetail === 1 && (
-        <div className="backdropinput" onClick={closeAddPopUp} />
-      )}
+
       <Pilih
         addOpen={addOpen}
         Table_Pilih={Table_Pilih}

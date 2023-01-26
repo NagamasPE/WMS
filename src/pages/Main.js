@@ -1,15 +1,15 @@
 import LineChart from "../components/LineChart";
 import PieChart from "../components/PieChart";
-import Table from "../components/Table";
 import { useState } from "react";
 import { UserData } from "../Data";
 import MainGauge from "../components/MainGauge";
 import Gauge from "../components/Gauge";
 import classes from "./Main.module.css";
+import AreaChart from "../components/newChart";
 
 function Main() {
   const [userData, setUserData] = useState({
-    labels: UserData.map((data) => data.year),
+    labels: UserData.map((data) => data.id),
     datasets: [
       {
         label: "Users Gained",
@@ -21,31 +21,35 @@ function Main() {
           "#219ebc",
           "#8ecae6",
         ],
-        borderColor: "#ffffff",
-        borderWidth: 1,
+        borderColor: "#888888",
+        pointBorderColor: "transparent",
+        pointBorderWidth: 4,
       },
     ],
   });
 
   return (
     <div className={classes.container}>
-      <div className={classes.obj}>
+      <div id={classes.obj1}>
         <LineChart title="Value" chartData={userData} />
       </div>
-      <div className={classes.obj}>
+      <div id={classes.main}>
         <MainGauge title="Main Gauge" currentVal={124} maxVal={584} />
       </div>
-      <div className={classes.obj}>
+      <div id={classes.obj2}>
         <PieChart title="Group" chartData={userData} />
       </div>
-      <div className={classes.obj}>
+      <div id={classes.obj3}>
         <Gauge title="Gauge 1" currentVal={53} maxVal={584} />
       </div>
-      <div className={classes.obj}>
+      <div id={classes.obj4}>
         <Gauge title="Gauge 2" currentVal={334} maxVal={584} />
       </div>
-      <div className={classes.obj}>
-        <Gauge title="Gauge 2" currentVal={185} maxVal={584} />
+      <div id={classes.obj5}>
+        <Gauge title="Gauge 3" currentVal={134} maxVal={584} />
+      </div>
+      <div id={classes.obj6}>
+        <Gauge title="Gauge 3" currentVal={134} maxVal={584} />
       </div>
     </div>
   );

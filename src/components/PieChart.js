@@ -19,10 +19,37 @@ ChartJS.register(
 );
 
 function PieChart(props) {
+  const option = {
+    plugins: {
+      customCanvasBackgroundColor: {
+        color: "lightGreen",
+      },
+      legend: {
+        display: true,
+        position: "bottom",
+        align: "center",
+      },
+    },
+    responsive: true,
+    animations: {
+      tension: {
+        duration: 2500,
+        easing: "easeOutBounce",
+        from: 0,
+        to: 0.5,
+        loop: true,
+      },
+    },
+    fill: {
+      target: "origin",
+      above: "rgb(255, 0, 0)", // Area will be red above the origin
+      below: "rgb(0, 0, 255)", // And blue below the origin
+    },
+  };
+
   return (
     <div className={classes.containerPie}>
-      <h2>{props.title}</h2>
-      <Doughnut data={props.chartData} options={props.options} />;
+      <Doughnut data={props.chartData} options={option} />
     </div>
   );
 }

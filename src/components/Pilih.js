@@ -1,4 +1,7 @@
+
 import Table from "./Table";
+import classes from "./css/Popup.module.css";
+
 const Pilih = (props) => {
   var Table_detail = props.Table_detail;
   var setTable_Detail = props.setTable_Detail;
@@ -45,7 +48,7 @@ const Pilih = (props) => {
   return (
     <>
       {addOpen && (
-        <div className="modal">
+        <div className={classes.modal}>
           <Table
             Table_data={Table_Pilih}
             Table_name={"-"}
@@ -56,7 +59,6 @@ const Pilih = (props) => {
           </button>
         </div>
       )}
-      {addOpen && <div className="backdrop" onClick={closePilihPopUp} />}
     </>
   );
 };

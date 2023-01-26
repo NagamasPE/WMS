@@ -17,18 +17,6 @@ function App() {
   }
   return (
     <div className="App">
-      {/* <nav >
-        <div>
-        <a className="navbar" href="/master/operator">Master Operator</a>
-        <a className="navbar" href="/master/produk">Master Produk</a>
-        <a className="navbar" href="/master/material">Master Material</a>
-        <a className="navbar" href="/master/recipe">Master Recipe</a>
-        <a className="navbar" href="/master/grup">Master Grup</a>
-        </div>
-        <a className="navbar" href="/master/planning">Planning</a>
-        <a className="navbar" href="/master/material_masuk">Material Masuk</a>
-        <a className="navbar" href="/master/penimbangan_to">Penimbangan TO</a>
-      </nav> */}
       <div>
         <Sidebar />
         <button className="button" onClick={clickLogin}>
