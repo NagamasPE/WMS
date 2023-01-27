@@ -7,13 +7,17 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 function Sidebar() {
   const [open, openMenu] = useState(false);
-  const toggleSide = () => openMenu(!open);
-  const [dropdowns, setDropdowns] = useState(SidebarData2.map((val, index) => ({drop:false, index})));
+  const toggleSide = () => {
+    openMenu(!open);
+  };
+  const [dropdowns, setDropdowns] = useState(
+    SidebarData2.map((val, index) => ({ drop: false, index }))
+  );
   const toggleDrop = (index) => {
     const newDropdowns = [...dropdowns];
     newDropdowns[index].drop = !newDropdowns[index].drop;
     setDropdowns(newDropdowns);
-  }
+  };
 
   return (
     <div style={{ width: open ? "200px" : "48px" }} className={classes.sidebar}>
@@ -50,7 +54,9 @@ function Sidebar() {
               <div
                 style={{
                   display: open ? "grid" : "none",
-                  transform: dropdowns[index].drop ? "rotate(0deg)" : "rotate(-180deg)",
+                  transform: dropdowns[index].drop
+                    ? "rotate(180deg)"
+                    : "rotate(0deg)",
                 }}
                 id={classes.arrow}
                 onClick={() => toggleDrop(index)}
@@ -71,7 +77,7 @@ function Sidebar() {
                     className={classes.subRow}
                     style={{
                       paddingLeft: open ? "20px" : "0",
-                      display: dropdowns[index].drop ? "none" : "flex",
+                      display: dropdowns[index].drop ? "flex" : "none",
                     }}
                   >
                     <div id={classes.icon}>{child.icon}</div>
