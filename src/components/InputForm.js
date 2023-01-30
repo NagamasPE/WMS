@@ -4,7 +4,7 @@ import TableDetail from "./TableDetail";
 import Table from "./Table";
 import Backdrop from "./Backdrop";
 import classes from "./css/Popup.module.css";
-import tables from "./css/Chart.module.css"
+import tables from "./css/Chart.module.css";
 
 const InputForm = (props) => {
   const defTable = { col: [{ name: "empty" }], val: [{ empty: "" }] };
@@ -27,8 +27,8 @@ const InputForm = (props) => {
   var setInputOut = props.setInputOut;
   var checkColumnHasID = props.checkColumnHasID;
 
-  let string ={tipe};
-  string = string.replace("_"," ");
+  let string = `${tipe}`;
+  string = string.replace("_", " ");
 
   const generateDetail = (data, tablename) => {
     if (detailQuery && detailQuery.fieldname) {
@@ -169,7 +169,7 @@ const InputForm = (props) => {
   return (
     <>
       <>
-      <div className={tables.tabTitle}>Table of {string}</div>
+        <div className={tables.tabTitle}>Table of {string}</div>
         {Table_data && Table_data.col && (
           <div className={tables.tabsContainer}>
             <div className={tables.filter}>

@@ -24,6 +24,10 @@
   overflow-x: scroll;
 }
 
+.tabsContainer::-webkit-scrollbar{
+  display: none;
+}
+
 .tabsContainer .filter {
   display: grid;
   grid-template-columns: 0.5fr 1fr 0.5fr 1fr;
