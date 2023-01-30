@@ -27,6 +27,9 @@ const InputForm = (props) => {
   var setInputOut = props.setInputOut;
   var checkColumnHasID = props.checkColumnHasID;
 
+  let string ={tipe};
+  string = string.replace("_"," ");
+
   const generateDetail = (data, tablename) => {
     if (detailQuery && detailQuery.fieldname) {
       if (tablename == detailQuery.fieldname || tablename == undefined) {
@@ -163,11 +166,10 @@ const InputForm = (props) => {
     input1[event.target.name] = event.target.value;
     setInputOut(input1);
   }
-  // console.log(Table_data.col)
   return (
     <>
       <>
-      <div className={tables.tabTitle}>Table of {tipe}</div>
+      <div className={tables.tabTitle}>Table of {string}</div>
         {Table_data && Table_data.col && (
           <div className={tables.tabsContainer}>
             <div className={tables.filter}>
