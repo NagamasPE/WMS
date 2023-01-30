@@ -90,18 +90,16 @@ const TableDetail = (props) => {
                         </td>
                       )
                   )}
-                  <td>
-                    {detailConfig && detailConfig.includes("bisa_tambah") && (
-                      <button
-                        className="button"
-                        onClick={() => {
-                          DeleteRow(Table_detail.val.indexOf(val));
-                        }}
-                      >
-                        <span>X</span>
-                      </button>
-                    )}
-                  </td>
+                  {detailConfig && detailConfig.includes("bisa_tambah") && (
+                    <button
+                      className="button"
+                      onClick={() => {
+                        DeleteRow(Table_detail.val.indexOf(val));
+                      }}
+                    >
+                      <span>X</span>
+                    </button>
+                  )}
                 </tr>
               ))}
             </tbody>

@@ -1,3 +1,4 @@
+import { Height } from "@material-ui/icons";
 import GaugeChart from "react-gauge-chart";
 import classes from "./css/MainGauge.module.css";
 function MainGauge(props) {
@@ -20,6 +21,7 @@ function MainGauge(props) {
           arcPadding={0.02}
           needleBaseColor={"#2b2d42"}
           needleColor={"#2b2d42"}
+          style={{ width: 600 }}
         />
       </div>
 

@@ -1,17 +1,20 @@
 .sidebar {
   height: 100%;
-  width: 200px;
+  min-height: 100vh;
+  width: 48px; /*kebuka 200px*/
   background-color: rgb(27, 33, 51);
   color: white;
   margin: 0;
   padding: 0;
-  overflow: auto;
+  top: 50%;
+  left: 50;
+  overflow: hidden;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   transition: 1s;
 }
 
-.row{
+.row {
   width: 100%;
   height: 50px;
   list-style: none;
@@ -33,7 +36,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   color: rgb(255, 255, 255);
   text-decoration: none;
   font-size: 12px;
@@ -92,7 +95,7 @@
   font-size: 14px;
 }
 
-.user #icon {
+.user #pict {
   flex-basis: 47px;
   display: grid;
   place-items: center;
@@ -101,6 +104,12 @@
 
 .user #name {
   flex: 1;
+  display: grid;
+  place-items: center;
+}
+
+.user #login {
+  flex: 47px;
   display: grid;
   place-items: center;
 }

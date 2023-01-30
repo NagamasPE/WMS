@@ -7,42 +7,83 @@
   --dark-text: rgb(63, 72, 101);
   --shadow-color: rgba(0, 0, 0, 0.15);
   --border-color: rgb(151, 151, 151);
+  --main-menu: rgb(239, 35, 60);
+  --sub-memu: rgb(255, 255, 255);
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
-
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--body-backgroud);
 }
 
-.App {
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
+@media (max-width: 1600px) {
+  .App {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    max-width: 100vw;
+    min-height: 100vh;
+    padding: 0;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    overflow-y: scroll;
+  }
+
+  .App::-webkit-scrollbar{
+    display: none;
+  }
+
+  .App .navbar {
+    width: auto;
+  }
+
+  .App .content {
+    width: calc(100vw - 68px);
+    position: fixed;
+    top: 0;
+    left: 48px;
+    margin: 10px;
+  }
 }
 
-.App #content {
-  flex: 1;
-  padding: 10px;
-}
-
-.navbar {
-  color: var(--light-text);
-  background-color: var(--header-color);
-  font-size: 20px;
-  margin-left: 20px;
-  text-align: center;
+@media (max-width: 500px) {
+  .App {
+    height: 100%;
+    left: 0;
+    margin: 0;
+    min-height: 100vh;
+    max-width: 100vh;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+  }
+  .App .navbar {
+    width: auto;
+    display: grid;
+    place-content: center;
+  }
+  .App .content {
+    width: calc(100vw - 68px);
+    display: grid;
+    place-content: center;
+    position: fixed;
+    top: 0;
+    left: 48px;
+    margin: 10px;
+  }
 }
 
 h2 {
@@ -66,7 +107,7 @@ h2 {
   text-align: center;
   width: 100%;
   min-width: 400px;
-  border-radius: 10px 10px 0 0;
+  border-radius: 15px 15px 0 0;
   overflow: hidden;
   box-shadow: 0 0 20px var(--shadow);
 }
@@ -102,12 +143,6 @@ h2 {
 .table tbody tr:hover {
   font-weight: bold;
   color: var(--hover-header);
-}
-
-@media (min-width: 700px) {
-  .objs {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 .button {
@@ -182,26 +217,13 @@ h2 {
 
 .backdrop {
   position: fixed;
-  z-index: 5;
+  z-index: 1;
   background-color: rgb(0, 0, 0, 0.75);
   width: 100%;
   height: 100vh;
   top: 0;
   left: 0;
 }
-
-/* .column {
-  float: left;
-  width: 48%;
-  height: 48;
-  padding: 1%;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-} */
 
 /* On screens that are 992px wide or less, go from four columns to two columns
 @media screen and (max-width: 992px) {

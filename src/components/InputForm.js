@@ -4,6 +4,7 @@ import TableDetail from "./TableDetail";
 import Table from "./Table";
 import Backdrop from "./Backdrop";
 import classes from "./css/Popup.module.css";
+import tables from "./css/Chart.module.css"
 
 const InputForm = (props) => {
   const defTable = { col: [{ name: "empty" }], val: [{ empty: "" }] };
@@ -166,10 +167,11 @@ const InputForm = (props) => {
   return (
     <>
       <>
+      <div className={tables.tabTitle}>Table of {tipe}</div>
         {Table_data && Table_data.col && (
-          <div className="tableform">
-            <div className="tablefilter">
-              FILTER :
+          <div className={tables.tabsContainer}>
+            <div className={tables.filter}>
+              FILTER
               <input name="tabledari" type="date" />
               S/D
               <input name="tablehingga" type="date" />

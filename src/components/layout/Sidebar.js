@@ -3,7 +3,9 @@ import { useState } from "react";
 import classes from "../css/Sidebar.module.css";
 import { SidebarData2 } from "./SidebarData2";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import MenuIcon from "@material-ui/icons/Menu";
+import Login from "../Login";
 
 function Sidebar() {
   const [open, openMenu] = useState(false);
@@ -19,6 +21,12 @@ function Sidebar() {
     setDropdowns(newDropdowns);
   };
 
+  const [loginusername, setLoginUsername] = useState(true);
+  const [showlogin, setShowlogin] = useState(true);
+  function clickLogin(event) {
+    setShowlogin(true);
+  }
+
   return (
     <div style={{ width: open ? "200px" : "48px" }} className={classes.sidebar}>
       <div className={classes.menu} onClick={toggleSide}>
@@ -26,12 +34,21 @@ function Sidebar() {
       </div>
 
       <div className={classes.user}>
-        <div id={classes.icon}>
+        <div id={classes.pict}>
           <AccountBoxIcon style={{ fontSize: open ? "40px" : "26px" }} />
         </div>
         <div style={{ display: open ? "block" : "none" }} id={classes.name}>
           Username 1234
         </div>
+        <div style={{ display: open ? "flex" : "none" }} onClick={clickLogin}>
+          <ExitToAppIcon />
+        </div>
+        <Login
+          showlogin={showlogin}
+          setShowlogin={setShowlogin}
+          loginusername={loginusername}
+          setLoginUsername={setLoginUsername}
+        />
       </div>
 
       {SidebarData2.map((val, index) => {

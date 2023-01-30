@@ -3,14 +3,15 @@
   background-color: rgb(255, 255, 255);
   padding: 1rem;
   text-align: center;
-  width: 30%;
+  width: 50vw;
   /* 30rem; */
   z-index: 32;
   position: fixed;
   top: 15vh;
-  left: 35%;
+  left: 25vw;
   border: 3px solid rgb(27, 33, 51);
   border-radius: 10px;
+  color: black;
 }
 
 .backdroplogin {
