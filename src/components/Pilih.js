@@ -1,4 +1,3 @@
-
 import Table from "./Table";
 import classes from "./css/Popup.module.css";
 

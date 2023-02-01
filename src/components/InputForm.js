@@ -8,13 +8,17 @@ import tables from "./css/Chart.module.css";
 
 const InputForm = (props) => {
   const defTable = { col: [{ name: "empty" }], val: [{ empty: "" }] };
+  const [oldTipe, setOldTipe] = useState("");
   const [Table_Pilih, setTable_Pilih] = useState(defTable);
   const [addOpen, setPopUpOpen] = useState(false);
   const [DeleteMode, setDeleteMode] = useState(0);
+  const [waktuDari, setWaktuDari] = useState("2023-01-01");
+  const [waktuHingga, setWaktuHingga] = useState("2023-01-01");
   var ServerAddr = props.ServerAddr;
   var PilihQuery = props.PilihQuery;
   var selectquery = props.selectquery;
   var detailQuery = props.detailQuery;
+  var configQuery = props.configQuery;
   var tipe = props.tipe;
   var Table_data = props.Table_data;
   var setTable_Data = props.setTable_Data;
@@ -26,9 +30,39 @@ const InputForm = (props) => {
   var inputOut = props.inputOut;
   var setInputOut = props.setInputOut;
   var checkColumnHasID = props.checkColumnHasID;
+  var today = new Date();
+  var month = today.getMonth() + 1;
+  var monthStr = month.toString();
+  if (monthStr.length === 1) {
+    monthStr = "0" + monthStr;
+  }
 
   let string = `${tipe}`;
   string = string.replace("_", " ");
+
+  const generateData = () => {
+    fetch(ServerAddr + "/exec/" + selectquery)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data) {
+          if ("err" in data) {
+            alert(data.err);
+          } else {
+            setTable_Data(data);
+          }
+        }
+      });
+  };
+
+  if (oldTipe !== tipe) {
+    setOldTipe(tipe);
+    generateData();
+
+    setWaktuDari(today.getFullYear() + "-" + monthStr + "-" + today.getDate());
+    setWaktuHingga(
+      today.getFullYear() + "-" + monthStr + "-" + today.getDate()
+    );
+  }
 
   const generateDetail = (data, tablename) => {
     if (detailQuery && detailQuery.fieldname) {
@@ -38,10 +72,8 @@ const InputForm = (props) => {
           if (data != undefined && data[tipe + "_id"]) {
             id = data[tipe + "_id"];
           }
-          console.log(
-            "Generate Detail:" + detailQuery.query.replaceAll("@ID", id)
-          );
-          fetch(ServerAddr + "exec/" + detailQuery.query.replaceAll("@ID", id))
+          // console.log("Generate Detail:"+detailQuery.query.replaceAll("@ID",id))
+          fetch(ServerAddr + "/exec/" + detailQuery.query.replaceAll("@ID", id))
             .then((response) => response.json())
             .then((data) => {
               {
@@ -106,7 +138,7 @@ const InputForm = (props) => {
       }
     }
 
-    fetch(ServerAddr + "exec/" + query)
+    fetch(ServerAddr + "/exec/" + query)
       .then((response) => response.json())
       .then((data) => {
         data.todetail = todetail;
@@ -128,7 +160,10 @@ const InputForm = (props) => {
       tipe: tipe,
       selectquery: selectquery,
     };
-    fetch(ServerAddr + "delete", { method: "POST", body: JSON.stringify(data) })
+    fetch(ServerAddr + "/delete", {
+      method: "POST",
+      body: JSON.stringify(data),
+    })
       .then((response) => response.json())
       .then((data) => {
         if (data.error) {
@@ -148,7 +183,10 @@ const InputForm = (props) => {
       selectquery: selectquery,
     };
     // console.log(inputOut);
-    fetch(ServerAddr + "update", { method: "POST", body: JSON.stringify(data) })
+    fetch(ServerAddr + "/update", {
+      method: "POST",
+      body: JSON.stringify(data),
+    })
       .then((response) => response.json())
       .then((data) => {
         if (data.error) {
@@ -166,18 +204,40 @@ const InputForm = (props) => {
     input1[event.target.name] = event.target.value;
     setInputOut(input1);
   }
+
+  function HandleChangeDari(event) {
+    setWaktuDari(event.target.value);
+    console.log("Change Dari");
+  }
+  function HandleChangeHingga(event) {
+    setWaktuHingga(event.target.value);
+    console.log("Change Hingga");
+  }
   return (
     <>
       <>
         <div className={tables.tabTitle}>Table of {string}</div>
         {Table_data && Table_data.col && (
           <div className={tables.tabsContainer}>
-            <div className={tables.filter}>
-              FILTER
-              <input name="tabledari" type="date" />
-              S/D
-              <input name="tablehingga" type="date" />
-            </div>
+            {configQuery && "filter_tanggal" in configQuery && (
+              <div className={tables.filter}>
+                FILTER :
+                <input
+                  name="tabledari"
+                  type="date"
+                  value={waktuDari}
+                  onChange={HandleChangeDari}
+                />
+                S/D
+                <input
+                  name="tablehingga"
+                  type="date"
+                  value={waktuHingga}
+                  onChange={HandleChangeHingga}
+                />
+              </div>
+            )}
+
             <Table Table_data={Table_data} HandleClick={HandleClick} />
 
             <button className="button" onClick={HandleTambah}>
@@ -190,15 +250,17 @@ const InputForm = (props) => {
       {ShowDetail === 1 && <Backdrop cancel={closeAddPopUp} />}
 
       {ShowDetail === 1 && (
-        <div className={classes.inputform}>
+        <div className={classes.modal}>
           <table>
             <tbody>
               {Table_data.col.map((col) => (
                 <tr key={col.name}>
                   {col.name.indexOf("_id") === -1 && (
                     <>
-                      <td>{col.name.toUpperCase().replaceAll("_", " ")}</td>
-                      <td>
+                      <td className={classes.title}>
+                        {col.name.toUpperCase().replaceAll("_", " ")}
+                      </td>
+                      <td className={classes.input}>
                         {checkColumnHasID(col.name, Table_data) ? (
                           <input
                             onClick={() => generatePilih(col.name)}
@@ -211,7 +273,7 @@ const InputForm = (props) => {
                             {col.type === 12 ? (
                               <input
                                 name={col.name}
-                                value={inputOut[col.name]}
+                                value={inputOut[col.name].replaceAll("Z", "")}
                                 onChange={HandleChange}
                                 type="datetime-local"
                               />
@@ -242,20 +304,24 @@ const InputForm = (props) => {
             />
           )}
 
-          <button className="button" onClick={addData}>
-            <span>SAVE</span>
-          </button>
-          {DeleteMode === 1 && (
-            <button className="button" onClick={deleteData}>
-              <span>DELETE</span>
+          <div className={classes.buttons}>
+            <button className="button" onClick={addData}>
+              <span>SAVE</span>
             </button>
-          )}
-          <button className="button" onClick={closeAddPopUp}>
-            <span>CANCEL</span>
-          </button>
+            {DeleteMode === 1 && (
+              <button className="button" onClick={deleteData}>
+                <span>DELETE</span>
+              </button>
+            )}
+            <button className="button" onClick={closeAddPopUp}>
+              <span>CANCEL</span>
+            </button>
+          </div>
         </div>
       )}
-
+      {ShowDetail === 1 && (
+        <div className="backdropinput" onClick={closeAddPopUp} />
+      )}
       <Pilih
         addOpen={addOpen}
         Table_Pilih={Table_Pilih}

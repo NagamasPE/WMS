@@ -5,6 +5,7 @@ import classes from "./css/Master.module.css";
 import { InputForm, myFunction } from "./InputForm";
 
 const Master = (props) => {
+  const ServerAddr = props.ServerAddr;
   const TableQuery = {
     recipe: {
       query:
@@ -13,7 +14,7 @@ const Master = (props) => {
     penimbangan_to: {
       query:
         "select p.*,pr.deskripsi produk,op.deskripsi operator,g.deskripsi grup from penimbangan_to p left join produk pr on p.produk_id=pr.produk_id left join grup g on p.grup_id=g.grup_id left join operator op on p.operator_id=op.operator_id",
-      config: ["filter_tanggal"],
+      config: { filter_tanggal: "waktu" },
       detailquery: {
         config: ["bisa_tambah"],
         fieldname: "penimbangan_to_detail",
@@ -28,11 +29,11 @@ const Master = (props) => {
     planning: {
       query:
         "select pr.deskripsi produk,p.* from planning p left join produk pr on p.produk_id=pr.produk_id",
-      config: ["filter_tanggal"],
+      config: { filter_tanggal: "waktu" },
     },
     material_masuk: {
       query: "select * from material_masuk ",
-      config: ["filter_tanggal"],
+      config: { filter_tanggal: "waktu" },
       detailquery: {
         fieldname: "material_masuk_detail",
         query:
@@ -49,7 +50,6 @@ const Master = (props) => {
     },
   };
 
-  const ServerAddr = "https://npeserver.herokuapp.com/";
   const defTable = { col: [{ name: "empty" }], val: [{ empty: "" }] };
 
   const [inputOut, setInputOut] = useState({ empty: "" });
@@ -64,6 +64,7 @@ const Master = (props) => {
   let selectquery = `select * from ${params.tipe}`;
   let PilihQuery;
   let detailQuery;
+  let configQuery;
   if (params.tipe in TableQuery) {
     if (TableQuery[params.tipe].query) {
       selectquery = TableQuery[params.tipe].query;
@@ -73,6 +74,9 @@ const Master = (props) => {
     }
     if (TableQuery[params.tipe].detailquery) {
       detailQuery = TableQuery[params.tipe].detailquery;
+    }
+    if (TableQuery[params.tipe].config) {
+      configQuery = TableQuery[params.tipe].config;
     }
   }
 
@@ -91,33 +95,6 @@ const Master = (props) => {
     cnt = nilai + 1;
     setNilai(cnt);
   }
-  const generateData = () => {
-    fetch(ServerAddr + "exec/" + selectquery)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data) {
-          if ("err" in data) {
-            alert(data.err);
-          } else {
-            setTable_Data(data);
-            console.log(data);
-          }
-        }
-      });
-  };
-
-  const [oldTipe, setOldTipe] = useState("");
-
-  if (oldTipe !== params.tipe) {
-    setOldTipe(params.tipe);
-    generateData();
-  }
-
-  /*if (Table_data.col) {
-    if (Table_data.col[0].name === "empty") {
-      generateData();
-    }
-  }*/
 
   return (
     <div className={classes.container}>
@@ -137,6 +114,7 @@ const Master = (props) => {
         checkColumnHasID={checkColumnHasID}
         PilihQuery={PilihQuery}
         detailQuery={detailQuery}
+        configQuery={configQuery}
       />
     </div>
   );

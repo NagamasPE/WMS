@@ -7,7 +7,7 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import MenuIcon from "@material-ui/icons/Menu";
 import Login from "../Login";
 
-function Sidebar() {
+function Sidebar(props) {
   const [open, openMenu] = useState(false);
   const toggleSide = () => {
     openMenu(!open);
@@ -48,6 +48,7 @@ function Sidebar() {
           setShowlogin={setShowlogin}
           loginusername={loginusername}
           setLoginUsername={setLoginUsername}
+          ServerAddr={props.ServerAddr}
         />
       </div>
 

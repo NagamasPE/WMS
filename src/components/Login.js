@@ -1,11 +1,9 @@
 import "./css/Login.css";
 import { useState } from "react";
-import Backdrop from "./Backdrop";
-
 const Login = (props) => {
   var showlogin = props.showlogin;
   var setShowlogin = props.setShowlogin;
-
+  const ServerAddr = props.ServerAddr;
   var setLoginUsername = props.setLoginUsername;
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -16,10 +14,20 @@ const Login = (props) => {
     setPassword(event.target.value);
   }
   function clickOK(event) {
-    setLoginUsername(username);
-    setUsername("");
-    setPassword("");
-    setShowlogin(false);
+    let data = { username: username, password: password };
+
+    fetch(ServerAddr + "/login", { method: "POST", body: JSON.stringify(data) })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.error) {
+          alert(data.error);
+        } else {
+          setLoginUsername(username);
+          setUsername("");
+          setPassword("");
+          setShowlogin(false);
+        }
+      });
   }
   return (
     <>
@@ -43,12 +51,12 @@ const Login = (props) => {
               />
             </div>
             <button className="button" onClick={clickOK}>
-              <span>Login</span>
+              <span>OK</span>
             </button>
           </div>
+          <div className="backdroplogin" />
         </>
       )}
-      {showlogin && <Backdrop close={clickOK} />}
     </>
   );
 };

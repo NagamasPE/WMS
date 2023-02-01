@@ -8,15 +8,20 @@ const socket = io.connect("https://npeserver.herokuapp.com/");
 /*const socket = io.connect("http://" + config.ip_address + ":3001");*/
 
 function App() {
+  const ServerAddr = "https://npeserver.herokuapp.com";
+  
   return (
     <div className="App">
       <div>
-        <Sidebar />
+        <Sidebar ServerAddr={ServerAddr} />
       </div>
       <div className="App container">
         <div className=" App container main">
           <Routes basename="/wms_client">
-            <Route path="/master/:tipe" element={<Master />} />
+            <Route
+              path="/master/:tipe"
+              element={<Master ServerAddr={ServerAddr} />}
+            />
             <Route path="/main" element={<Main />} />
             <Route path="/input" element={<Input />} />
           </Routes>
