@@ -5,9 +5,9 @@ import { SidebarData2 } from "./SidebarData2";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import MenuIcon from "@material-ui/icons/Menu";
-import Login from "../Login";
 
 function Sidebar(props) {
+  var setShowlogin = props.setShowlogin;
   const [open, openMenu] = useState(false);
   const toggleSide = () => {
     openMenu(!open);
@@ -21,8 +21,6 @@ function Sidebar(props) {
     setDropdowns(newDropdowns);
   };
 
-  const [loginusername, setLoginUsername] = useState(true);
-  const [showlogin, setShowlogin] = useState(true);
   function clickLogin(event) {
     setShowlogin(true);
   }
@@ -43,13 +41,6 @@ function Sidebar(props) {
         <div style={{ display: open ? "flex" : "none" }} onClick={clickLogin}>
           <ExitToAppIcon />
         </div>
-        <Login
-          showlogin={showlogin}
-          setShowlogin={setShowlogin}
-          loginusername={loginusername}
-          setLoginUsername={setLoginUsername}
-          ServerAddr={props.ServerAddr}
-        />
       </div>
 
       {SidebarData2.map((val, index) => {

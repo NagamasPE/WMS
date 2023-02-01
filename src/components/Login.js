@@ -33,26 +33,36 @@ const Login = (props) => {
     <>
       {showlogin && (
         <>
-          <div className="FormLogin">
-            <div>Username : </div>{" "}
-            <div>
-              <input
-                name="LoginUsername"
-                value={username}
-                onChange={HandleChangeUsername}
-              />
+          <div className="animation">
+            <div className="FormLogin">
+              <h3>LOGIN</h3>
+              <p>Enter Your Username & Password</p>
+              <div className="inputBox">
+                <input
+                  name="LoginUsername"
+                  value={username}
+                  onChange={HandleChangeUsername}
+                  required="required"
+                  autoComplete="off"
+                />
+                <span>Username</span>
+                <i></i>
+              </div>
+              <div className="inputBox">
+                <input
+                  name="LoginPassword"
+                  value={password}
+                  onChange={HandleChangePassword}
+                  type="password"
+                  required="required"
+                />
+                <span>Password</span>
+                <i></i>
+              </div>
+              <button className="buttonLogin" onClick={clickOK}>
+                <span>Login</span>
+              </button>
             </div>
-            <div>Password : </div>{" "}
-            <div>
-              <input
-                name="LoginPassword"
-                value={password}
-                onChange={HandleChangePassword}
-              />
-            </div>
-            <button className="button" onClick={clickOK}>
-              <span>OK</span>
-            </button>
           </div>
           <div className="backdroplogin" />
         </>
