@@ -8,7 +8,9 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 function Sidebar(props) {
   var setShowlogin = props.setShowlogin;
-  const [open, openMenu] = useState(false);
+  const open = props.open;
+  const openMenu = props.openMenu;
+  
   const toggleSide = () => {
     openMenu(!open);
   };
