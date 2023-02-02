@@ -1,4 +1,4 @@
-import "./css/Login.css";
+import classes from "./css/Login.module.css";
 import { useState } from "react";
 const Login = (props) => {
   var showlogin = props.showlogin;
@@ -33,11 +33,11 @@ const Login = (props) => {
     <>
       {showlogin && (
         <>
-          <div className="animation">
-            <div className="FormLogin">
+          <div className={classes.animation}>
+            <div className={classes.formLogin}>
               <h3>LOGIN</h3>
               <p>Enter Your Username & Password</p>
-              <div className="inputBox">
+              <div className={classes.inputBox}>
                 <input
                   name="LoginUsername"
                   value={username}
@@ -48,7 +48,7 @@ const Login = (props) => {
                 <span>Username</span>
                 <i></i>
               </div>
-              <div className="inputBox">
+              <div className={classes.inputBox}>
                 <input
                   name="LoginPassword"
                   value={password}
@@ -59,12 +59,12 @@ const Login = (props) => {
                 <span>Password</span>
                 <i></i>
               </div>
-              <button className="buttonLogin" onClick={clickOK}>
+              <button className={classes.buttonLogin} onClick={clickOK}>
                 <span>Login</span>
               </button>
             </div>
           </div>
-          <div className="backdroplogin" />
+          <div className={classes.backdroplogin} />
         </>
       )}
     </>

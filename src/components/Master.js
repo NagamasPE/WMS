@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { React, useState } from "react";
 import { useParams } from "react-router-dom";
 import classes from "./css/Master.module.css";
 
@@ -96,27 +96,54 @@ const Master = (props) => {
     setNilai(cnt);
   }
 
+  const [loading, fetching] = useState(false);
+  const [close, setClose] = useState(false);
+  const [prevClose, setPrevClose] = useState(false);
+  function winClicked() {
+    if (!prevClose) {
+      setClose(true);
+      setPrevClose(true); 
+    }else{
+      setPrevClose(false); 
+    }
+  }
+
+  //console.log(close);
   return (
-    <div className={classes.container}>
-      <InputForm
-        ServerAddr={ServerAddr}
-        Table_data={Table_data}
-        setTable_Data={setTable_Data}
-        Table_detail={Table_detail}
-        setTable_Detail={setTable_Detail}
-        ShowDetail={ShowDetail}
-        setShowDetail={setShowDetail}
-        inputOut={inputOut}
-        setInputOut={setInputOut}
-        TriggerRender={TriggerRender}
-        tipe={params.tipe}
-        selectquery={selectquery}
-        checkColumnHasID={checkColumnHasID}
-        PilihQuery={PilihQuery}
-        detailQuery={detailQuery}
-        configQuery={configQuery}
-      />
-    </div>
+    <>
+      {close}
+      <div className={classes.main}>
+        <div
+          className={classes.loading}
+          style={{ display: loading ? "grid" : "none" }}
+        ></div>
+        <div
+          className={classes.container}
+          style={{ display: loading ? "none" : "flex" }}
+          onClick={winClicked}
+        >
+          <InputForm
+            ServerAddr={ServerAddr}
+            Table_data={Table_data}
+            setTable_Data={setTable_Data}
+            Table_detail={Table_detail}
+            setTable_Detail={setTable_Detail}
+            ShowDetail={ShowDetail}
+            setShowDetail={setShowDetail}
+            inputOut={inputOut}
+            setInputOut={setInputOut}
+            TriggerRender={TriggerRender}
+            tipe={params.tipe}
+            selectquery={selectquery}
+            checkColumnHasID={checkColumnHasID}
+            PilihQuery={PilihQuery}
+            detailQuery={detailQuery}
+            configQuery={configQuery}
+            fetching={fetching}
+          />
+        </div>
+      </div>
+    </>
   );
 };
 

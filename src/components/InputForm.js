@@ -39,8 +39,10 @@ const InputForm = (props) => {
 
   let string = `${tipe}`;
   string = string.replace("_", " ");
+  var fetching = props.fetching;
 
   const generateData = () => {
+    fetching(true);
     fetch(ServerAddr + "/exec/" + selectquery)
       .then((response) => response.json())
       .then((data) => {
@@ -49,6 +51,7 @@ const InputForm = (props) => {
             alert(data.err);
           } else {
             setTable_Data(data);
+            fetching(false);
           }
         }
       });
@@ -81,6 +84,7 @@ const InputForm = (props) => {
                   alert(data.err);
                 } else {
                   setTable_Detail(data);
+                 
                 }
               }
             });
@@ -98,7 +102,7 @@ const InputForm = (props) => {
     Table_data.col.forEach((colname) => {
       input1[colname.name] = "";
     });
-
+    
     setInputOut(input1);
     setDeleteMode(0);
     showAddPopUp();
@@ -247,9 +251,9 @@ const InputForm = (props) => {
         )}
       </>
 
-      {ShowDetail === 1 && <Backdrop cancel={closeAddPopUp} />}
+      {ShowDetail === 1 && <Backdrop close={closeAddPopUp} />}
 
-      {ShowDetail === 1 && (
+      {ShowDetail === 1 && (                          
         <div className={classes.modal}>
           <table>
             <tbody>

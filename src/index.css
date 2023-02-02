@@ -1,10 +1,11 @@
 :root {
-  --header-color: rgb(27, 33, 51);
-  --hover-header: rgb(12, 18, 36);
+  /* --header-color: rgb(27, 33, 51); */
+  --header-color: rgb(18, 19, 20);
+  /* --hover-header: rgb(12, 18, 36); */
+  --hover-header: rgb(55, 55, 56);
   --body-backgroud: rgb(228, 236, 247);
   --content-background: rgba(242, 246, 253, 0.681);
   --popup-background: rgb(254, 246, 255);
-  /* --content-background: yellow; */
   --light-text: rgb(255, 255, 255);
   --dark-text: rgb(63, 72, 101);
   --shadow-color: rgba(0, 0, 0, 0.15);
@@ -41,7 +42,6 @@ body {
     left: 0;
     z-index: -10;
     overflow-y: scroll;
-    overflow-x: hidden;
   }
 
   .App::-webkit-scrollbar {
@@ -61,26 +61,28 @@ body {
     max-width: 100vw;
     min-height: 100vh;
     padding: 0;
+    /* background-color: aqua; */
+    z-index: -1;
   }
-  .App .container .main {
+  .App .container #main {
     width: calc(100vw - 68px);
-    /* position: fixed;*/
-    flex: 90%;
-    top: 0;
-    left: 48px;
-    margin: 10px;
+    height: 95%;
+    margin: 10px 10px 0px 58px;
+    /* border-color: magenta; */
+    z-index: 0;
   }
-  .App .container .foot {
+  .App .container #foot {
     width: calc(100vw - 68px);
-    /* position: fixed;*/
-    flex: 10%;
-    top: 700px;
-    left: 48px;
-    margin-left: 10px;
+    height: 5%;
+    margin-left: 58px;
     /* background-color: yellow; */
     font-size: 12px;
     text-align: center;
     align-items: center;
+  }
+
+  .App .container #foot span {
+    font-weight: bold;
   }
 }
 
@@ -133,7 +135,7 @@ h2 {
   text-align: center;
   width: 100%;
   min-width: 400px;
-  border-radius: 15px 15px 0 0;
+  border-radius: 10px 10px 0 0;
   overflow: hidden;
   box-shadow: 0 0 20px var(--shadow);
 }
@@ -245,17 +247,12 @@ h2 {
   position: fixed;
   z-index: 1;
   background-color: rgb(0, 0, 0, 0.75);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   width: 100%;
   height: 100vh;
   top: 0;
   left: 0;
-}
-
-footer {
-  color: black;
-  background-color: yellow;
-  text-align: center;
-  font-size: 12px;
 }
 /* On screens that are 992px wide or less, go from four columns to two columns
 @media screen and (max-width: 992px) {

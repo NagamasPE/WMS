@@ -66,7 +66,7 @@ export const SidebarData2 = [
         link: "/master/planning",
       },
       {
-        title: "Enter Material",
+        title: "Incoming Material",
         icon: <AddShoppingCart />,
         link: "/master/material_masuk",
       },
