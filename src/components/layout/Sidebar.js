@@ -25,6 +25,13 @@ function Sidebar(props) {
     setShowlogin(true);
   }
 
+  function closeMenu() {
+    if (props.close) {
+      openMenu(false);
+    }
+  }
+  closeMenu();
+
   return (
     <div style={{ width: open ? "200px" : "48px" }} className={classes.sidebar}>
       <div className={classes.menu} onClick={toggleSide}>
@@ -76,9 +83,11 @@ function Sidebar(props) {
 
             {val.childrens &&
               val.childrens.map((child, subIndex) => {
-                console.log(
+                {
+                  /*console.log(
                   `Key for ${child.title} is ${val.title}-${subIndex}`
-                );
+                );*/
+                }
                 return (
                   <Link
                     key={`${child.title}-${subIndex}`}
