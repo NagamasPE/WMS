@@ -10,7 +10,7 @@ function Sidebar(props) {
   var setShowlogin = props.setShowlogin;
   const open = props.open;
   const openMenu = props.openMenu;
-  
+
   const toggleSide = () => {
     openMenu(!open);
   };
@@ -62,10 +62,13 @@ function Sidebar(props) {
               className={classes.row}
               style={{ display: open ? "grid" : "flex" }}
             >
-              <div id={classes.icon}>{val.icon}</div>
+              <div id={classes.icon} onClick={() => toggleDrop(index)}>
+                {val.icon}
+              </div>
               <div
                 style={{ display: open ? "flex" : "none" }}
                 id={classes.title}
+                onClick={() => toggleDrop(index)}
               >
                 {val.title}
               </div>
