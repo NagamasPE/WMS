@@ -12,20 +12,24 @@ const socket = io.connect("https://npeserver.herokuapp.com/");
 
 function App() {
   const ServerAddr = "https://npeserver.herokuapp.com";
-
+  const [open, openMenu] = useState(false);
   const [loginusername, setLoginUsername] = useState(true);
   const [showlogin, setShowlogin] = useState(true);
 
-
+  function HandleClick(e) {
+    openMenu(false);
+  }
   return (
     <>
       <div className="App">
         <div>
           <Sidebar
-            setShowlogin={setShowlogin}    
+            setShowlogin={setShowlogin}   
+            open={open} 
+            openMenu={openMenu}  
           />
         </div>
-        <div className="App container">
+        <div className="App container" onClick={HandleClick}>
           <div id="main">
             <Routes basename="/wms_client">
               <Route
