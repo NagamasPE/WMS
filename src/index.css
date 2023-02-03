@@ -65,20 +65,23 @@ body {
     z-index: -1;
   }
   .App .container #main {
-    width: calc(100vw - 68px);
-    height: 95%;
-    margin: 10px 10px 0px 58px;
-    /* border-color: magenta; */
+    width: 95vw;
+    height: 95vh;
+    margin: 1vh 10px 0px 4vw;
+    /* background-color: magenta; */
     z-index: 0;
   }
   .App .container #foot {
-    width: calc(100vw - 68px);
-    height: 5%;
-    margin-left: 58px;
+    display: flex;
+    position: relative;
+    width: 95vw;
+    height: 4vh;
+    margin-left: 4vw;
     /* background-color: yellow; */
-    font-size: 0.75rem;
+    font-size: 0.9vw;
     text-align: center;
     align-items: center;
+    justify-content: center;
   }
 
   .App .container #foot span {
@@ -86,7 +89,7 @@ body {
   }
 }
 
-@media (max-width: 500px) {
+/* @media (max-width: 500px) {
   .App {
     height: 100%;
     left: 0;
@@ -112,7 +115,7 @@ body {
     left: 48px;
     margin: 10px;
   }
-}
+} */
 
 h2 {
   text-align: center;
@@ -129,15 +132,14 @@ h2 {
 
 .table {
   border-collapse: collapse;
-  border-radius: 10px;
-  margin: 20px 0;
-  font-size: 0.75rem;
+  margin-top: 3vh;
+  font-size: 0.7vw;
   text-align: center;
   width: 100%;
-  min-width: 400px;
-  border-radius: 10px 10px 0 0;
+  min-width: 50vw;
+  border-radius: 0.9vw 0.9vw 0 0;
   overflow: hidden;
-  box-shadow: 0 0 20px var(--shadow);
+  /* box-shadow: 0 0 20px var(--shadow); */
 }
 
 .table thead tr {
@@ -149,11 +151,11 @@ h2 {
 
 .table th,
 .table td {
-  padding: 12px 15px;
+  padding: 0.75vw 0.75vw;
 }
 
 .table tbody tr {
-  border-bottom: 1px solid var(--border);
+  border-bottom: 0.1vw solid var(--border);
 }
 
 .table tbody tr:nth-of-type(even) {
@@ -165,7 +167,7 @@ h2 {
 }
 
 .table tbody tr:last-of-type {
-  border-bottom: 2px solid var(--header-color);
+  border-bottom: 0.2vw solid var(--header-color);
 }
 
 .table tbody tr:hover {
@@ -175,18 +177,18 @@ h2 {
 
 .button {
   background-color: #8d99ae;
-  border: 2px solid #2b2d42;
-  border-radius: 8px;
+  border: 0.15vw solid #2b2d42;
+  border-radius: 0.5vw;
   /* box-shadow: 0 5px #999; */
   color: #2b2d42;
   cursor: pointer;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  padding: 10px 20px;
+  font-size: 1vw;
+  margin: 1vw 1vw;
+  padding: 0.5vw 1.25vw;
   text-align: center;
   text-decoration: none;
-  transition-duration: 0.4s;
+  transition-duration: 0.5s;
   /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
@@ -213,7 +215,7 @@ h2 {
 }
 
 .button:hover span {
-  padding-right: 25px;
+  padding-right: 1.25vw;
 }
 
 .button:hover span:after {

@@ -150,7 +150,8 @@
   /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
-.buttonLogin:hover {
+.buttonLogin:hover,
+.buttonLogin:focus {
   background-color: var(--main-menu);
   color: #edf2f4;
 }
@@ -172,11 +173,13 @@
   transition: 0.5s;
 }
 
-.buttonLogin:hover span {
+.buttonLogin:hover span,
+.buttonLogin:focus span {
   padding-right: 25px;
 }
 
-.buttonLogin:hover span:after {
+.buttonLogin:hover span:after,
+.buttonLogin:focus span:after {
   opacity: 1;
   right: 0;
 }

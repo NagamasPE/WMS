@@ -84,7 +84,6 @@ const InputForm = (props) => {
                   alert(data.err);
                 } else {
                   setTable_Detail(data);
-                 
                 }
               }
             });
@@ -102,7 +101,7 @@ const InputForm = (props) => {
     Table_data.col.forEach((colname) => {
       input1[colname.name] = "";
     });
-    
+
     setInputOut(input1);
     setDeleteMode(0);
     showAddPopUp();
@@ -230,7 +229,7 @@ const InputForm = (props) => {
                   name="tabledari"
                   type="date"
                   value={waktuDari}
-                  onChange={HandleChangeDari}
+                  onChange={HandleChangeDari}            
                 />
                 S/D
                 <input
@@ -253,7 +252,7 @@ const InputForm = (props) => {
 
       {ShowDetail === 1 && <Backdrop close={closeAddPopUp} />}
 
-      {ShowDetail === 1 && (                          
+      {ShowDetail === 1 && (
         <div className={classes.modal}>
           <table>
             <tbody>
