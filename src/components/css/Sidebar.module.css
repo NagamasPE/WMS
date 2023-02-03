@@ -6,15 +6,20 @@
   color: white;
   margin: 0;
   padding: 0;
-  top: 50%;
+  position: fixed;
   top: 0;
   left: 50;
   transition: 1s;
+  overflow: scroll;
+  z-index: 10;
+}
+.sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 .row {
   width: 100%;
-  height: 50px;
+  height: 6vh;
   list-style: none;
   margin: 0;
   display: grid;
@@ -29,9 +34,9 @@
 
 .subRow {
   width: auto;
-  height: 30px;
+  height: 4vh;
   list-style: none;
-  padding-left: 20px;
+  padding-left: 1.5vw;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -59,6 +64,7 @@
   grid-area: title;
   align-items: center;
   justify-content: left;
+  font-size: 1.2vw;
 }
 
 .row #arrow {
@@ -83,6 +89,7 @@
   flex: 69%;
   display: grid;
   place-items: center;
+  font-size: 1vw;
 }
 
 /* Tooltip text */
@@ -102,49 +109,56 @@
   z-index: 10;
   top: -5px;
   left: 105%;
+  /* opacity: 0;
+  transition: 1s ease-in-out; */
 }
 
 .row:hover .tooltiptext,
 .subRow:hover .tooltiptext {
   visibility: visible;
+  /* opacity: 1; */
 }
 
 .user {
   display: flex;
   flex-direction: row;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 2vh;
+  padding-bottom: 3vh;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
 }
 
 .user #pict {
-  flex-basis: 47px;
+  flex-basis: 3vw;
   display: grid;
   place-items: center;
   transition: 0.5s;
+  font-size: 2vw;
 }
 
 .user #name {
   flex: 1;
   display: grid;
   place-items: center;
+  font-size: 1.3vw;
 }
 
 .user #login {
-  flex: 47px;
+  flex: 3vw;
   display: grid;
   place-items: center;
 }
 
-.menu {
-  width: 48px;
-  margin-top: 10px;
+.sidebar .menu {
+  width: 100%;
+  margin-top: 2vh;
   display: flex;
-  align-items: center;
   justify-content: center;
   color: white;
+}
+
+.icon {
+  font-size: 2vw;
 }
 
 .dropdown-container {
