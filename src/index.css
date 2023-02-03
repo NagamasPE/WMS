@@ -76,7 +76,7 @@ body {
     height: 5%;
     margin-left: 58px;
     /* background-color: yellow; */
-    font-size: 12px;
+    font-size: 0.75rem;
     text-align: center;
     align-items: center;
   }
@@ -117,7 +117,7 @@ body {
 h2 {
   text-align: center;
   color: var(--dark-text);
-  font-size: 15px;
+  font-size: 1.5rem;
 }
 
 .gaugeInfoLabel {
@@ -131,7 +131,7 @@ h2 {
   border-collapse: collapse;
   border-radius: 10px;
   margin: 20px 0;
-  font-size: 0.8em;
+  font-size: 0.75rem;
   text-align: center;
   width: 100%;
   min-width: 400px;

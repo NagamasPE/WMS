@@ -64,6 +64,7 @@ function Sidebar(props) {
             >
               <div id={classes.icon} onClick={() => toggleDrop(index)}>
                 {val.icon}
+                <span className={classes.tooltiptext}>{val.title}</span>
               </div>
               <div
                 style={{ display: open ? "flex" : "none" }}
@@ -103,7 +104,10 @@ function Sidebar(props) {
                       display: dropdowns[index].drop ? "flex" : "none",
                     }}
                   >
-                    <div id={classes.icon}>{child.icon}</div>
+                    <div id={classes.icon}>
+                      {child.icon}
+                      <span className={classes.tooltiptext}>{child.title}</span>
+                    </div>
                     <div
                       style={{ display: open ? "block" : "none" }}
                       id={classes.title}

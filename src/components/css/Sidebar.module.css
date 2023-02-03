@@ -7,10 +7,8 @@
   margin: 0;
   padding: 0;
   top: 50%;
+  top: 0;
   left: 50;
-  overflow: hidden;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
   transition: 1s;
 }
 
@@ -24,7 +22,8 @@
   grid-template-areas: "logo title arrow";
   color: rgb(239, 35, 60);
   text-decoration: none;
-  font-size: 16px;
+  font-size: 1rem;
+  position: relative;
   transition: 1s;
 }
 
@@ -39,7 +38,8 @@
   align-items: center;
   color: rgb(255, 255, 255);
   text-decoration: none;
-  font-size: 12px;
+  font-size: 0.75rem;
+  position: relative;
 }
 
 .row:hover {
@@ -85,6 +85,30 @@
   place-items: center;
 }
 
+/* Tooltip text */
+.row .tooltiptext,
+.subRow .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  font-size: 0.8rem;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 10;
+  top: -5px;
+  left: 105%;
+}
+
+.row:hover .tooltiptext,
+.subRow:hover .tooltiptext {
+  visibility: visible;
+}
+
 .user {
   display: flex;
   flex-direction: row;
@@ -92,7 +116,7 @@
   padding-bottom: 20px;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 1rem;
 }
 
 .user #pict {
