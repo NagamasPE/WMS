@@ -18,61 +18,61 @@ import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 export const SidebarData2 = [
   {
     title: "Dashboard",
-    icon: <DashboardIcon />,
+    icon: <DashboardIcon style={{ fontSize: "1.75vw" }} />,
     link: "/main",
   },
   {
     title: "Master",
-    icon: <StorageIcon />,
-    arrow: <KeyboardArrowDownIcon />,
+    icon: <StorageIcon style={{ fontSize: "1.75vw" }} />,
+    arrow: <KeyboardArrowDownIcon style={{ fontSize: "1.75vw" }} />,
     link: "#",
     childrens: [
       {
         title: "Operator",
-        icon: <AssignmentIndIcon />,
+        icon: <AssignmentIndIcon style={{ fontSize: "1.75vw" }} />,
         link: "/master/operator",
       },
       {
         title: "Product",
-        icon: <GolfCourseIcon />,
+        icon: <GolfCourseIcon style={{ fontSize: "1.75vw" }} />,
         link: "/master/produk",
       },
       {
         title: "Material",
-        icon: <LocalGroceryStoreIcon />,
+        icon: <LocalGroceryStoreIcon style={{ fontSize: "1.75vw" }} />,
         link: "/master/material",
       },
       {
         title: "Recipe",
-        icon: <DonutSmallIcon />,
+        icon: <DonutSmallIcon style={{ fontSize: "1.75vw" }} />,
         link: "/master/recipe",
       },
       {
         title: "Group",
-        icon: <CategoryIcon />,
+        icon: <CategoryIcon style={{ fontSize: "1.75vw" }} />,
         link: "/master/grup",
       },
     ],
   },
   {
     title: "Transaction",
-    icon: <ImportExportIcon />,
-    arrow: <KeyboardArrowDownIcon />,
+    icon: <ImportExportIcon style={{ fontSize: "1.75vw" }} />,
+    arrow: <KeyboardArrowDownIcon style={{ fontSize: "1.75vw" }} />,
     link: "#",
     childrens: [
       {
         title: "Planning",
-        icon: <TrackChangesIcon />,
+        icon: <TrackChangesIcon style={{ fontSize: "1.75vw" }} />,
         link: "/master/planning",
       },
       {
         title: "Incoming Material",
-        icon: <AddShoppingCart />,
+        icon: <AddShoppingCart style={{ fontSize: "1.75vw" }} />,
         link: "/master/material_masuk",
       },
       {
         title: "Weighing",
-        icon: <EqualizerIcon />,
+        icon: <EqualizerIcon style={{ fontSize: "1.75vw" }} />,
         link: "/master/penimbangan_to",
       },
     ],

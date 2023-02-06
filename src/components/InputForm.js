@@ -84,7 +84,6 @@ const InputForm = (props) => {
                   alert(data.err);
                 } else {
                   setTable_Detail(data);
-                 
                 }
               }
             });
@@ -102,7 +101,7 @@ const InputForm = (props) => {
     Table_data.col.forEach((colname) => {
       input1[colname.name] = "";
     });
-    
+
     setInputOut(input1);
     setDeleteMode(0);
     showAddPopUp();
@@ -241,19 +240,21 @@ const InputForm = (props) => {
                 />
               </div>
             )}
-
-            <Table Table_data={Table_data} HandleClick={HandleClick} />
-
-            <button className="button" onClick={HandleTambah}>
-              <span>ADD NEW</span>
-            </button>
+            <div className={tables.viewTab}>
+              <Table Table_data={Table_data} HandleClick={HandleClick} />
+            </div>
+            <div>
+              <button className="button" onClick={HandleTambah}>
+                <span>ADD NEW</span>
+              </button>
+            </div>
           </div>
         )}
       </>
 
       {ShowDetail === 1 && <Backdrop close={closeAddPopUp} />}
 
-      {ShowDetail === 1 && (                          
+      {ShowDetail === 1 && (
         <div className={classes.modal}>
           <table>
             <tbody>

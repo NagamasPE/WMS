@@ -10,7 +10,7 @@ function Sidebar(props) {
   var setShowlogin = props.setShowlogin;
   const open = props.open;
   const openMenu = props.openMenu;
-  
+
   const toggleSide = () => {
     openMenu(!open);
   };
@@ -35,20 +35,24 @@ function Sidebar(props) {
   closeMenu();
 
   return (
-    <div style={{ width: open ? "200px" : "48px" }} className={classes.sidebar}>
-      <div className={classes.menu} onClick={toggleSide}>
-        <MenuIcon />
+    <div style={{ width: open ? "14vw" : "3vw" }} className={classes.sidebar}>
+      <div
+        className={classes.menu}
+        onClick={toggleSide}
+        style={{ justifyContent: open ? "right" : "center" }}
+      >
+        <MenuIcon style={{ fontSize: "1.75vw" }} />
       </div>
 
       <div className={classes.user}>
         <div id={classes.pict}>
-          <AccountBoxIcon style={{ fontSize: open ? "40px" : "26px" }} />
+          <AccountBoxIcon style={{ fontSize: open ? "3vw" : "2vw" }} />
         </div>
         <div style={{ display: open ? "block" : "none" }} id={classes.name}>
           Username 1234
         </div>
         <div style={{ display: open ? "flex" : "none" }} onClick={clickLogin}>
-          <ExitToAppIcon />
+          <ExitToAppIcon style={{ fontSize: "1.5vw" }} />
         </div>
       </div>
 
@@ -62,10 +66,14 @@ function Sidebar(props) {
               className={classes.row}
               style={{ display: open ? "grid" : "flex" }}
             >
-              <div id={classes.icon}>{val.icon}</div>
+              <div id={classes.icon} onClick={() => toggleDrop(index)}>
+                {val.icon}
+                <span className={classes.tooltiptext}>{val.title}</span>
+              </div>
               <div
                 style={{ display: open ? "flex" : "none" }}
                 id={classes.title}
+                onClick={() => toggleDrop(index)}
               >
                 {val.title}
               </div>
@@ -96,11 +104,14 @@ function Sidebar(props) {
                     to={child.link}
                     className={classes.subRow}
                     style={{
-                      paddingLeft: open ? "20px" : "0",
+                      paddingLeft: open ? "1.5vw" : "0",
                       display: dropdowns[index].drop ? "flex" : "none",
                     }}
                   >
-                    <div id={classes.icon}>{child.icon}</div>
+                    <div id={classes.icon}>
+                      {child.icon}
+                      <span className={classes.tooltiptext}>{child.title}</span>
+                    </div>
                     <div
                       style={{ display: open ? "block" : "none" }}
                       id={classes.title}

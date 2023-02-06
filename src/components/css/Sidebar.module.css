@@ -1,22 +1,25 @@
 .sidebar {
   height: 100%;
   min-height: 100vh;
-  width: 48px; /*kebuka 200px*/
+  width: 3vw; /*kebuka 200px*/
   background-color: var(--header-color);
   color: white;
   margin: 0;
   padding: 0;
-  top: 50%;
+  position: fixed;
+  top: 0;
   left: 50;
-  overflow: hidden;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
   transition: 1s;
+  overflow: scroll;
+  z-index: 10;
+}
+.sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 .row {
   width: 100%;
-  height: 50px;
+  height: 5.25vh;
   list-style: none;
   margin: 0;
   display: grid;
@@ -24,22 +27,22 @@
   grid-template-areas: "logo title arrow";
   color: rgb(239, 35, 60);
   text-decoration: none;
-  font-size: 16px;
+  position: relative;
   transition: 1s;
 }
 
 .subRow {
   width: auto;
-  height: 30px;
+  height: 3.5vh;
   list-style: none;
-  padding-left: 20px;
+  padding-left: 1.2vw;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   color: rgb(255, 255, 255);
   text-decoration: none;
-  font-size: 12px;
+  position: relative;
 }
 
 .row:hover {
@@ -59,6 +62,7 @@
   grid-area: title;
   align-items: center;
   justify-content: left;
+  font-size: 1vw;
 }
 
 .row #arrow {
@@ -83,44 +87,76 @@
   flex: 69%;
   display: grid;
   place-items: center;
+  font-size: 0.8vw;
+}
+
+/* Tooltip text */
+.row .tooltiptext,
+.subRow .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  font-size: 0.8rem;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  left: 105%;
+  /* opacity: 0;
+  transition: 1s ease-in-out; */
+}
+
+.row:hover .tooltiptext,
+.subRow:hover .tooltiptext {
+  visibility: visible;
+  /* opacity: 1; */
 }
 
 .user {
   display: flex;
   flex-direction: row;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 2vh;
+  padding-bottom: 3vh;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
 }
 
 .user #pict {
-  flex-basis: 47px;
+  flex-basis: 3vw;
   display: grid;
   place-items: center;
   transition: 0.5s;
+  font-size: 2vw;
 }
 
 .user #name {
   flex: 1;
   display: grid;
   place-items: center;
+  font-size: 1.2vw;
 }
 
 .user #login {
-  flex: 47px;
+  flex: 3vw;
   display: grid;
   place-items: center;
 }
 
-.menu {
-  width: 48px;
-  margin-top: 10px;
+.sidebar .menu {
+  width: 100%;
+  margin-top: 2vh;
   display: flex;
-  align-items: center;
   justify-content: center;
   color: white;
+}
+
+.icon {
+  font-size: 2vw;
 }
 
 .dropdown-container {
