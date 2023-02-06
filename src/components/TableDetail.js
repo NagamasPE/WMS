@@ -1,5 +1,5 @@
 
-
+import classes from "./css/Popup.module.css";
 const TableDetail = (props) => {
     
     var detailTextbox = props.detailQuery.textbox;
@@ -38,6 +38,7 @@ const TableDetail = (props) => {
     }
 return (
     <>{Table_detail && Table_detail.col && Table_detail.col[0].name!=='empty' &&
+    <div className={classes.modaldetail}>
     <table className="table">
         <thead>
         <tr><th>NO</th>
@@ -89,7 +90,12 @@ return (
             </tr>
         ))}
         </tbody>
-    </table>}{detailConfig && detailConfig.includes("bisa_tambah")&&
+    </table>
+    </div>
+    
+
+    }
+    {detailConfig && detailConfig.includes("bisa_tambah")&&
         <div>
             <button className="button" onClick={AddNewRow}>
                 <span>ADD NEW ROW</span>

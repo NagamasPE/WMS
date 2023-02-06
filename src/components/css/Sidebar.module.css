@@ -78,16 +78,19 @@
 }
 
 .subRow #icon {
-  flex: 31%;
+  /* flex: 31%; */
   display: grid;
   place-items: center;
 }
 
 .subRow #title {
-  flex: 69%;
+  /* flex: 69%; */
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 200px;
   display: grid;
-  place-items: center;
-  font-size: 0.8vw;
+  /* place-items: center; */
+  font-size: 1vw;
 }
 
 /* Tooltip text */
