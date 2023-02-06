@@ -229,7 +229,7 @@ const InputForm = (props) => {
                   name="tabledari"
                   type="date"
                   value={waktuDari}
-                  onChange={HandleChangeDari}            
+                  onChange={HandleChangeDari}
                 />
                 S/D
                 <input
@@ -240,12 +240,14 @@ const InputForm = (props) => {
                 />
               </div>
             )}
-
-            <Table Table_data={Table_data} HandleClick={HandleClick} />
-
-            <button className="button" onClick={HandleTambah}>
-              <span>ADD NEW</span>
-            </button>
+            <div className={tables.viewTab}>
+              <Table Table_data={Table_data} HandleClick={HandleClick} />
+            </div>
+            <div>
+              <button className="button" onClick={HandleTambah}>
+                <span>ADD NEW</span>
+              </button>
+            </div>
           </div>
         )}
       </>

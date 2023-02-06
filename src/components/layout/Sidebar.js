@@ -35,13 +35,13 @@ function Sidebar(props) {
   closeMenu();
 
   return (
-    <div style={{ width: open ? "15vw" : "3vw" }} className={classes.sidebar}>
+    <div style={{ width: open ? "14vw" : "3vw" }} className={classes.sidebar}>
       <div
         className={classes.menu}
         onClick={toggleSide}
         style={{ justifyContent: open ? "right" : "center" }}
       >
-        <MenuIcon style={{ fontSize: "2vw" }} />
+        <MenuIcon style={{ fontSize: "1.75vw" }} />
       </div>
 
       <div className={classes.user}>
