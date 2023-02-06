@@ -14,6 +14,15 @@
   align-items: center;
 }
 
+.tabTitle {
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  font-size: 2vw;
+}
+
 .tabsContainer {
   width: 100%;
   margin: 0;
@@ -24,7 +33,24 @@
   overflow: hidden;
 }
 
-.tabsContainer .viewTab{
+.tabsContainer .filter {
+  display: grid;
+  width: 65%;
+  grid-template-columns: 0.25fr 1fr 0.25fr 1fr;
+  text-align: center;
+  align-items: center;
+  font-size: 1vw;
+  font-weight: bold;
+  margin: 2vh 0 3vh 0;
+}
+
+.tabsContainer .filter input {
+  font-size: 1vw;
+  border-width: 0.15vw;
+  border-radius: 0.25vw;
+}
+
+.tabsContainer .viewTab {
   width: 100%;
   overflow-y: scroll;
   /* background-color: yellow; */
@@ -34,30 +60,4 @@
 
 .tabsContainer .viewTab::-webkit-scrollbar {
   display: none;
-}
-
-
-.tabsContainer .filter {
-  display: grid;
-  width: 65%;
-  grid-template-columns: 0.25fr 1fr 0.25fr 1fr;
-  text-align: center;
-  align-items: center;
-  font-size: 1vw;
-  font-weight: bold;
-}
-
-.tabsContainer .filter input {
-  font-size: 1vw;
-  border-width: 0.15vw;
-  border-radius: 0.25vw;
-}
-
-.tabTitle {
-  text-align: center;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding-top: 1vh;
-  padding-bottom: 1vh;
-  font-size: 2vw;
 }
