@@ -11,8 +11,8 @@ const socket = io.connect("https://npeserver.herokuapp.com/");
 /*const socket = io.connect("http://" + config.ip_address + ":3001");*/
 
 function App() {
-  const ServerAddr = "https://npeserver.herokuapp.com";
-  // const ServerAddr = "http://localhost:3001";
+  // const ServerAddr = "http://wms.nagamasjaya.co.id";
+  const ServerAddr = "http://localhost:3001";
   const [open, openMenu] = useState(false);
   const [loginusername, setLoginUsername] = useState(true);
   const [showlogin, setShowlogin] = useState(true);

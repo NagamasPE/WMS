@@ -30,7 +30,9 @@ const InputForm = (props) => {
   var inputOut = props.inputOut;
   var setInputOut = props.setInputOut;
   var checkColumnHasID = props.checkColumnHasID;
+  var checkColumnFromTable = props.checkColumnFromTable;
   var today = new Date();
+  
   var month = today.getMonth() + 1;
   var monthStr = month.toString();
   if (monthStr.length === 1) {
@@ -40,10 +42,19 @@ const InputForm = (props) => {
   if (dateStr.length === 1) {
     dateStr = "0" + dateStr;
   }
+
+  const fullwaktu = today.getFullYear() + "-" + monthStr + "-" + dateStr+" "+AddZero(today.getHours(),2)+":"+AddZero(today.getMinutes(),2)+":"+AddZero(today.getSeconds(),2)+"."+AddZero(today.getMilliseconds(),3)
+
   let string = `${tipe}`;
   string = string.replace("_", " ");
   var fetching = props.fetching;
-
+  
+  function AddZero(input,length){
+      while (input.length<length){
+        input="0"+input;
+      }
+      return input;
+  }
   const generateData = () => {
     fetching(true);
     fetch(ServerAddr + "/exec/" + selectquery)
@@ -103,16 +114,49 @@ const InputForm = (props) => {
   function showAddPopUp() {
     setShowDetail(1);
   }
-
-  function HandleTambah(e) {
+  function tambah(kode){
+    closeAddPopUp();
     let input1 = inputOut;
     Table_data.col.forEach((colname) => {
       input1[colname.name] = "";
     });
     generateDetail(input1);
+    if (checkColumnFromTable("waktu",Table_data)){
+      
+      input1["waktu"]=fullwaktu;
+    }    
+    if (kode){
+      input1["kode"]=kode;
+    }
     setInputOut(input1);
+    
     setDeleteMode(0);
     showAddPopUp();
+   
+  }
+  function HandleTambah(e) {
+    fetching(true);
+    
+    if (checkColumnFromTable("kode",Table_data)){
+      fetch(ServerAddr + "/getkode/"+tipe+"/"+today.getFullYear().toString().substring(2) +monthStr, {
+        method: "GET"
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.kode){
+            
+            tambah(data.kode);
+            
+          }
+          
+            
+        });
+    }else{
+      tambah();
+    }
+    
+
+   
   }
 
   function HandleClick(e) {
@@ -172,12 +216,14 @@ const InputForm = (props) => {
       tipe: tipe,
       selectquery: selectquery,
     };
+    fetching(true);
     fetch(ServerAddr + "/delete", {
       method: "POST",
       body: JSON.stringify(data),
     })
       .then((response) => response.json())
       .then((data) => {
+        fetching(false);
         if (data.error) {
           alert(data.error);
         } else {
@@ -194,6 +240,7 @@ const InputForm = (props) => {
       tipe: tipe,
       selectquery: selectquery,
     };
+    fetching(true);
     // console.log(inputOut);
     fetch(ServerAddr + "/update", {
       method: "POST",
@@ -201,6 +248,7 @@ const InputForm = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
+        fetching(false);
         if (data.error) {
           alert(data.error);
         } else {
@@ -225,6 +273,17 @@ const InputForm = (props) => {
     setWaktuHingga(event.target.value);
     console.log("Change Hingga");
   }
+  function AddNewRowDetail(e){
+    let input1 = Table_detail;
+    let newrow = {}
+    Table_detail.col.forEach(col=>{            
+        newrow[col.name]="";
+    });       
+    input1.val.push(newrow);
+    console.log(input1)
+    setTable_Detail(input1);
+    TriggerRender();
+}
   return (
     <>
       <>
@@ -265,6 +324,7 @@ const InputForm = (props) => {
 
       {ShowDetail === 1 && (
         <div className={classes.modal}>
+        <div className={tables.tabTitle}>Table of {string}</div>
           <table>
             <tbody>
               {Table_data.col.map((col) => (
@@ -322,14 +382,20 @@ const InputForm = (props) => {
             <button className="button" onClick={addData}>
               <span>SAVE</span>
             </button>
+            <button className="button" onClick={closeAddPopUp}>
+              <span>CANCEL</span>
+            </button>
+            {detailQuery && detailQuery.config && detailQuery.config.includes("bisa_tambah")&&
+            <button className="button" onClick={AddNewRowDetail}>
+                <span>ADD NEW ROW</span>
+            </button>}
             {DeleteMode === 1 && (
               <button className="button" onClick={deleteData}>
                 <span>DELETE</span>
               </button>
             )}
-            <button className="button" onClick={closeAddPopUp}>
-              <span>CANCEL</span>
-            </button>
+
+            
           </div>
         </div>
       )}

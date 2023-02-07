@@ -27,6 +27,7 @@ const Table = (props) => {
                     (col) =>
                       col.name.indexOf("_id") === -1 && (
                         <td
+                          id="td"
                           key={col.name}
                           item={props.Table_data.val.indexOf(val)}
                         >
