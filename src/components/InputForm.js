@@ -43,18 +43,21 @@ const InputForm = (props) => {
     dateStr = "0" + dateStr;
   }
 
-  const fullwaktu = today.getFullYear() + "-" + monthStr + "-" + dateStr+" "+AddZero(today.getHours(),2)+":"+AddZero(today.getMinutes(),2)+":"+AddZero(today.getSeconds(),2)+"."+AddZero(today.getMilliseconds(),3)
+ 
 
   let string = `${tipe}`;
   string = string.replace("_", " ");
   var fetching = props.fetching;
   
-  function AddZero(input,length){
+  function AddZero(input1,length){
+      var input=input1.toString();
       while (input.length<length){
         input="0"+input;
       }
       return input;
   }
+  const fullwaktu = today.getFullYear() + "-" + monthStr + "-" + dateStr+" "+AddZero(today.getHours(),2)+":"+AddZero(today.getMinutes(),2)+":"+AddZero(today.getSeconds(),2)+"."+AddZero(today.getMilliseconds(),3)
+  
   const generateData = () => {
     fetching(true);
     fetch(ServerAddr + "/exec/" + selectquery)
@@ -280,7 +283,6 @@ const InputForm = (props) => {
         newrow[col.name]="";
     });       
     input1.val.push(newrow);
-    console.log(input1)
     setTable_Detail(input1);
     TriggerRender();
 }

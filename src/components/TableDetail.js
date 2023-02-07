@@ -25,7 +25,7 @@ const TableDetail = (props) => {
         setTable_Detail(input1);
         TriggerRender();
     }
- 
+
 return (
     <>{Table_detail && Table_detail.col && Table_detail.col[0].name!=='empty' &&
     <div className={classes.modaldetail}>
