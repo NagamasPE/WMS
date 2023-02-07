@@ -36,7 +36,10 @@ const InputForm = (props) => {
   if (monthStr.length === 1) {
     monthStr = "0" + monthStr;
   }
-
+  var dateStr = today.getDate().toString();
+  if (dateStr.length === 1) {
+    dateStr = "0" + dateStr;
+  }
   let string = `${tipe}`;
   string = string.replace("_", " ");
   var fetching = props.fetching;
@@ -47,11 +50,12 @@ const InputForm = (props) => {
       .then((response) => response.json())
       .then((data) => {
         if (data) {
+          fetching(false);
           if ("err" in data) {
             alert(data.err);
           } else {
             setTable_Data(data);
-            fetching(false);
+            
           }
         }
       });
@@ -61,9 +65,9 @@ const InputForm = (props) => {
     setOldTipe(tipe);
     generateData();
 
-    setWaktuDari(today.getFullYear() + "-" + monthStr + "-" + today.getDate());
+    setWaktuDari(today.getFullYear() + "-" + monthStr + "-" + dateStr);
     setWaktuHingga(
-      today.getFullYear() + "-" + monthStr + "-" + today.getDate()
+      today.getFullYear() + "-" + monthStr + "-" + dateStr
     );
   }
 
@@ -75,15 +79,19 @@ const InputForm = (props) => {
           if (data != undefined && data[tipe + "_id"]) {
             id = data[tipe + "_id"];
           }
-          // console.log("Generate Detail:"+detailQuery.query.replaceAll("@ID",id))
+          
+          fetching(true);
+          
           fetch(ServerAddr + "/exec/" + detailQuery.query.replaceAll("@ID", id))
             .then((response) => response.json())
             .then((data) => {
               {
+                fetching(false);
                 if ("err" in data) {
                   alert(data.err);
                 } else {
                   setTable_Detail(data);
+                  
                 }
               }
             });
@@ -101,7 +109,7 @@ const InputForm = (props) => {
     Table_data.col.forEach((colname) => {
       input1[colname.name] = "";
     });
-
+    generateDetail(input1);
     setInputOut(input1);
     setDeleteMode(0);
     showAddPopUp();
@@ -140,12 +148,13 @@ const InputForm = (props) => {
         }
       }
     }
-
+    fetching(true);
     fetch(ServerAddr + "/exec/" + query)
       .then((response) => response.json())
       .then((data) => {
         data.todetail = todetail;
         data.tablename = tipe;
+        fetching(false);
         setTable_Pilih(data);
         setPopUpOpen(true);
       });
@@ -252,7 +261,7 @@ const InputForm = (props) => {
         )}
       </>
 
-      {ShowDetail === 1 && <Backdrop close={closeAddPopUp} />}
+      {ShowDetail === 1 && <Backdrop/>}
 
       {ShowDetail === 1 && (
         <div className={classes.modal}>
@@ -324,9 +333,9 @@ const InputForm = (props) => {
           </div>
         </div>
       )}
-      {ShowDetail === 1 && (
+      {/* {ShowDetail === 1 && (
         <div className="backdropinput" onClick={closeAddPopUp} />
-      )}
+      )} */}
       <Pilih
         addOpen={addOpen}
         Table_Pilih={Table_Pilih}

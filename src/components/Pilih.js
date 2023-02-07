@@ -46,16 +46,22 @@ const Pilih = (props) => {
 
   return (
     <>
+    
       {addOpen && (
-        <div className={classes.modal}>
-          <Table
-            Table_data={Table_Pilih}
-            Table_name={"-"}
-            HandleClick={HandleClickPilih}
-          />
-          <button className="button" onClick={closePilihPopUp}>
+        
+        <div className={classes.modalpilih}>
+        <button className="button" onClick={closePilihPopUp}>
             Cancel
-          </button>
+          </button>     
+          <div className={classes.modaltable}>
+            <Table
+              Table_data={Table_Pilih}
+              Table_name={"-"}
+              HandleClick={HandleClickPilih}
+            />
+          </div>
+          
+          
         </div>
       )}
     </>

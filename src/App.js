@@ -12,6 +12,7 @@ const socket = io.connect("https://npeserver.herokuapp.com/");
 
 function App() {
   const ServerAddr = "https://npeserver.herokuapp.com";
+  // const ServerAddr = "http://localhost:3001";
   const [open, openMenu] = useState(false);
   const [loginusername, setLoginUsername] = useState(true);
   const [showlogin, setShowlogin] = useState(true);
@@ -24,6 +25,7 @@ function App() {
       <div className="App">
         <div>
           <Sidebar
+            loginusername={loginusername}
             setShowlogin={setShowlogin}   
             open={open} 
             openMenu={openMenu}  
