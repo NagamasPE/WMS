@@ -75,9 +75,9 @@ function Sidebar(props) {
       {SidebarData2.map((val, index) => {
         //console.log(`Key for ${val.title} is ${val.title}`);
         return (
-          <>
+          <div key={val.title} >
             <Link
-              key={val.title}
+              
               to={val.link}
               className={classes.row}
               style={{ display: open ? "grid" : "flex" }}
@@ -116,7 +116,7 @@ function Sidebar(props) {
                 }
                 return (
                   <Link
-                    key={`${child.title}-${subIndex}`}
+                    key={`${val.title}-${subIndex}`}
                     to={child.link}
                     className={classes.subRow}
                     style={{
@@ -137,7 +137,7 @@ function Sidebar(props) {
                   </Link>
                 );
               })}
-          </>
+          </div>
         );
       })}
     </div>
