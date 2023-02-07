@@ -1,7 +1,7 @@
 
 import classes from "./css/Popup.module.css";
 const TableDetail = (props) => {
-    
+    var newRow = props.newRow;
     var detailTextbox = props.detailQuery.textbox;
     var detailConfig = props.detailQuery.config;
     var detailPilih = props.detailQuery.pilih;
@@ -25,17 +25,7 @@ const TableDetail = (props) => {
         setTable_Detail(input1);
         TriggerRender();
     }
-    function AddNewRow(e){
-        let input1 = Table_detail;
-        let newrow = {}
-        Table_detail.col.forEach(col=>{            
-            newrow[col.name]="";
-        });       
-        input1.val.push(newrow);
-        console.log(input1)
-        setTable_Detail(input1);
-        TriggerRender();
-    }
+
 return (
     <>{Table_detail && Table_detail.col && Table_detail.col[0].name!=='empty' &&
     <div className={classes.modaldetail}>
@@ -48,6 +38,8 @@ return (
                 <th key={col.name}>{col.name.toUpperCase()}</th>
                 )
             ):'Not Found'}
+            {detailConfig && detailConfig.includes("bisa_tambah")&&
+           <th></th>}
         </tr>
         </thead>
         <tbody>
@@ -83,10 +75,10 @@ return (
                     </td>
                 )
             )}
-            <td>{detailConfig && detailConfig.includes("bisa_tambah")&&
-                <button className="button" onClick={()=>{DeleteRow(Table_detail.val.indexOf(val))}}>
+           {detailConfig && detailConfig.includes("bisa_tambah")&&
+           <td><button className="button" onClick={()=>{DeleteRow(Table_detail.val.indexOf(val))}}>
                     <span>X</span>
-                </button>}</td>
+                </button></td>}
             </tr>
         ))}
         </tbody>
@@ -95,12 +87,7 @@ return (
     
 
     }
-    {detailConfig && detailConfig.includes("bisa_tambah")&&
-        <div>
-            <button className="button" onClick={AddNewRow}>
-                <span>ADD NEW ROW</span>
-            </button>
-        </div>}</>
+    </>
     
     
 )}

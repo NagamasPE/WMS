@@ -80,13 +80,21 @@ const Master = (props) => {
     }
   }
 
-  function checkColumnHasID(name, table) {
+  function checkColumnHasID(name, table) {  
+    return checkColumnFromTable(name+"_id",table);
+  }
+
+  function checkColumnFromTable(name, table) {
+    
     var adaID = false;
-    table.col.forEach((coldef) => {
-      if (name + "_id" === coldef.name) {
-        adaID = true;
-      }
-    });
+    if (table && table.col){
+      table.col.forEach((coldef) => {
+        if (name  === coldef.name) {
+          adaID = true;
+        }
+      });
+    }
+    
     return adaID;
   }
 
@@ -136,6 +144,7 @@ const Master = (props) => {
             tipe={params.tipe}
             selectquery={selectquery}
             checkColumnHasID={checkColumnHasID}
+            checkColumnFromTable={checkColumnFromTable}
             PilihQuery={PilihQuery}
             detailQuery={detailQuery}
             configQuery={configQuery}

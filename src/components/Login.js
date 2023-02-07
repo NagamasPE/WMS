@@ -42,7 +42,7 @@ const Login = (props) => {
                   name="LoginUsername"
                   value={username}
                   onChange={HandleChangeUsername}
-                  required="required"
+                  required="required"                  
                   autoComplete="off"
                 />
                 <span>Username</span>
