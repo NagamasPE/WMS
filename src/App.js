@@ -7,12 +7,12 @@ import Sidebar from "./components/layout/Sidebar";
 import Main from "./pages/Main";
 import React from "react";
 import { useState, useRef, useEffect } from "react";
-const socket = io.connect("https://npeserver.herokuapp.com/");
+const socket = io.connect("https://nagamasjaya.co.id/wms/");
 /*const socket = io.connect("http://" + config.ip_address + ":3001");*/
 
 function App() {
-  // const ServerAddr = "http://wms.nagamasjaya.co.id";
-  const ServerAddr = "http://localhost:3001";
+  const ServerAddr = "https://nagamasjaya.co.id/wms";
+  // const ServerAddr = "http://localhost:3001";
   const [open, openMenu] = useState(false);
   const [loginusername, setLoginUsername] = useState(true);
   const [showlogin, setShowlogin] = useState(true);
