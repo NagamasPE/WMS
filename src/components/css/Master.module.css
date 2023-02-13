@@ -1,9 +1,9 @@
 .main {
   width: 95vw;
   height: 95vh;
-  /* background-color: cyan; */
   position: fixed;
   overflow: scroll;
+  /* z-index: 1; */
 }
 .main::-webkit-scrollbar {
   display: none;

@@ -7,7 +7,7 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import MenuIcon from "@material-ui/icons/Menu";
 
 function Sidebar(props) {
-  var loginusername=props.loginusername;
+  var loginusername = props.loginusername;
   var setShowlogin = props.setShowlogin;
   const open = props.open;
   const openMenu = props.openMenu;
@@ -20,17 +20,17 @@ function Sidebar(props) {
   );
   const toggleDrop = (index) => {
     const newDropdowns = [...dropdowns];
-    if (newDropdowns[index].drop === true){
+    if (newDropdowns[index].drop === true) {
       newDropdowns[index].drop = false;
-    }else{
-      newDropdowns.map((dropdown)=>{
-        dropdown.drop=false;
-      })
+    } else {
+      newDropdowns.map((dropdown) => {
+        dropdown.drop = false;
+      });
       newDropdowns[index].drop = true;
     }
-   
+
     setDropdowns(newDropdowns);
-    console.log('toggle drop');
+    console.log("toggle drop");
   };
 
   function clickLogin(event) {
@@ -59,13 +59,10 @@ function Sidebar(props) {
           <AccountBoxIcon style={{ fontSize: open ? "3vw" : "2vw" }} />
         </div>
         <div style={{ display: open ? "block" : "none" }} id={classes.name}>
-        <div>
+          {/* <div>
         Username
-        </div>
-        <div>
-        {loginusername}
-        </div>
-          
+        </div> */}
+          <div>{loginusername}</div>
         </div>
         <div style={{ display: open ? "flex" : "none" }} onClick={clickLogin}>
           <ExitToAppIcon style={{ fontSize: "1.5vw" }} />
@@ -75,9 +72,8 @@ function Sidebar(props) {
       {SidebarData2.map((val, index) => {
         //console.log(`Key for ${val.title} is ${val.title}`);
         return (
-          <div key={val.title} >
+          <div key={val.title}>
             <Link
-              
               to={val.link}
               className={classes.row}
               style={{ display: open ? "grid" : "flex" }}

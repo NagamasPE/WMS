@@ -23,7 +23,7 @@ function App() {
   return (
     <>
       <div className="App">
-        <div>
+        <div className="navbar">
           <Sidebar
             loginusername={loginusername}
             setShowlogin={setShowlogin}   
@@ -31,7 +31,7 @@ function App() {
             openMenu={openMenu}  
           />
         </div>
-        <div className="App container" onClick={HandleClick}>
+        <div className="container" onClick={HandleClick}>
           <div id="main">
             <Routes basename="/wms_client">
               <Route
