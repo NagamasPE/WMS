@@ -7,7 +7,7 @@ import Sidebar from "./components/layout/Sidebar";
 import Main from "./pages/Main";
 import React from "react";
 import { useState, useRef, useEffect } from "react";
-const socket = io.connect("https://nagamasjaya.co.id/wms/");
+/*const socket = io.connect("https://nagamasjaya.co.id/wms/");*/
 /*const socket = io.connect("http://" + config.ip_address + ":3001");*/
 
 function App() {

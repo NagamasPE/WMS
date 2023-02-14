@@ -26,6 +26,11 @@ function Main() {
     ],
   });
 
+  let btn = document.querySelector(".delButton");
+  btn.onClick = function () {
+    btn.classList.toggle("active");
+  };
+
   return (
     <div className={classes.container}>
       <div id={classes.obj1}>
@@ -38,7 +43,11 @@ function Main() {
         <PieChart title="Group" chartData={userData} />
       </div>
       <div id={classes.obj3}>
-        sub 1{/* <Gauge title="Gauge 1" currentVal={53} maxVal={584} /> */}
+        <button className="delButton">
+          <span></span>
+          <text>Delete</text>
+        </button>
+        {/* <Gauge title="Gauge 1" currentVal={53} maxVal={584} /> */}
       </div>
       <div id={classes.obj4}>
         sub 2{/* <Gauge title="Gauge 2" currentVal={334} maxVal={584} /> */}

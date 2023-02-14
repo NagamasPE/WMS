@@ -1,6 +1,7 @@
 .sidebar {
   height: 100%;
   min-height: 100vh;
+  max-height: 500vh;
   /* width: 3vw; kebuka 200px */
   background-color: var(--header-color);
   color: white;
@@ -10,7 +11,8 @@
   top: 0;
   left: 50;
   transition: 1s;
-  overflow: scroll;
+  overflow-y: visible;
+  /* overflow-y: scroll; tooltip jadi ke hide*/
   z-index: 0;
 }
 .sidebar::-webkit-scrollbar {
@@ -107,9 +109,9 @@
 
   /* Position the tooltip text - see examples below! */
   position: absolute;
-  z-index: 10;
-  top: -50%;
-  left: 80%;
+  z-index: 9999;
+  top: 0;
+  left: 102.5%;
   /* opacity: 0;
   transition: 1s ease-in-out; */
 }

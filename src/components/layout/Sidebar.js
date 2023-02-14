@@ -72,7 +72,7 @@ function Sidebar(props) {
       {SidebarData2.map((val, index) => {
         //console.log(`Key for ${val.title} is ${val.title}`);
         return (
-          <div key={val.title}>
+          <div key={`${val.title}-${val.index}`}>
             <Link
               to={val.link}
               className={classes.row}
