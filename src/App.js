@@ -1,5 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Input from "./pages/Input";
+import Production from "./pages/Production";
+import Delivery from "./pages/Delivery"
 import Master from "./components/Master";
 import Login from "./components/Login";
 import io from "socket.io-client";
@@ -40,6 +42,8 @@ function App() {
               />
               <Route path="/main" element={<Main />} />
               <Route path="/input" element={<Input />} />
+              <Route path="/production" element={<Production />} />
+              <Route path="/delivery" element={<Delivery />} />
             </Routes>
           </div>
           <div id="foot">

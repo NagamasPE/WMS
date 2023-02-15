@@ -29,7 +29,7 @@
   top: 5vh;
   height: 100%;
   left: 20%;
-  z-index: 3;
+  z-index: 21;
 }
 .modaltable {
   display: flex;
@@ -44,7 +44,7 @@
   top: 5vh;
   height: 80%;
   left: 20%;
-  z-index: 3;
+  z-index: 22;
 }
 
 .modal {

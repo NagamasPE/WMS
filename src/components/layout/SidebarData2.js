@@ -14,6 +14,8 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import AddShoppingCart from "@material-ui/icons/AddShoppingCart";
 import TrackChangesIcon from "@material-ui/icons/TrackChanges";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import SendIcon from "@material-ui/icons/Send";
+import WorkIcon from "@material-ui/icons/Work";
 
 export const SidebarData2 = [
   {
@@ -76,5 +78,15 @@ export const SidebarData2 = [
         link: "/master/penimbangan_to",
       },
     ],
+  },
+  {
+    title: "Production",
+    icon: <WorkIcon style={{ fontSize: "1.75vw" }} />,
+    link: "/production",
+  },
+  {
+    title: "Delivery",
+    icon: <SendIcon style={{ fontSize: "1.75vw" }} />,
+    link: "/delivery",
   },
 ];
