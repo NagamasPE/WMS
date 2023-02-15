@@ -131,17 +131,14 @@ function Delivery() {
             <div className={delivery.seventy}>
               <div className={delivery.input}>
                 <div id={delivery.range}>
-                  <button id={delivery.decrease}> - </button>
-                  <input
-                    type={"number"}
-                    value={3}
-                    min={"1"}
-                    max={"8"}
-                    id={"qtyScan"}
-                    step="1"
-                    readOnly
-                  />
-                  <button id={delivery.increase}> + </button>
+                  <button>1</button>
+                  <button>2</button>
+                  <button>3</button>
+                  <button>4</button>
+                  <button>5</button>
+                  <button>6</button>
+                  <button>7</button>
+                  <button>8</button>
                 </div>
                 <div id={delivery.display}>
                   <div className={tabs.tabsContainer}>
