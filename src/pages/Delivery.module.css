@@ -175,6 +175,57 @@
   overflow: hidden;
 }
 
+.hForm .full {
+  flex: 100%;
+  /* background-color: firebrick; */
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hForm .full #range {
+  flex: 15%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 2vw;
+  font-weight: bold;
+  padding: 0.25rem 0 0.25rem 0;
+  column-gap: 0.25rem;
+  /* background-color: lightcoral; */
+}
+
+.hForm .full #display {
+  flex: 85%;
+  display: flex;
+  flex-direction: column;
+  /* background-color: cornflowerblue; */
+}
+
+.hForm .full #menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: 0.2vw solid var(--dark-text);
+  border-radius: 1vw;
+  padding: 2.5% 2.5% 2.5% 2.5%;
+  /* background-color: purple; */
+}
+
+.hForm .full #menu button {
+  border: none;
+  border-radius: 1vw;
+  padding: 1rem;
+  font-size: 1vw;
+  font-weight: bold;
+  word-wrap: break-word;
+  width: 10vw;
+  aspect-ratio: 1/1;
+}
+
 .vForm {
   width: 100%;
   height: 100%;
@@ -213,9 +264,10 @@
 .vForm .buttons button {
   border: none;
   font-weight: bold;
-  font-size: 1vw;
+  font-size: 0.75vw;
   width: 100%;
-  height: 50%;
+  /* height: 50%; */
+  aspect-ratio: 2/1;
   padding: 1rem;
   border-radius: 0.5vw;
   display: flex;
@@ -235,6 +287,7 @@
   flex-direction: column;
   /* background-color: red; */
   justify-content: space-between;
+  align-items: center;
 }
 
 .vForm .buttons .control {
@@ -245,5 +298,50 @@
   display: flex;
   flex-direction: column;
   /* background-color: palevioletred; */
+  align-items: center;
   justify-content: space-between;
+}
+
+.vForm .buttons .sidepane {
+  flex: 100%;
+  width: 100%;
+  padding: 5% 5% 5% 5%;
+  row-gap: 2%;
+  border: 0.2vw solid var(--dark-text);
+  border-radius: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: palevioletred; */
+
+}
+
+.vForm .buttons .sidepane .stat {
+  width: 100%;
+  padding: 3vh 1rem 3vh 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: orange; */
+}
+
+.vForm .buttons .sidepane .stat .indicator {
+  background-color: red;
+  width: 10vw;
+  aspect-ratio: 2/1;
+  border-radius: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--light-text);
+  transition: 0.5s;
+}
+
+.vForm .buttons .sidepane .stat .indicator.indicator.statOn {
+  background-color: greenyellow;
+  color: var(--dark-text);
+  transition: 0.5s;
 }
