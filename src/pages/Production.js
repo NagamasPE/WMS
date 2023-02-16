@@ -126,7 +126,7 @@ function Production() {
                           (liftStat ? `${delivery.statOn}` : "")
                         }
                       >
-                        {liftStat ? "ON" : "OFF"}
+                        {liftStat ? "CONNECTED" : "NOT CONNECTED"}
                       </div>
                     </div>
                   </div>
