@@ -1,118 +1,249 @@
-.form {
+.newContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 92%;
+  /* background-color: aqua; */
+  /* overflow: hidden; */
+}
+.newContainer .content {
+  flex: 85%;
+  width: 100%;
+  /* background-color: palegreen; */
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
+.newContainer .side {
+  flex: 15%;
+  width: 100%;
+  /* background-color: greenyellow; */
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.hForm {
   width: 100%;
   height: auto;
   display: flex;
   flex-direction: row;
-  /* background-color: palegreen; */
+  /* background-color: orange; */
 }
 
-.form .seventy {
-  flex: 75%;
-}
-
-.form .seventy .header {
-  width: 100%;
-  height: 100%;
-  padding: 0.5vh 2vw 0.5vh 2vw;
-  display: flex;
-  flex-direction: row;
-}
-
-.form .seventy .header #title {
-  flex: 25%;
+.hForm .seventy {
+  flex: 80%;
+  /* background-color: firebrick; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.form .seventy .header #value {
-  flex: 70%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.form .seventy .input {
-  width: 100%;
-  height: 35vh;
-  padding: 0.5vh 2vw 0.5vh 2vw;
-  display: flex;
-  flex-direction: column;
-  /* background-color: deepskyblue; */
-}
-
-.form .seventy .input #range {
-  flex: 30%;
-  width: 100%;
-  height: 10%;
-  padding: 0.5vh 0 0.5vh 0;
+.hForm .seventy #range {
+  flex: 15%;
   display: flex;
   flex-direction: row;
-  row-gap: 0;
-  background-color: orange;
+  align-items: center;
   justify-content: center;
+  font-size: 2vw;
+  font-weight: bold;
+  padding: 0.25rem 0 0.25rem 0;
+  column-gap: 0.25rem;
+  /* background-color: lightcoral; */
 }
 
-#range button {
+#range .rowButton,
+#range .rowButton.buttonOn {
+  /* background-color: maroon; */
+  width: 12.5%;
+}
+
+#range .rowButton button {
   border: none;
   font-weight: bold;
-  font-size: 2.5vw;
-  width: 7.6vw;
+  font-size: 2vw;
+  width: 100%;
+  border-radius: 0.5vw;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   color: var(--dark-text);
-  background-color: var(--light-text);
+  background-color: transparent;
+  /* background-color: yellow; */
 }
 
-.form .seventy .input #display {
-  flex: 70%;
-  height: 50%;
+#range .rowButton.buttonOn button {
+  border: none;
+  font-weight: bold;
+  font-size: 2vw;
   width: 100%;
-  padding: 0.5vh 0 1vh 0;
+  border-radius: 0.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--light-text);
+  background-color: var(--header-color);
+  transition: 0.5s;
+  /* background-color: olivedrab; */
+}
+
+#range button:hover {
+  background-color: var(--shadow-color);
+  color: var(--dark-text);
+  transition: 0.5s;
+}
+
+.hForm .seventy #input {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  /* background-color: orangered; */
+  row-gap: 0.25vh;
+  justify-content: space-between;
+  /* background-color: royalblue; */
+}
+
+.hForm .seventy #input input {
+  width: 100%;
+  font-size: 1vw;
+  border: none;
+  background-color: burlywood;
+}
+
+.hForm .seventy #display {
+  flex: 85%;
+  display: flex;
+  flex-direction: column;
+}
+
+.hForm .thirty {
+  flex: 20%;
+  /* background-color: lime; */
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
-.form .thirty {
-  flex: 30%;
-  padding: 1vh 2vw 1vh 2vw;
-  row-gap: 2vh;
+.hForm .thirty #title {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* background-color: lime; */
+  justify-content: space-between;
+  row-gap: 0.25vh;
+  font-size: 1vw;
+  /* background-color: burlywood; */
 }
 
-.form .thirty img {
-  height: 10vh;
-  width: 15vw;
+.hForm .thirty .stat {
+  flex: 50%;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: dodgerblue; */
+}
+
+.hForm .thirty .stat .indicator {
+  background-color: red;
+  width: 5vw;
+  aspect-ratio: 1/1;
+  border-radius: 1vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: yellowgreen; */
+  font-weight: bold;
+  color: var(--light-text);
+  transition: 0.5s;
 }
 
-.form .thirty #gate {
-  flex: 50%;
+.hForm .thirty .stat .indicator.statOn {
+  background-color: greenyellow;
+  color: var(--dark-text);
+  transition: 0.5s;
+}
+
+.hForm .sum {
+  display: flex;
   width: 100%;
-  background-color: dodgerblue;
+  height: 29vh;
+  /* background-color: aqua; */
+  overflow: hidden;
 }
 
-.form .thirty #lifter {
-  flex: 50%;
+.vForm {
   width: 100%;
-  background-color: skyblue;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* background-color: yellow; */
 }
 
-.form .sum{
-    display: flex;
-    width: 100%;
-    height: 40vh;
-    /* background-color: aqua; */
-    overflow: hidden;
+.vForm .logo {
+  flex: 10%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: green; */
+}
+
+.vForm .logo img {
+  width: 100%;
+  aspect-ratio: 4/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: chocolate; */
+}
+
+.vForm .buttons {
+  flex: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2%;
+  /* background-color: mediumpurple; */
+}
+
+.vForm .buttons button {
+  border: none;
+  font-weight: bold;
+  font-size: 1vw;
+  width: 100%;
+  height: 50%;
+  padding: 1rem;
+  border-radius: 0.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--light-text);
+  background-color: var(--dark-text);
+}
+
+.vForm .buttons .gateControl {
+  flex: 39.2%;
+  width: 100%;
+  padding: 5% 0 5% 5%;
+  row-gap: 2%;
+  display: flex;
+  flex-direction: column;
+  /* background-color: red; */
+  justify-content: space-between;
+}
+
+.vForm .buttons .control {
+  flex: 58.8%;
+  width: 100%;
+  padding: 5% 0 5% 5%;
+  row-gap: 2%;
+  display: flex;
+  flex-direction: column;
+  /* background-color: palevioletred; */
+  justify-content: space-between;
 }

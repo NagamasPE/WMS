@@ -62,3 +62,54 @@
 .tabsContainer .viewTab::-webkit-scrollbar {
   display: none;
 }
+
+.scanTab {
+  border-collapse: collapse;
+  font-size: 0.7vw;
+  text-align: center;
+  width: 100%;
+  min-width: 50vw;
+}
+
+.scanTab thead th {
+  position: sticky;
+  top: 0;
+  background-color: var(--header-color);
+  color: var(--light-text);
+  font-weight: bold;
+  font-size: 0.8vw;
+}
+
+.scanTab th {
+  padding: 0.5vw 0 0.5vw 0;
+}
+
+.scanTab td {
+  font-size: 0.82vw;
+  padding: 0.25vw 0 0.25vw 0;
+}
+
+.scanTab td input {
+  font-size: 1vw;
+}
+
+.scanTab tbody tr {
+  border-bottom: 0.1vw solid var(--border);
+}
+
+.scanTab tbody tr:nth-of-type(even) {
+  background-color: rgb(210, 214, 222);
+}
+
+.scanTab tbody tr:nth-of-type(odd) {
+  background-color: var(--content-background);
+}
+
+.scanTab tbody tr:last-of-type {
+  border-bottom: 0.2vw solid var(--header-color);
+}
+
+.scanTab tbody tr:hover {
+  font-weight: bold;
+  color: var(--hover-header);
+}
