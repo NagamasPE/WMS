@@ -1,15 +1,20 @@
 {
   "files": {
-    "main.css": "/wms_client/static/css/main.8cfdf325.css",
-    "main.js": "/wms_client/static/js/main.29a28724.js",
+    "main.css": "/wms_client/static/css/main.454a14d3.css",
+    "main.js": "/wms_client/static/js/main.ce8547d7.js",
     "static/media/wall2.jpg": "/wms_client/static/media/wall2.1d0cf0968f79e1f24d18.jpg",
     "static/media/logo.png": "/wms_client/static/media/logo.5969b1837c2fb0349a79.png",
+    "static/media/CreateDN.jpg": "/wms_client/static/media/CreateDN.ea15702bb86192252236.jpg",
+    "static/media/InterlockBypass.jpg": "/wms_client/static/media/InterlockBypass.1989eab0f5170ef8ea95.jpg",
+    "static/media/CloseGate.jpg": "/wms_client/static/media/CloseGate.d4ac6be51444a6300213.jpg",
+    "static/media/FinishLoading.jpg": "/wms_client/static/media/FinishLoading.8d0938c5637cf12a4f10.jpg",
+    "static/media/BypassGate.jpg": "/wms_client/static/media/BypassGate.15e08dde718650df3e8d.jpg",
     "index.html": "/wms_client/index.html",
-    "main.8cfdf325.css.map": "/wms_client/static/css/main.8cfdf325.css.map",
-    "main.29a28724.js.map": "/wms_client/static/js/main.29a28724.js.map"
+    "main.454a14d3.css.map": "/wms_client/static/css/main.454a14d3.css.map",
+    "main.ce8547d7.js.map": "/wms_client/static/js/main.ce8547d7.js.map"
   },
   "entrypoints": [
-    "static/css/main.8cfdf325.css",
-    "static/js/main.29a28724.js"
+    "static/css/main.454a14d3.css",
+    "static/js/main.ce8547d7.js"
   ]
 }
