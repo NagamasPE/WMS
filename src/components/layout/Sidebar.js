@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import classes from "../css/Sidebar.module.css";
-import { SidebarData2 } from "./SidebarData2";
+import { SidebarData } from "./SidebarData";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -16,7 +16,7 @@ function Sidebar(props) {
     openMenu(!open);
   };
   const [dropdowns, setDropdowns] = useState(
-    SidebarData2.map((val, index) => ({ drop: false, index }))
+    SidebarData.map((val, index) => ({ drop: false, index }))
   );
   const toggleDrop = (index) => {
     const newDropdowns = [...dropdowns];
@@ -69,7 +69,7 @@ function Sidebar(props) {
         </div>
       </div>
 
-      {SidebarData2.map((val, index) => {
+      {SidebarData.map((val, index) => {
         //console.log(`Key for ${val.title} is ${val.title}`);
         return (
           <div key={`${val.title}-${val.index}`}>

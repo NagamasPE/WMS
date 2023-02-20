@@ -1,0 +1,45 @@
+.rect {
+  background-color: transparent;
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+}
+
+.rect button {
+  border: none;
+  flex: 100%;
+  width: 100%;
+  padding: 2% 5% 2% 5%;
+  aspect-ratio: inherit;
+  border-radius: 0.5vw;
+  background-color: transparent;
+  /* cursor: pointer; */
+  /* background-color: lime; */
+}
+
+.rect button .container {
+  height: 100%;
+  width: 100%;
+  aspect-ratio: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: cyan; */
+}
+
+.rect button .container img {
+  flex: 90%;
+  height: 90%;
+  width: 55%;
+  aspect-ratio: inherit;
+  /* background-color: forestgreen; */
+}
+
+.rect button .container div {
+  flex: 10%;
+  height: 10%;
+  width: 100%;
+  word-wrap: wrap;
+  /* background-color: coral; */
+}

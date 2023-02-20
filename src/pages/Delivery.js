@@ -1,8 +1,17 @@
 import master from "../components/css/Master.module.css";
 import delivery from "./Delivery.module.css";
 import tabs from "../components/css/Chart.module.css";
+import popup from "../components/css/Popup.module.css";
 import logo from "./image/logo.png";
+import create from "../image/CreateDN.jpg";
+import closeGate from "../image/CloseGate.jpg";
+import bypassGate from "../image/BypassGate.jpg";
+import FinishLoad from "../image/FinishLoading.jpg";
+import byoassInterlock from "../image/InterlockBypass.jpg";
 import { useState } from "react";
+import Button from "../components/ButImg";
+import Backdrop from "../components/Backdrop";
+import PageToPrint from "../components/layout/PageToPrint";
 
 function Delivery() {
   const deliveries = [
@@ -102,6 +111,7 @@ function Delivery() {
   const [qtyScan, setQtyScan] = useState(Array(8).fill(false));
   const [gateStat, setGateStat] = useState(false);
   const [liftStat, setLiftStat] = useState(false);
+  const [createNote, setCreateNote] = useState(false);
 
   const handleToggle = (index) => {
     setQtyScan((prevValues) => {
@@ -126,6 +136,8 @@ function Delivery() {
   const liftHandle = () => {
     setLiftStat(!liftStat);
   };
+
+  console.log(`Create Clicked ${createNote}`);
 
   return (
     <>
@@ -263,13 +275,39 @@ function Delivery() {
                 </div>
                 <div className={delivery.buttons}>
                   <div className={delivery.gateControl}>
-                    <button>Close Gate</button>
-                    <button>Bypass Open Gate</button>
+                    <Button
+                      alt="closeGate"
+                      dir={closeGate}
+                      width={100}
+                      height={50}
+                    />
+                    <Button
+                      alt="GateBypass"
+                      dir={bypassGate}
+                      width={100}
+                      height={50}
+                    />
                   </div>
                   <div className={delivery.control}>
-                    <button>Finish Loading</button>
-                    <button>Create Delivery Note</button>
-                    <button>Interlock Bypass</button>
+                    <Button
+                      alt="Finish"
+                      dir={FinishLoad}
+                      width={100}
+                      height={33}
+                    />
+                    <Button
+                      alt="Create"
+                      dir={create}
+                      width={100}
+                      height={33}
+                      setCreateNote={setCreateNote}
+                    />
+                    <Button
+                      alt="InterlockBypass"
+                      dir={byoassInterlock}
+                      width={100}
+                      height={33}
+                    />
                   </div>
                 </div>
               </div>
@@ -277,6 +315,14 @@ function Delivery() {
           </div>
         </div>
       </div>
+      {createNote && <Backdrop />}
+      {createNote && (
+        <div className={popup.modal}>
+          <div className={tabs.tabTitle}>Print This Page?</div>
+          <PageToPrint setCreateNote={setCreateNote} />
+          <button onClick={() => setCreateNote(false)}>Cancel</button>
+        </div>
+      )}
     </>
   );
 }

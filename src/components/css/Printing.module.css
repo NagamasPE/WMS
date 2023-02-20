@@ -1,0 +1,105 @@
+@media print {
+  html,
+  body {
+    height: initial !important;
+    overflow: none !important;
+    -webkit-print-color-adjust: exact;
+    font-size: 12px;
+  }
+
+  .page-break {
+    margin-top: 1rem;
+    display: block;
+    page-break-before: auto;
+  }
+  @page {
+    size: 216mm 139mm;
+    /* size: 216mm 280mm; */
+    margin: 5mm 10mm 5mm 10mm;
+  }
+}
+
+@media screen {
+  .page-break {
+    display: none;
+  }
+
+  .printContainer,
+  .printContainer .row table {
+    font-size: 0.7vw;
+  }
+}
+
+.displayContainer {
+  width: 100%;
+  height: 60vh;
+  overflow-y: scroll;
+  /* border: 3px dashed var(--dark-text); */
+  border: 3px dashed blue;
+}
+
+.displayContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.printContainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: yellow; */
+}
+
+.printContainer .row {
+  width: 100%;
+  /* background-color: darkcyan; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.printContainer .row #col1 {
+  flex: 50%;
+  /* background-color: darkcyan; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.printContainer .row #col1 {
+  flex: 50%;
+  /* background-color: darkcyan; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.printContainer .row #col2 {
+  flex: 50%;
+  /* background-color: lightcoral; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.printContainer .row table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.printContainer .row .summeries th {
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.printContainer .row .summeries td {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}

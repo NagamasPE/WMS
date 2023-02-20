@@ -13,51 +13,80 @@ import ImportExportIcon from "@material-ui/icons/ImportExport";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import AddShoppingCart from "@material-ui/icons/AddShoppingCart";
 import TrackChangesIcon from "@material-ui/icons/TrackChanges";
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import SendIcon from "@material-ui/icons/Send";
+import WorkIcon from "@material-ui/icons/Work";
 
 export const SidebarData = [
   {
-    title: "Main",
-    icon: <DashboardIcon />,
+    title: "Dashboard",
+    icon: <DashboardIcon style={{ fontSize: "1.75vw" }} />,
     link: "/main",
   },
   {
-    title: "Operator",
-    icon: <FaceIcon />,
-    link: "/master/operator",
+    title: "Master",
+    icon: <StorageIcon style={{ fontSize: "1.75vw" }} />,
+    arrow: <KeyboardArrowDownIcon style={{ fontSize: "1.75vw" }} />,
+    link: "#",
+    childrens: [
+      {
+        title: "Operator",
+        icon: <AssignmentIndIcon style={{ fontSize: "1.75vw" }} />,
+        link: "/master/operator",
+      },
+      {
+        title: "Product",
+        icon: <GolfCourseIcon style={{ fontSize: "1.75vw" }} />,
+        link: "/master/produk",
+      },
+      {
+        title: "Material",
+        icon: <LocalGroceryStoreIcon style={{ fontSize: "1.75vw" }} />,
+        link: "/master/material",
+      },
+      {
+        title: "Recipe",
+        icon: <DonutSmallIcon style={{ fontSize: "1.75vw" }} />,
+        link: "/master/recipe",
+      },
+      {
+        title: "Group",
+        icon: <CategoryIcon style={{ fontSize: "1.75vw" }} />,
+        link: "/master/grup",
+      },
+    ],
   },
   {
-    title: "Product",
-    icon: <GolfCourseIcon />,
-    link: "/master/produk",
+    title: "Transaction",
+    icon: <ImportExportIcon style={{ fontSize: "1.75vw" }} />,
+    arrow: <KeyboardArrowDownIcon style={{ fontSize: "1.75vw" }} />,
+    link: "#",
+    childrens: [
+      {
+        title: "Planning",
+        icon: <TrackChangesIcon style={{ fontSize: "1.75vw" }} />,
+        link: "/master/planning",
+      },
+      {
+        title: "Incoming Material",
+        icon: <AddShoppingCart style={{ fontSize: "1.75vw" }} />,
+        link: "/master/material_masuk",
+      },
+      {
+        title: "Weighing",
+        icon: <EqualizerIcon style={{ fontSize: "1.75vw" }} />,
+        link: "/master/penimbangan_to",
+      },
+    ],
   },
   {
-    title: "Material",
-    icon: <LocalGroceryStoreIcon />,
-    link: "/master/material",
+    title: "Production",
+    icon: <WorkIcon style={{ fontSize: "1.75vw" }} />,
+    link: "/production",
   },
   {
-    title: "Recipe",
-    icon: <DonutSmallIcon />,
-    link: "/master/recipe",
-  },
-  {
-    title: "Group",
-    icon: <CategoryIcon />,
-    link: "/master/grup",
-  },
-  {
-    title: "Planning",
-    icon: <TrackChangesIcon />,
-    link: "/master/planning",
-  },
-  {
-    title: "Enter Material",
-    icon: <AddShoppingCart />,
-    link: "/master/material_masuk",
-  },
-  {
-    title: "Weighing",
-    icon: <EqualizerIcon />,
-    link: "/master/penimbangan_to",
+    title: "Delivery",
+    icon: <SendIcon style={{ fontSize: "1.75vw" }} />,
+    link: "/delivery",
   },
 ];
