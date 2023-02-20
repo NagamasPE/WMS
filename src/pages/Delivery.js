@@ -106,6 +106,86 @@ function Delivery() {
       qty: 10,
       sloc: "asd",
     },
+    {
+      no: 11,
+      material: 123,
+      desc: "Material 1",
+      pack: "A1",
+      qty: 1,
+      sloc: "asd",
+    },
+    {
+      no: 12,
+      material: 123,
+      desc: "Material 2",
+      pack: "A1",
+      qty: 5,
+      sloc: "asd",
+    },
+    {
+      no: 13,
+      material: 345,
+      desc: "Material 3",
+      pack: "A1",
+      qty: 10,
+      sloc: "asd",
+    },
+    {
+      no: 14,
+      material: 345,
+      desc: "Material 3",
+      pack: "A1",
+      qty: 10,
+      sloc: "asd",
+    },
+    {
+      no: 15,
+      material: 345,
+      desc: "Material 3",
+      pack: "A1",
+      qty: 10,
+      sloc: "asd",
+    },
+    {
+      no: 16,
+      material: 345,
+      desc: "Material 3",
+      pack: "A1",
+      qty: 10,
+      sloc: "asd",
+    },
+    {
+      no: 17,
+      material: 345,
+      desc: "Material 3",
+      pack: "A1",
+      qty: 10,
+      sloc: "asd",
+    },
+    {
+      no: 18,
+      material: 345,
+      desc: "Material 3",
+      pack: "A1",
+      qty: 10,
+      sloc: "asd",
+    },
+    {
+      no: 19,
+      material: 345,
+      desc: "Material 3",
+      pack: "A1",
+      qty: 10,
+      sloc: "asd",
+    },
+    {
+      no: 20,
+      material: 345,
+      desc: "Material 3",
+      pack: "A1",
+      qty: 10,
+      sloc: "asd",
+    },
   ];
 
   const [qtyScan, setQtyScan] = useState(Array(8).fill(false));
@@ -319,7 +399,7 @@ function Delivery() {
       {createNote && (
         <div className={popup.modal}>
           <div className={tabs.tabTitle}>Print This Page?</div>
-          <PageToPrint setCreateNote={setCreateNote} />
+          <PageToPrint setCreateNote={setCreateNote} data={summeries} />
           <button onClick={() => setCreateNote(false)}>Cancel</button>
         </div>
       )}

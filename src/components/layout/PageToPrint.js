@@ -4,6 +4,7 @@ import print from "../css/Printing.module.css";
 
 function PageToPrint(props) {
   var setCreateNote = props.setCreateNote;
+  var summeries = props.data;
   const componentRef = useRef(null);
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
@@ -13,169 +14,6 @@ function PageToPrint(props) {
       setCreateNote(false);
     },
   });
-
-  const summeries = [
-    {
-      no: 1,
-      material: 123,
-      desc: "Material 1",
-      pack: "A1",
-      qty: 1,
-      sloc: "asd",
-    },
-    {
-      no: 2,
-      material: 123,
-      desc: "Material 2",
-      pack: "A1",
-      qty: 5,
-      sloc: "asd",
-    },
-    {
-      no: 3,
-      material: 345,
-      desc: "Material 3",
-      pack: "A1",
-      qty: 10,
-      sloc: "asd",
-    },
-    {
-      no: 4,
-      material: 345,
-      desc: "Material 3",
-      pack: "A1",
-      qty: 10,
-      sloc: "asd",
-    },
-    {
-      no: 5,
-      material: 345,
-      desc: "Material 3",
-      pack: "A1",
-      qty: 10,
-      sloc: "asd",
-    },
-    {
-      no: 6,
-      material: 345,
-      desc: "Material 3",
-      pack: "A1",
-      qty: 10,
-      sloc: "asd",
-    },
-    {
-      no: 7,
-      material: 345,
-      desc: "Material 3",
-      pack: "A1",
-      qty: 10,
-      sloc: "asd",
-    },
-    {
-      no: 8,
-      material: 345,
-      desc: "Material 3",
-      pack: "A1",
-      qty: 10,
-      sloc: "asd",
-    },
-    {
-      no: 9,
-      material: 345,
-      desc: "Material 3",
-      pack: "A1",
-      qty: 10,
-      sloc: "asd",
-    },
-    {
-      no: 10,
-      material: 345,
-      desc: "Material 3",
-      pack: "A1",
-      qty: 10,
-      sloc: "asd",
-    },
-    {
-      no: 11,
-      material: 123,
-      desc: "Material 1",
-      pack: "A1",
-      qty: 1,
-      sloc: "asd",
-    },
-    {
-      no: 12,
-      material: 123,
-      desc: "Material 2",
-      pack: "A1",
-      qty: 5,
-      sloc: "asd",
-    },
-    {
-      no: 13,
-      material: 345,
-      desc: "Material 3",
-      pack: "A1",
-      qty: 10,
-      sloc: "asd",
-    },
-    {
-      no: 14,
-      material: 345,
-      desc: "Material 3",
-      pack: "A1",
-      qty: 10,
-      sloc: "asd",
-    },
-    {
-      no: 15,
-      material: 345,
-      desc: "Material 3",
-      pack: "A1",
-      qty: 10,
-      sloc: "asd",
-    },
-    {
-      no: 16,
-      material: 345,
-      desc: "Material 3",
-      pack: "A1",
-      qty: 10,
-      sloc: "asd",
-    },
-    {
-      no: 17,
-      material: 345,
-      desc: "Material 3",
-      pack: "A1",
-      qty: 10,
-      sloc: "asd",
-    },
-    {
-      no: 18,
-      material: 345,
-      desc: "Material 3",
-      pack: "A1",
-      qty: 10,
-      sloc: "asd",
-    },
-    {
-      no: 19,
-      material: 345,
-      desc: "Material 3",
-      pack: "A1",
-      qty: 10,
-      sloc: "asd",
-    },
-    {
-      no: 20,
-      material: 345,
-      desc: "Material 3",
-      pack: "A1",
-      qty: 10,
-      sloc: "asd",
-    },
-  ];
 
   return (
     <>
@@ -281,7 +119,7 @@ function PageToPrint(props) {
         </div>
       </div>
       <br />
-      <button onClick={handlePrint}>Print This!</button>
+      <button onClick={handlePrint}>Print Travel Document!</button>
     </>
   );
 }
