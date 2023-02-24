@@ -3,17 +3,17 @@
   "name": "Create React App Sample",
   "icons": [
     {
-      "src": "npe.ico",
+      "src": "Logo.ico",
       "sizes": "64x36 32x18 24x9 16x5",
       "type": "image/x-icon"
     },
     {
-      "src": "npe.png",
+      "src": "Logo.png",
       "type": "image/png",
       "sizes": "419x241"
     },
     {
-      "src": "npe.png",
+      "src": "Logo.png",
       "type": "image/png",
       "sizes": "419x241"
     }
