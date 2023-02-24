@@ -30,9 +30,9 @@
 
 .rect button .container img {
   flex: 90%;
-  height: 90%;
+  /* height: 90%; */
   width: 55%;
-  aspect-ratio: inherit;
+  aspect-ratio: 1/1;
   /* background-color: forestgreen; */
 }
 

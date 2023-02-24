@@ -14,30 +14,59 @@
     font-size: 14px;
   }
 
+  .printContainer table.summaries {
+    page-break-inside: avoid;
+  }
+
+  .printContainer .kop thead {
+    display: table-header-group !important;
+    page-break-inside: avoid;
+    /* height: 3cm; */
+  }
+
+  .printContainer .kop tbody {
+    display: table-row-group !important;
+  }
+
+  .printContainer table.summeries thead {
+    display: table-header-group;
+  }
+
+  .printContainer table.summeries tbody {
+    display: table-row-group;
+  }
+
   .printContainer .row .docTitle {
     font-size: 16px;
   }
 
-  .printContainer table thead {
-    display: table-header-group !important;
-  }
-
-  /* .printContainer table thead tr{
-    break-inside: avoid;
-  } */
-
-  .printContainer table tbody {
-    display: table-row-group !important;
-  }
-
-  .printContainer table.header .row table.summeries th {
+  .printContainer .isi .row table.summeries th {
     font-size: 16px;
   }
 
-  .printContainer table.header .row #sign {
-    break-inside: avoid;
-    break-after: auto;
+  .printContainer .isi .row #barcode #formDetail {
+    font-size: 12px;
   }
+
+  .printContainer .isi .row #sign {
+    /* background-color: chocolate; */
+    break-inside: avoid;
+    break-after: always;
+  }
+
+  /* .printContainer .kop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4.5cm;
+    display: block;
+  }
+
+  .printContainer .isi {
+    background-color: yellowgreen;
+    position: relative;
+    top: 4.5cm;
+  } */
 }
 
 @media screen {
@@ -48,11 +77,14 @@
   .printContainer .row .docTitle {
     font-size: 1vw;
   }
-  .printContainer table.header .row table.summeries th {
+  .printContainer .kop .row table.summeries th {
     font-size: 1vw;
   }
-}
 
+  .printContainer .kop .row #barcode #formDetail {
+    font-size: 0.5vw;
+  }
+}
 .displayContainer {
   width: 100%;
   height: 60vh;
@@ -77,14 +109,22 @@
   /* background-color: green; */
 }
 
-.printContainer table.header {
+.printContainer table thead {
+  display: table-header-group;
+}
+
+.printContainer table tbody {
+  display: table-row-group;
+}
+
+.printContainer .kop {
   width: 100%;
   /* border-collapse: collapse; */
   /* border: 1px solid black; */
   /* background-color: orange; */
 }
 
-/* .printContainer table.header td {
+/* .printContainer .kop td {
   border: 1px solid black;
   padding: 5px;
   height: auto;
@@ -106,8 +146,8 @@
   /* background-color: violet; */
 }
 
-.printContainer table.header .row #col1,
-.printContainer table.header .row #col2 {
+.printContainer .kop .row #col1,
+.printContainer .kop .row #col2 {
   flex: 50%;
   /* background-color: darkcyan; */
   display: flex;
@@ -116,27 +156,27 @@
   justify-content: center;
 }
 
-.printContainer table.header .row #col1 div,
-.printContainer table.header .row #col2 div {
+.printContainer .kop .row #col1 div,
+.printContainer .kop .row #col2 div {
   width: 100%;
   display: flex;
   flex-direction: row;
 }
 
-.printContainer table.header .row #col1 div #title,
-.printContainer table.header .row #col2 div #title {
+.printContainer .kop .row #col1 div #title,
+.printContainer .kop .row #col2 div #title {
   flex: 30%;
   font-weight: bold;
   /* background-color: aqua; */
 }
 
-.printContainer table.header .row #col1 div #value,
-.printContainer table.header .row #col2 div #value {
+.printContainer .kop .row #col1 div #value,
+.printContainer .kop .row #col2 div #value {
   flex: 70%;
   /* background-color: peru; */
 }
 
-.printContainer table.header .row #barcode {
+.printContainer .kop .row #barcode {
   flex: 50%;
   /* background-color: lightcoral; */
   display: flex;
@@ -145,25 +185,25 @@
   justify-content: flex-start;
 }
 
-.printContainer table.header .row table.summeries {
+.printContainer .isi .row table.summeries {
   width: 100%;
   border-collapse: collapse;
 }
 
-.printContainer table.header .row table.summeries th {
+.printContainer .isi .row table.summeries th {
   border-bottom: 1px solid black;
   border-left: 1px solid black;
   border-right: 1px solid black;
   text-align: center;
 }
 
-.printContainer table.header .row table.summeries td {
+.printContainer .isi .row table.summeries td {
   border-left: 1px solid black;
   border-right: 1px solid black;
   text-align: center;
 }
 
-.printContainer table.header .row #sign {
+.printContainer .isi .row #sign {
   flex: 100%;
   display: flex;
   flex-direction: row;
@@ -171,11 +211,25 @@
   /* background-color: greenyellow; */
 }
 
-.printContainer table.header .row #sign div {
+.printContainer .isi .row #sign div {
   text-align: center;
   font-weight: bold;
 }
-.printContainer table.header .row #sign div #signName {
+.printContainer .isi .row #sign div #signName {
   /* background-color: olive; */
   padding-top: 25mm;
+}
+
+.printContainer .kop {
+  /* background-color: goldenrod; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.printContainer .isi {
+  /* background-color: darkorchid; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
