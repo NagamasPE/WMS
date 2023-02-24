@@ -178,14 +178,6 @@ function Delivery() {
       qty: 10,
       sloc: "asd",
     },
-    {
-      no: 20,
-      material: 345,
-      desc: "Material 3",
-      pack: "A1",
-      qty: 10,
-      sloc: "asd",
-    },
   ];
 
   const [qtyScan, setQtyScan] = useState(Array(8).fill(false));

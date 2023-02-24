@@ -1,32 +1,55 @@
 @media print {
+  @page {
+    size: 216mm 139mm;
+    margin: 5mm 10mm 5mm 10mm;
+    /* size: 216mm 280mm; */
+    /* margin: 0; */
+  }
+
   html,
   body {
     height: initial !important;
-    overflow: none !important;
+    overflow: initial !important;
     -webkit-print-color-adjust: exact;
-    font-size: 12px;
+    font-size: 14px;
   }
 
-  .page-break {
-    margin-top: 1rem;
-    display: block;
-    page-break-before: auto;
+  .printContainer .row .docTitle {
+    font-size: 16px;
   }
-  @page {
-    size: 216mm 139mm;
-    /* size: 216mm 280mm; */
-    margin: 5mm 10mm 5mm 10mm;
+
+  .printContainer table thead {
+    display: table-header-group !important;
+  }
+
+  /* .printContainer table thead tr{
+    break-inside: avoid;
+  } */
+
+  .printContainer table tbody {
+    display: table-row-group !important;
+  }
+
+  .printContainer table.header .row table.summeries th {
+    font-size: 16px;
+  }
+
+  .printContainer table.header .row #sign {
+    break-inside: avoid;
+    break-after: auto;
   }
 }
 
 @media screen {
-  .page-break {
-    display: none;
-  }
-
   .printContainer,
   .printContainer .row table {
     font-size: 0.7vw;
+  }
+  .printContainer .row .docTitle {
+    font-size: 1vw;
+  }
+  .printContainer table.header .row table.summeries th {
+    font-size: 1vw;
   }
 }
 
@@ -36,49 +59,84 @@
   overflow-y: scroll;
   /* border: 3px dashed var(--dark-text); */
   border: 3px dashed blue;
+  /* background-color: yellow; */
 }
 
 .displayContainer::-webkit-scrollbar {
+  /*for chrome*/
   display: none;
 }
 
 .printContainer {
   width: 100%;
-  height: auto;
+  /* height: auto; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* background-color: yellow; */
+  /* background-color: green; */
 }
+
+.printContainer table.header {
+  width: 100%;
+  /* border-collapse: collapse; */
+  /* border: 1px solid black; */
+  /* background-color: orange; */
+}
+
+/* .printContainer table.header td {
+  border: 1px solid black;
+  padding: 5px;
+  height: auto;
+} */
 
 .printContainer .row {
   width: 100%;
   /* background-color: darkcyan; */
+  padding: 0;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 
-.printContainer .row #col1 {
+.printContainer .row .docTitle {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  /* background-color: violet; */
+}
+
+.printContainer table.header .row #col1,
+.printContainer table.header .row #col2 {
   flex: 50%;
   /* background-color: darkcyan; */
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
 }
 
-.printContainer .row #col1 {
-  flex: 50%;
-  /* background-color: darkcyan; */
+.printContainer table.header .row #col1 div,
+.printContainer table.header .row #col2 div {
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+  flex-direction: row;
 }
 
-.printContainer .row #col2 {
+.printContainer table.header .row #col1 div #title,
+.printContainer table.header .row #col2 div #title {
+  flex: 30%;
+  font-weight: bold;
+  /* background-color: aqua; */
+}
+
+.printContainer table.header .row #col1 div #value,
+.printContainer table.header .row #col2 div #value {
+  flex: 70%;
+  /* background-color: peru; */
+}
+
+.printContainer table.header .row #barcode {
   flex: 50%;
   /* background-color: lightcoral; */
   display: flex;
@@ -87,19 +145,37 @@
   justify-content: flex-start;
 }
 
-.printContainer .row table {
+.printContainer table.header .row table.summeries {
   width: 100%;
   border-collapse: collapse;
-  text-align: center;
 }
 
-.printContainer .row .summeries th {
+.printContainer table.header .row table.summeries th {
   border-bottom: 1px solid black;
   border-left: 1px solid black;
   border-right: 1px solid black;
+  text-align: center;
 }
 
-.printContainer .row .summeries td {
+.printContainer table.header .row table.summeries td {
   border-left: 1px solid black;
   border-right: 1px solid black;
+  text-align: center;
+}
+
+.printContainer table.header .row #sign {
+  flex: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* background-color: greenyellow; */
+}
+
+.printContainer table.header .row #sign div {
+  text-align: center;
+  font-weight: bold;
+}
+.printContainer table.header .row #sign div #signName {
+  /* background-color: olive; */
+  padding-top: 25mm;
 }

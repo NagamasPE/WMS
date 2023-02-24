@@ -21,6 +21,12 @@
   font-family: "Poppins", sans-serif;
 }
 
+@page {
+  size: A4;
+  /* size: 216mm 280mm; */
+  margin: 5mm 10mm 5mm 10mm;
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
