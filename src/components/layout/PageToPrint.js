@@ -39,6 +39,10 @@ function PageToPrint(props) {
   };
   generateData();
 
+  const tab1Start = 0;
+  const tab1End = 14;
+  const tab2End = 28;
+
   return (
     <>
       <div className={print.displayContainer}>
@@ -108,77 +112,81 @@ function PageToPrint(props) {
             </div>
           )}
 
-          <div className={print.isi}>
-            <div className={print.row}>
-              <table className={print.summeries}>
-                <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Material Number</th>
-                    <th>
-                      <div>Material Description</div>
-                    </th>
-                    <th>Package</th>
-                    <th>Quantity</th>
-                    <th>SLOC</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {summeries.slice(0, 14).map((delivery, index) => (
-                    <tr key={delivery.name}>
-                      <td>{delivery.no}</td>
-                      <td>{delivery.material}</td>
-                      <td>{delivery.desc}</td>
-                      <td>{delivery.pack}</td>
-                      <td>{delivery.qty}</td>
-                      <td>{delivery.sloc}</td>
-                    </tr>
-                  ))}
-                  {summeries.slice(0, 14).length === 0 && (
+          {summeries.slice(tab1Start, tab1End).length !== 0 && (
+            <div className={print.isi}>
+              <div className={print.row}>
+                <table className={print.summeries}>
+                  <thead>
                     <tr>
-                      <td colSpan="6">No data found</td>
+                      <th>No</th>
+                      <th>Material Number</th>
+                      <th>
+                        <div>Material Description</div>
+                      </th>
+                      <th>Package</th>
+                      <th>Quantity</th>
+                      <th>SLOC</th>
                     </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
-          </div>
+                  </thead>
 
-          <div className={print.isi}>
-            <div className={print.row}>
-              <table className={print.summeries}>
-                <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Material Number</th>
-                    <th>
-                      <div>Material Description</div>
-                    </th>
-                    <th>Package</th>
-                    <th>Quantity</th>
-                    <th>SLOC</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {summeries.slice(14, 28).map((delivery, index) => (
-                    <tr key={delivery.name}>
-                      <td>{delivery.no}</td>
-                      <td>{delivery.material}</td>
-                      <td>{delivery.desc}</td>
-                      <td>{delivery.pack}</td>
-                      <td>{delivery.qty}</td>
-                      <td>{delivery.sloc}</td>
+                  <tbody>
+                    {summeries
+                      .slice(tab1Start, tab1End)
+                      .map((delivery, index) => (
+                        <tr key={delivery.name}>
+                          <td>{delivery.no}</td>
+                          <td>{delivery.material}</td>
+                          <td>{delivery.desc}</td>
+                          <td>{delivery.pack}</td>
+                          <td>{delivery.qty}</td>
+                          <td>{delivery.sloc}</td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {summeries.slice(tab1End, tab2End).length !== 0 && (
+            <div className={print.isi}>
+              <div className={print.row}>
+                <table className={print.summeries}>
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Material Number</th>
+                      <th>
+                        <div>Material Description</div>
+                      </th>
+                      <th>Package</th>
+                      <th>Quantity</th>
+                      <th>SLOC</th>
                     </tr>
-                  ))}
-                  {summeries.slice(14, 28).length === 0 && (
+                  </thead>
+                  <tbody>
+                    {summeries
+                      .slice(tab1End, tab2End)
+                      .map((delivery, index) => (
+                        <tr key={delivery.name}>
+                          <td>{delivery.no}</td>
+                          <td>{delivery.material}</td>
+                          <td>{delivery.desc}</td>
+                          <td>{delivery.pack}</td>
+                          <td>{delivery.qty}</td>
+                          <td>{delivery.sloc}</td>
+                        </tr>
+                      ))}
+                    {/* {summeries.slice(14, 28).length === 0 && (
                     <tr>
                       <td colSpan="6">No data found</td>
                     </tr>
-                  )}
-                </tbody>
-              </table>
+                  )} */}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
+          )}
 
           {/*<div className={print.row}>
                     <table

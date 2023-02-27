@@ -14,9 +14,9 @@
     font-size: 14px;
   }
 
-  .printContainer table.summaries {
+  /* .printContainer table.summaries {
     page-break-inside: avoid;
-  }
+  } */
 
   .printContainer .kop thead {
     display: table-header-group !important;
