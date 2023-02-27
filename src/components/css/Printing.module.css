@@ -54,7 +54,7 @@
     break-after: always;
   }
 
-  /* .printContainer .kop {
+  .printContainer .kop {
     position: fixed;
     top: 0;
     left: 0;
@@ -63,10 +63,12 @@
   }
 
   .printContainer .isi {
-    background-color: yellowgreen;
+    /* background-color: yellowgreen; */
     position: relative;
     top: 4.5cm;
-  } */
+    page-break-inside: avoid;
+    page-break-after: always;
+  }
 }
 
 @media screen {
