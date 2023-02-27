@@ -124,7 +124,7 @@ function PageToPrint(props) {
                   </tr>
                 </thead>
                 <tbody>
-                  {summeries.slice(1, 14).map((delivery, index) => (
+                  {summeries.slice(0, 14).map((delivery, index) => (
                     <tr key={delivery.name}>
                       <td>{delivery.no}</td>
                       <td>{delivery.material}</td>
@@ -134,7 +134,7 @@ function PageToPrint(props) {
                       <td>{delivery.sloc}</td>
                     </tr>
                   ))}
-                  {summeries.slice(1, 14).length === 0 && (
+                  {summeries.slice(0, 14).length === 0 && (
                     <tr>
                       <td colSpan="6">No data found</td>
                     </tr>
@@ -160,7 +160,7 @@ function PageToPrint(props) {
                   </tr>
                 </thead>
                 <tbody>
-                  {summeries.slice(15, 28).map((delivery, index) => (
+                  {summeries.slice(14, 28).map((delivery, index) => (
                     <tr key={delivery.name}>
                       <td>{delivery.no}</td>
                       <td>{delivery.material}</td>
@@ -170,7 +170,7 @@ function PageToPrint(props) {
                       <td>{delivery.sloc}</td>
                     </tr>
                   ))}
-                  {summeries.slice(15, 28).length === 0 && (
+                  {summeries.slice(14, 28).length === 0 && (
                     <tr>
                       <td colSpan="6">No data found</td>
                     </tr>
