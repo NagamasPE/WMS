@@ -17,8 +17,8 @@ function App() {
   const ServerAddr = "https://nagamasjaya.co.id/wms";
   // const ServerAddr = "http://localhost:3001";
   const [open, openMenu] = useState(false);
-  const [loginusername, setLoginUsername] = useState(true);
-  const [showlogin, setShowlogin] = useState(false);
+  const [loginusername, setLoginUsername] = useState("");
+  const [showlogin, setShowlogin] = useState(true);
 
   function HandleClick(e) {
     openMenu(false);
