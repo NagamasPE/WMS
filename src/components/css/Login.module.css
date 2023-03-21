@@ -1,22 +1,293 @@
+@media only screen and (max-width: 1080px) and (orientation: portrait) {
+  .animation {
+    width: 81vw;
+    aspect-ratio: 1/1.3;
+    top: 19vh;
+    left: 9.25vw;
+    border-radius: 2vh;
+  }
+
+  .animation::before {
+    top: -45vh;
+    left: -40.45vw;
+    width: 100%;
+    height: 150%;
+  }
+
+  .animation::after {
+    top: -45vh;
+    left: -40.45vw;
+    width: 100%;
+    height: 150%;
+  }
+
+  .animation .formLogin {
+    padding: 1vw;
+    width: 79vw;
+    aspect-ratio: 1/1.3;
+    top: 19.6vh;
+    left: 10.05vw;
+    border-radius: 2vh;
+  }
+
+  .animation .formLogin h3 {
+    margin-top: 1vh;
+    letter-spacing: 0.75vh;
+    font-size: 2.75vh;
+  }
+  .animation .formLogin p {
+    font-size: 1.75vh;
+  }
+
+  .inputBox {
+    font-size: 2vh;
+  }
+
+  .inputBox input {
+    padding: 0.15vw 4vw 0 4vw;
+    font-size: 2vh;
+    letter-spacing: 0.2vh;
+  }
+
+  .inputBox span {
+    left: 4vw;
+    padding: 0.25vw 0.5vw 0 0.15vw;
+    letter-spacing: 0.1vh;
+  }
+
+  .inputBox input:valid ~ span,
+  .inputBox input:focus ~ span {
+    transform: translateY(-3vh);
+    font-size: 1.75vh;
+  }
+
+  .inputBox i {
+    left: 4vw;
+    width: calc(100% - 8vw);
+    height: 0.2vw;
+    border-radius: 0.25vw;
+    transition: 0.5s;
+  }
+
+  .inputBox input:valid ~ i,
+  .inputBox input:focus ~ i {
+    height: 3.2vh;
+  }
+
+  .buttonLogin {
+    border-radius: 2vh;
+    font-size: 2vh;
+    margin: 1vh 4vw 4vh 4vw;
+    padding: 0.75vh;
+  }
+
+  .buttonLogin span:after {
+    top: 0;
+    right: 0.5vw;
+  }
+
+  .buttonLogin:hover span,
+  .buttonLogin:focus span {
+    padding-right: 7vw;
+  }
+}
+
+@media only screen and (max-width: 2340px) and (orientation: landscape) {
+  .animation {
+    width: 25.4vw;
+    height: 60.9vh;
+    top: 19.6vh;
+    left: 37.3vw;
+    border-radius: 0.5vw;
+  }
+
+  .animation::before {
+    top: -62vh;
+    left: -12.5vw;
+    width: 100%;
+    height: 150%;
+  }
+
+  .animation::after {
+    top: -62vh;
+    left: -12.5vw;
+    width: 100%;
+    height: 150%;
+  }
+
+  .animation .formLogin {
+    padding: 1vw;
+    width: 25vw;
+    height: 60vh;
+    top: 20vh;
+    left: 37.5vw;
+    border-radius: 0.5vw;
+  }
+
+  .animation .formLogin h3 {
+    letter-spacing: 0.75vw;
+    font-size: 1.5vw;
+  }
+  .animation .formLogin p {
+    font-size: 1vw;
+  }
+
+  .inputBox {
+    font-size: 0.9rem;
+  }
+
+  .inputBox input {
+    padding: 0.15vw 0.1vw 0 0.1vw;
+    font-size: 1.25vw;
+    letter-spacing: 0.15vw;
+  }
+
+  .inputBox span {
+    left: 0;
+    padding: 0.25vw 0.5vw 0 0.5vw;
+    letter-spacing: 0.1vw;
+  }
+
+  .inputBox input:valid ~ span,
+  .inputBox input:focus ~ span {
+    transform: translateY(-36px);
+    font-size: 1vw;
+  }
+
+  .inputBox i {
+    left: 0.4vw;
+    width: calc(100% - 0.9vw);
+    height: 0.2vw;
+    border-radius: 0.25vw;
+    transition: 0.5s;
+  }
+
+  .inputBox input:valid ~ i,
+  .inputBox input:focus ~ i {
+    height: 4.5vh;
+  }
+
+  .buttonLogin {
+    border-radius: 0.5vw;
+    font-size: 1.25vw;
+    margin: 1vh 2vw 1vh 2vw;
+    padding: 0.75vh;
+  }
+
+  .buttonLogin span:after {
+    top: 0;
+    right: 0.5vw;
+  }
+
+  .buttonLogin:hover span,
+  .buttonLogin:focus span {
+    padding-right: 2.5vw;
+  }
+}
+
+@media only screen and (min-width: 1081px) and (aspect-ratio: 16/9) {
+  .animation {
+    width: 25.4vw;
+    height: 60.9vh;
+    top: 19.6vh;
+    left: 37.3vw;
+    border-radius: 0.5vw;
+  }
+
+  .animation::before {
+    top: -62vh;
+    left: -12.5vw;
+    width: 100%;
+    height: 150%;
+  }
+
+  .animation::after {
+    top: -62vh;
+    left: -12.5vw;
+    width: 100%;
+    height: 150%;
+  }
+
+  .animation .formLogin {
+    padding: 1vw;
+    width: 25vw;
+    height: 60vh;
+    top: 20vh;
+    left: 37.5vw;
+    border-radius: 0.5vw;
+  }
+
+  .animation .formLogin h3 {
+    letter-spacing: 0.75vw;
+    font-size: 1.5vw;
+  }
+  .animation .formLogin p {
+    font-size: 1vw;
+  }
+
+  .inputBox {
+    font-size: 0.9rem;
+  }
+
+  .inputBox input {
+    padding: 0.15vw 0.1vw 0 0.1vw;
+    font-size: 1.25vw;
+    letter-spacing: 0.15vw;
+  }
+
+  .inputBox span {
+    left: 0;
+    padding: 0.25vw 0.5vw 0 0.5vw;
+    letter-spacing: 0.1vw;
+  }
+
+  .inputBox input:valid ~ span,
+  .inputBox input:focus ~ span {
+    transform: translateY(-36px);
+    font-size: 1vw;
+  }
+
+  .inputBox i {
+    left: 0.4vw;
+    width: calc(100% - 0.9vw);
+    height: 0.2vw;
+    border-radius: 0.25vw;
+    transition: 0.5s;
+  }
+
+  .inputBox input:valid ~ i,
+  .inputBox input:focus ~ i {
+    height: 4.5vh;
+  }
+
+  .buttonLogin {
+    border-radius: 0.5vw;
+    font-size: 1.25vw;
+    margin: 1vh 2vw 1vh 2vw;
+    padding: 0.75vh;
+  }
+
+  .buttonLogin span:after {
+    top: 0;
+    right: 0.5vw;
+  }
+
+  .buttonLogin:hover span,
+  .buttonLogin:focus span {
+    padding-right: 2.5vw;
+  }
+}
+
 .animation {
   background-color: rgb(18, 19, 20);
   position: relative;
-  width: 25.4vw;
-  height: 60.9vh;
   z-index: 11;
   position: fixed;
-  top: 19.6vh;
-  left: 37.3vw;
-  border-radius: 0.5vw;
   overflow: hidden;
 }
 .animation::before {
   content: "";
   position: absolute;
-  top: -62vh;
-  left: -12.5vw;
-  width: 100%;
-  height: 150%;
   background: linear-gradient(0deg, transparent, white);
   transform-origin: bottom right;
   animation: animate 12s linear infinite;
@@ -24,10 +295,6 @@
 .animation::after {
   content: "";
   position: absolute;
-  top: -62vh;
-  left: -12.5vw;
-  width: 100%;
-  height: 150%;
   background: linear-gradient(0deg, transparent, var(--main-menu));
   transform-origin: bottom right;
   animation: animate 12s linear infinite;
@@ -43,14 +310,8 @@
 }
 .animation .formLogin {
   background-color: rgb(18, 19, 20);
-  padding: 1vw;
-  width: 25vw;
-  height: 60vh;
   z-index: 10;
   position: fixed;
-  top: 20vh;
-  left: 37.5vw;
-  border-radius: 0.5vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -60,13 +321,10 @@
 .animation .formLogin h3 {
   text-align: center;
   color: var(--light-text);
-  letter-spacing: 0.75vw;
-  font-size: 1.5vw;
 }
 .animation .formLogin p {
   text-align: center;
   color: rgb(146, 146, 146);
-  font-size: 1vw;
 }
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
@@ -75,7 +333,7 @@
     background-color: rgb(0, 0, 0, 0.9);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     top: 0;
     left: 0;
@@ -86,69 +344,48 @@
 .inputBox {
   width: 100%;
   color: white;
-  font-size: 0.9rem;
 }
 
 .inputBox input {
   position: relative;
   width: 100%;
-  padding: 0.15vw 0.1vw 0 0.1vw;
   background: transparent;
   border: none;
   outline: none;
   color: var(--main-menu);
-  font-size: 1.25vw;
-  letter-spacing: 0.15vw;
   z-index: 11;
 }
 
 .inputBox span {
   position: absolute;
-  left: 0;
-  padding: 0.25vw 0.5vw 0 0.5vw;
   color: white;
   pointer-events: none;
-  letter-spacing: 0.1vw;
   transition: 0.5s;
 }
 
 .inputBox input:valid ~ span,
 .inputBox input:focus ~ span {
   color: var(--main-menu);
-  transform: translateY(-36px);
-  font-size: 1vw;
 }
 
 .inputBox i {
   position: absolute;
-  left: 0.4vw;
-  width: calc(100% - 0.9vw);
-  height: 0.2vw;
   background: rgb(55, 55, 56);
-  border-radius: 0.25vw;
   transition: 0.5s;
   pointer-events: none;
   z-index: 10;
 }
 
-.inputBox input:valid ~ i,
-.inputBox input:focus ~ i {
-  height: 4.5vh;
-}
-
 .buttonLogin {
   background-color: rgb(146, 146, 146);
-  border-radius: 0.5vw;
   color: #000000;
   cursor: pointer;
   display: inline-block;
-  font-size: 1vw;
   font-weight: bold;
-  margin: 0.5vw 1vw 0.5vw 1vw;
-  padding: 0.75vw;
   text-align: center;
   text-decoration: none;
-  transition-duration: 0.4s;
+  transition-duration: 0.5s;
+  /* border: none; */
   /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
@@ -170,14 +407,7 @@
   content: "\22D9";
   position: absolute;
   opacity: 0;
-  top: 0;
-  right: 2vw;
   transition: 0.5s;
-}
-
-.buttonLogin:hover span,
-.buttonLogin:focus span {
-  padding-right: 1.5vw;
 }
 
 .buttonLogin:hover span:after,

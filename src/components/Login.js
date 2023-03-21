@@ -15,12 +15,13 @@ const Login = (props) => {
   }
   function clickOK(event) {
     let data = { username: username, password: password };
-
+    console.log(data);
     fetch(ServerAddr + "/login", { method: "POST", body: JSON.stringify(data) })
       .then((response) => response.json())
       .then((data) => {
         if (data.error) {
           alert(data.error);
+          console.log(data.error);
         } else {
           setLoginUsername(username);
           setUsername("");
@@ -42,7 +43,7 @@ const Login = (props) => {
                   name="LoginUsername"
                   value={username}
                   onChange={HandleChangeUsername}
-                  required="required"                  
+                  required="required"
                   autoComplete="off"
                 />
                 <span>Username</span>

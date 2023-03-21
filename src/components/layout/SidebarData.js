@@ -1,5 +1,3 @@
-import { useState } from "react";
-import classes from "../css/Sidebar.module.css";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import FaceIcon from "@material-ui/icons/Face";
 import CategoryIcon from "@material-ui/icons/Category";
@@ -16,77 +14,83 @@ import TrackChangesIcon from "@material-ui/icons/TrackChanges";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import SendIcon from "@material-ui/icons/Send";
 import WorkIcon from "@material-ui/icons/Work";
+import DriveEtaIcon from "@material-ui/icons/DriveEta";
 
 export const SidebarData = [
   {
     title: "Dashboard",
-    icon: <DashboardIcon style={{ fontSize: "1.75vw" }} />,
+    icon: DashboardIcon,
     link: "/main",
   },
   {
     title: "Master",
-    icon: <StorageIcon style={{ fontSize: "1.75vw" }} />,
-    arrow: <KeyboardArrowDownIcon style={{ fontSize: "1.75vw" }} />,
+    icon: StorageIcon,
+    arrow: <KeyboardArrowDownIcon />,
     link: "#",
     childrens: [
       {
         title: "Operator",
-        icon: <AssignmentIndIcon style={{ fontSize: "1.75vw" }} />,
+        icon: <AssignmentIndIcon />,
         link: "/master/operator",
       },
       {
         title: "Product",
-        icon: <GolfCourseIcon style={{ fontSize: "1.75vw" }} />,
+        icon: <GolfCourseIcon />,
         link: "/master/produk",
       },
       {
         title: "Material",
-        icon: <LocalGroceryStoreIcon style={{ fontSize: "1.75vw" }} />,
+        icon: <LocalGroceryStoreIcon />,
         link: "/master/material",
       },
       {
         title: "Recipe",
-        icon: <DonutSmallIcon style={{ fontSize: "1.75vw" }} />,
+        icon: <DonutSmallIcon />,
         link: "/master/recipe",
       },
       {
         title: "Group",
-        icon: <CategoryIcon style={{ fontSize: "1.75vw" }} />,
+        icon: <CategoryIcon />,
         link: "/master/grup",
       },
     ],
   },
   {
     title: "Transaction",
-    icon: <ImportExportIcon style={{ fontSize: "1.75vw" }} />,
-    arrow: <KeyboardArrowDownIcon style={{ fontSize: "1.75vw" }} />,
+    icon: ImportExportIcon,
+    arrow: <KeyboardArrowDownIcon />,
     link: "#",
     childrens: [
       {
         title: "Planning",
-        icon: <TrackChangesIcon style={{ fontSize: "1.75vw" }} />,
+        icon: <TrackChangesIcon />,
         link: "/master/planning",
       },
       {
         title: "Incoming Material",
-        icon: <AddShoppingCart style={{ fontSize: "1.75vw" }} />,
+        icon: <AddShoppingCart />,
         link: "/master/material_masuk",
       },
       {
         title: "Weighing",
-        icon: <EqualizerIcon style={{ fontSize: "1.75vw" }} />,
+        icon: <EqualizerIcon />,
         link: "/master/penimbangan_to",
       },
     ],
   },
   {
     title: "Production",
-    icon: <WorkIcon style={{ fontSize: "1.75vw" }} />,
+    icon: WorkIcon,
     link: "/production",
   },
   {
     title: "Delivery",
-    icon: <SendIcon style={{ fontSize: "1.75vw" }} />,
+    icon: SendIcon,
     link: "/delivery",
+  },
+  {
+    title: "Inspection",
+    icon: DriveEtaIcon,
+    link: "/inspection",
   },
 ];

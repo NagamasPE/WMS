@@ -1,7 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
-function BufferToImg({ buffer }) {
-  const [imageSrc, setImageSrc] = useState(null);
+function BufferToImg({
+  buffer,
+  setMapHeight,
+  setMapWidth,
+  mapHeight,
+  mapWidth,
+  imageSrc,
+  setImageSrc,
+}) {
+  const mapRef = useRef(null);
 
   useEffect(() => {
     if (buffer && buffer.data) {
@@ -11,22 +19,38 @@ function BufferToImg({ buffer }) {
       setImageSrc(url);
     }
   }, [buffer]);
-  if (!imageSrc) {
-    // Return a placeholder image if the Base64 data is not available
-    return <img src="https://via.placeholder.com/150" alt="Placeholder" />;
-  }
+
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      setMapWidth(mapRef.current.offsetWidth);
+      setMapHeight(mapRef.current.offsetHeight - 8);
+    }, 100);
+
+    // console.log(`H: ${mapHeight}px | W: ${mapWidth}px`);
+  }, [buffer, imageSrc]);
+
   return (
-    <img
-      src={imageSrc}
-      alt="Image"
-      style={{
-        height: "12rem",
-        width: "auto",
-        border: "5px solid black",
-        verticalAlign: "middle",
-        margin: "5px",
-      }}
-    />
+    <>
+      {imageSrc ? (
+        <img
+          ref={mapRef}
+          src={imageSrc}
+          alt="Image"
+          style={{
+            height: "525px",
+            width: "auto",
+            border: "5px solid black",
+            verticalAlign: "middle",
+          }}
+        />
+      ) : (
+        <img
+          ref={mapRef}
+          src="https://placehold.co/1000x200"
+          alt="Placeholder"
+        />
+      )}
+    </>
   );
 }
 

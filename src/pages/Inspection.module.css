@@ -1,0 +1,147 @@
+@media only screen and (max-width: 1080px) {
+  .titleBar {
+    font-size: 2vh;
+  }
+  .mainTab {
+    flex-basis: 20vh;
+    height: 20vh;
+  }
+
+  .details {
+    flex-direction: column;
+  }
+
+  .details .mapLayout {
+    /* padding: 1vh; */
+    border: 1px solid red;
+  }
+
+  .details .mapLayout .mapMarks {
+    top: calc(22.5vh);
+  }
+
+  .details .status {
+    margin: 1vh 0;
+    padding: 0.5vh;
+    width: 100%;
+  }
+
+  .details .status label {
+    font-size: 1.3vh;
+  }
+
+  .details .status .params {
+    margin: 0.5vh;
+    border-radius: 0.5vh;
+    font-size: 1.2vh;
+  }
+}
+
+@media only screen and (min-width: 1081px) {
+  .titleBar {
+    font-size: 2vw;
+  }
+
+  .mainTab {
+    flex-basis: 35vh;
+    height: 35vh;
+  }
+
+  .details {
+    flex-direction: row;
+  }
+
+  .details .mapLayout {
+    padding: 1vw;
+    flex: 1;
+  }
+
+  .details .mapLayout .mapMarks {
+    top: calc(35vh + 2.5vw);
+  }
+
+  .details .status {
+    margin: 1vw 0;
+    padding: 0.5vw;
+    flex-basis: 15vw;
+    width: 15vw;
+  }
+
+  .details .status label {
+    font-size: 1.1vw;
+  }
+
+  .details .status .params {
+    margin: 0.5vw;
+    border-radius: 0.5vw;
+    font-size: 1vw;
+  }
+}
+
+.titleBar {
+  font-weight: bold;
+  text-align: center;
+}
+
+.mainTab {
+  display: flex;
+  flex-direction: column;
+  /* background-color: lavenderblush; */
+  overflow: none;
+}
+
+.details {
+  flex: 1;
+  display: flex;
+  overflow-y: scroll;
+  overflow-x: none;
+}
+
+.details .mapLayout {
+  /* background-color: palegreen; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.details .mapLayout .mapMarks {
+  height: var(--mapHeight);
+  width: var(--mapWidth);
+  /* border: 2px solid green; */
+  position: fixed;
+}
+
+.details .mapLayout .mapMarks::before {
+  content: var(--string, "~");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  height: 50px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  position: relative;
+  top: var(--mapLayout-top);
+  left: var(--mapLayout-left);
+  background-color: var(--border-mark);
+  border: 1px solid black;
+  font-weight: bold;
+}
+
+.details .status {
+  margin: 1vw 0;
+  padding: 0.5vw;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--border-color);
+}
+
+.details .status label {
+  font-weight: bold;
+}
+
+.details .status .params {
+  background-color: var(--light-text);
+  text-align: center;
+}

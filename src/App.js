@@ -9,6 +9,7 @@ import Sidebar from "./components/layout/Sidebar";
 import Main from "./pages/Main";
 import React from "react";
 import { useState, useRef, useEffect } from "react";
+import Inspection from "./pages/Inspection";
 /*const socket = io.connect("https://nagamasjaya.co.id/wms/");*/
 /*const socket = io.connect("http://" + config.ip_address + ":3001");*/
 
@@ -17,7 +18,7 @@ function App() {
   // const ServerAddr = "http://localhost:3001";
   const [open, openMenu] = useState(false);
   const [loginusername, setLoginUsername] = useState(true);
-  const [showlogin, setShowlogin] = useState(true);
+  const [showlogin, setShowlogin] = useState(false);
 
   function HandleClick(e) {
     openMenu(false);
@@ -44,6 +45,7 @@ function App() {
               <Route path="/input" element={<Input />} />
               <Route path="/production" element={<Production />} />
               <Route path="/delivery" element={<Delivery />} />
+              <Route path="/inspection" element={<Inspection />} />
             </Routes>
           </div>
           <div id="foot">

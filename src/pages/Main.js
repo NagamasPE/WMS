@@ -26,10 +26,10 @@ function Main() {
     ],
   });
 
-  let btn = document.querySelector(".delButton");
-  btn.onClick = function () {
-    btn.classList.toggle("active");
-  };
+  // let btn = document.querySelector(".delButton");
+  // btn.onClick = function () {
+  //   btn.classList.toggle("active");
+  // };
 
   return (
     <div className={classes.container}>

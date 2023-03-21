@@ -161,7 +161,7 @@ function Delivery() {
     setLiftStat(!liftStat);
   };
 
-  console.log(`Create Clicked ${createNote}`);
+  // console.log(`Create Clicked ${createNote}`);
 
   return (
     <>
@@ -195,12 +195,13 @@ function Delivery() {
                     <div>QTY:</div>
                     {qtyScan.map((value, index) => (
                       <div
+                        key={`total-${index}`}
                         className={
                           `${delivery.rowButton} ` +
                           (value ? `${delivery.buttonOn}` : "")
                         }
                       >
-                        <button key={index} onClick={() => handleToggle(index)}>
+                        <button onClick={() => handleToggle(index)}>
                           {index + 1}
                         </button>
                       </div>
@@ -218,8 +219,8 @@ function Delivery() {
                             </tr>
                           </thead>
                           <tbody>
-                            {deliveries.map((delivery) => (
-                              <tr key={delivery.scan}>
+                            {deliveries.map((delivery, index) => (
+                              <tr key={`Scan-${index}`}>
                                 <td>{delivery.scan}</td>
                                 <td>{delivery.name}</td>
                                 <td>{delivery.qty}</td>
@@ -275,8 +276,8 @@ function Delivery() {
                           </tr>
                         </thead>
                         <tbody>
-                          {summeries.map((delivery) => (
-                            <tr key={delivery.name}>
+                          {summeries.map((delivery, index) => (
+                            <tr key={`delivery-${index}`}>
                               <td>{delivery.no}</td>
                               <td>{delivery.material}</td>
                               <td>{delivery.desc}</td>
